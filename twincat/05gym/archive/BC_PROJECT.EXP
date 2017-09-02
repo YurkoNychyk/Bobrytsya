@@ -568,7 +568,6 @@ END_VAR
 	counter_10_KL1408_6_Input(CU:= Term_10_KL1408_6_Input, CV=>sw36);
 	counter_10_KL1408_7_Input(CU:= Term_10_KL1408_7_Input, CV=>sw37);
 	counter_10_KL1408_8_Input(CU:= Term_10_KL1408_8_Input, CV=>sw38);
-
 END_PROGRAM
 
 
@@ -4470,7 +4469,6 @@ ACTION	knx_triggers:
 	falling_edge_eib_gym_WC_light 				(CLK:= eib_gym_WC_light);
 	falling_edge_eib_training	 					(CLK:= eib_training);
 	falling_edge_eib_gym		 					(CLK:= eib_gym);
-
 END_ACTION
 
 ACTION	outsideLight:
@@ -4529,7 +4527,6 @@ VAR
 	sw_03_1_long_pulse: TP;
 END_VAR
 (* @END_DECLARATION := '0' *)
-
 heartBeat(IN:= NOT heartBeat.Q, PT:=t#5s);
 ADS_Communication;
 Light.knx_triggers;
@@ -4537,7 +4534,6 @@ Light;
 Light.outsideLight;
 (*Counters;*)
 write_dataDerevo;
-
 END_PROGRAM
 ACTION	write_dataDerevo:
 	dataDerevo[0].0:= gym01_light ;
@@ -4619,6 +4615,22 @@ END_ACTION
 
 
 (* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'Global_Variables' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+END_VAR
+
+(* @OBJECT_END := 'Global_Variables' *)
+(* @CONNECTIONS := Global_Variables
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)
+
+(* @NESTEDCOMMENTS := 'Yes' *)
 (* @GLOBAL_VARIABLE_LIST := 'main' *)
 (* @PATH := '' *)
 (* @OBJECTFLAGS := '0, 8' *)
@@ -4686,46 +4698,12 @@ NUMOFCONNECTIONS : 0
 *)
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @GLOBAL_VARIABLE_LIST := 'physical' *)
+(* @GLOBAL_VARIABLE_LIST := 'TwinCAT_Import' *)
 (* @PATH := '' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
-
-(* @GLOBAL_VARIABLE_LIST := TwinCAT_Import *)
-(* @PATH := '' *)
 VAR_GLOBAL (* DO NOT CHANGE THIS SHEET MANUALLY! *)
-	PlcInVar_0	AT %QB128:	USINT;
-	PlcInVar_1	AT %QB129:	USINT;
-	PlcInVar_2	AT %QB130:	USINT;
-	PlcInVar_3	AT %QB131:	USINT;
-	PlcInVar_4	AT %QB132:	USINT;
-	PlcInVar_5	AT %QB133:	USINT;
-	PlcInVar_6	AT %QB134:	USINT;
-	PlcInVar_7	AT %QB135:	USINT;
-	PlcInVar_8	AT %QB136:	USINT;
-	PlcInVar_9	AT %QB137:	USINT;
-	PlcInVar_10	AT %QB138:	USINT;
-	PlcInVar_11	AT %QB139:	USINT;
-	PlcInVar_12	AT %QB140:	USINT;
-	PlcInVar_13	AT %QB141:	USINT;
-	PlcInVar_14	AT %QB142:	USINT;
-	PlcInVar_15	AT %QB143:	USINT;
-	PlcOutVar_0	AT %IB128:	USINT;
-	PlcOutVar_1	AT %IB129:	USINT;
-	PlcOutVar_2	AT %IB130:	USINT;
-	PlcOutVar_3	AT %IB131:	USINT;
-	PlcOutVar_4	AT %IB132:	USINT;
-	PlcOutVar_5	AT %IB133:	USINT;
-	PlcOutVar_6	AT %IB134:	USINT;
-	PlcOutVar_7	AT %IB135:	USINT;
-	PlcOutVar_8	AT %IB136:	USINT;
-	PlcOutVar_9	AT %IB137:	USINT;
-	PlcOutVar_10	AT %IB138:	USINT;
-	PlcOutVar_11	AT %IB139:	USINT;
-	PlcOutVar_12	AT %IB140:	USINT;
-	PlcOutVar_13	AT %IB141:	USINT;
-	PlcOutVar_14	AT %IB142:	USINT;
-	PlcOutVar_15	AT %IB143:	USINT;
+
 	gym01_light				AT %QX0.0:	BOOL; (*K01*)
 	training03_light			AT %QX0.1:	BOOL; (*K05*)
 	gym02_light				AT %QX0.2:	BOOL; (*K02*)
@@ -4808,238 +4786,10 @@ VAR_GLOBAL (* DO NOT CHANGE THIS SHEET MANUALLY! *)
 	Term_10_KL1408_8_Input	AT %IX4.7:	BOOL;
 END_VAR
 
-(* @OBJECT_END := TwinCAT_Import *)
-
-
-(* @OBJECT_END := 'physical' *)
-(* @CONNECTIONS := physical
+(* @OBJECT_END := 'TwinCAT_Import' *)
+(* @CONNECTIONS := TwinCAT_Import
 FILENAME : ''
 FILETIME : 0
 EXPORT : 0
 NUMOFCONNECTIONS : 0
 *)
-
-(* @NESTEDCOMMENTS := 'Yes' *)
-(* @GLOBAL_VARIABLE_LIST := 'Variable_Configuration' *)
-(* @PATH := '' *)
-(* @OBJECTFLAGS := '0, 8' *)
-(* @SYMFILEFLAGS := '2048' *)
-VAR_CONFIG
-END_VAR
-
-(* @OBJECT_END := 'Variable_Configuration' *)
-(* @CONNECTIONS := Variable_Configuration
-FILENAME : ''
-FILETIME : 0
-EXPORT : 0
-NUMOFCONNECTIONS : 0
-*)
-
-
-_ALARMCONFIG
-_ALARMCONFIGNEXTTEXTID : 10002
-_ALARMCONFIGFORMATS : 'HH$':$'mm$':$'ss','dd$'-$'MM$'-$'yyyy'
-_ALARMCLASSLIST : 1
-_ALARMCLASSID : 0
-_ALARMCLASSACKTYPE : 0
-_ALARMCLASSNAME : 'DEFAULT'
-_ALARMCLASSDESCRIPTION : ''
-_ALARMCLASSBGCOLORS : 16777215,16777215,16777215
-_ALARMCLASSTEXTCOLORS : 3394560,255,16711680
-_ALARMCLASSBITMAPS : '','',''
-_ALARMACTIONLIST : 0
-(* @ALARMCLASSRESETCOLORS := '_ALARMCLASSRESETCOLORS: 33023,16777215' *)
-(* @ALARMCLASSRESETBITMAP := '_ALARMCLASSRESETBITMAP: $'$'' *)
-_ALARMGROUPLISTNAME : 'System'
-_ALARMGROUPPATH : 'System'
-_ALARMGROUPLIST : 0
-_VISUALSETTINGSFLAGS : 0,0,0,0
-_VISUALSETTINGSFLAGS : '','',''
-_VISUALSETTINGSDYNTEXTFILECOUNT : 0
-
-(* @ALARMCONFIGFLAGS := '_ALARMCONFIGFLAGS: 4' *)
-(* @ALARMCONFIGGLOBALDB_STR := '_ALARMCONFIGGLOBALDB_STRINGS: $'$',$'$',$'$',$'$'' *)
-(* @ALARMCONFIGGLOBALDB_NUM := '_ALARMCONFIGGLOBALDB_NUMBERS: 0,0' *)
-_END_ALARMCONFIG
-
-
-LIBRARY
-PlcHelperBC.lb6 7.5.01 11:03:00
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 3
-MEMCMP: 0
-MEMCPY: 0
-MEMSET: 0
-NumOfGVLs: 1
-Global_Variables: 0
-END_LIBRARY
-
-LIBRARY
-PlcSystemBC.lb6 21.3.01 11:03:02
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 7
-GetFBusStatus: 0
-GetSysInfo: 0
-GetSysTick: 0
-GetTBusStatus: 0
-PresetSysTick: 0
-Reboot: 0
-TrigTBusCycle: 0
-NumOfGVLs: 1
-Global_Variables: 0
-END_LIBRARY
-
-LIBRARY
-standard.lib 5.6.98 11:03:02
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 20
-CONCAT: 0
-CTD: 0
-CTU: 0
-CTUD: 0
-DELETE: 0
-F_TRIG: 0
-FIND: 0
-INSERT: 0
-LEFT: 0
-LEN: 0
-MID: 0
-R_TRIG: 0
-REPLACE: 0
-RIGHT: 0
-RS: 0
-SEMA: 0
-SR: 0
-TOF: 0
-TON: 0
-TP: 0
-NumOfGVLs: 1
-'Global Variables 0': 0
-END_LIBRARY
-
-LIBRARY
-TcAdsBC.lb6 5.7.02 11:03:02
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 10
-ADSCLOSE: 0
-ADSRDWRTEX: 0
-ADSRDWRTIND: 0
-ADSRDWRTRESBC: 0
-ADSREADEX: 0
-ADSREADIND: 0
-ADSREADRESBC: 0
-ADSWRITE: 0
-ADSWRITEIND: 0
-ADSWRITERESBC: 0
-NumOfGVLs: 1
-Global_Variables: 0
-END_LIBRARY
-
-LIBRARY
-TcBABasic.lib 22.7.15 15:46:14
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 56
-C_TO_F: 0
-C_TO_K: 0
-C_TO_R: 0
-F_GetVersionTcBABasic: 0
-F_Scale: 0
-F_TO_C: 0
-F_TO_K: 0
-F_TO_R: 0
-FB_CalcFederalHolidaysUS: 2056
-FB_CalcPublicHolidaysDE: 2056
-FB_CalcPublicHolidaysUS: 2056
-FB_CalcSunPosition: 2056
-FB_CalcSunriseSunset: 2056
-FB_ConstantLightControlEco: 2048
-FB_DailyScheduler: 2056
-FB_Dimmer1Switch: 0
-FB_Dimmer1SwitchEco: 0
-FB_Dimmer2Switch: 0
-FB_Dimmer2SwitchEco: 0
-FB_Dimmer3Switch: 2048
-FB_Light: 0
-FB_LightControl: 2048
-FB_LightControl.TableCalculations: 2048
-FB_MaximumDemandController: 2048
-FB_MonthlyScheduler1: 2056
-FB_MonthlyScheduler2: 2056
-FB_PT1: 2048
-FB_PT2: 2048
-FB_Ramp: 2048
-FB_RoofWindow: 2048
-FB_RoomOperation: 2056
-FB_ScenesLighting: 2056
-FB_ScenesVenetianBlind: 2056
-FB_Sequencer: 2048
-FB_ShortLongClick: 0
-FB_SignallingContact: 0
-FB_SingleDoubleClick: 0
-FB_StairwellDimmer: 2048
-FB_StairwellLight: 0
-FB_StartEnd: 2056
-FB_ThresholdSwitch: 0
-FB_VenetianBlind: 0
-FB_VenetianBlindEx: 0
-FB_VenetianBlindEx1Switch: 2048
-FB_WeeklyScheduler: 2056
-FB_WeeklyTimeSwitch: 2056
-FB_YearlyScheduler: 2056
-FUN_DayOfYear: 2056
-FUN_ValidDayOfMonth: 2056
-FUN_WeekOfYear: 2056
-K_TO_C: 0
-K_TO_F: 0
-K_TO_R: 0
-R_TO_C: 0
-R_TO_F: 0
-R_TO_K: 0
-NumOfGVLs: 1
-Global_Variables_Constant: 2048
-END_LIBRARY
-
-LIBRARY
-TcPlcUtilitiesBC.lb6 13.5.05 11:19:40
-(* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 18
-CLEARBIT32: 0
-CSETBIT32: 0
-DCF77_TIME: 2048
-DRAND: 0
-DT_TO_SYSTEMTIME: 0
-F_GetVersionTcPlcUtilitiesBC: 2048
-F_REAL: 0
-F_SwapReal: 0
-FB_BasicPID: 0
-GETBIT32: 0
-IsFinite: 2048
-OTSTRUCT_TO_TIME: 0
-ReadWriteTerminalReg: 0
-RTC: 0
-RTC_EX: 0
-SETBIT32: 0
-SYSTEMTIME_TO_DT: 0
-TIME_TO_OTSTRUCT: 0
-NumOfGVLs: 0
-END_LIBRARY
-
-PLC_CONFIGURATION
-_ELEMENT 15700
-_ELEMENT_END
-PLC_END
-
-
-RESOURCE
-
-END_RESOURCE
-
-
-_WORKSPACE
-_GLOBALVISUALSETTINGS
-_VISUALSETTINGSFLAGS : 0,0,0,0
-_VISUALSETTINGSFLAGS : '','',''
-_VISUALSETTINGSDYNTEXTFILECOUNT : 0
-_VISUALBITMAPLISTCOUNT : 0
-_END_GLOBALVISUALSETTINGS
-_END_WORKSPACE
