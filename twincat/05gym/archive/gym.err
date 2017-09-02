@@ -1,0 +1,125 @@
+Interface of POU 'CONCAT'
+Error 3700: CONCAT (1): A POU with name 'CONCAT' is already in library 'STANDARD.LBX'
+Interface of POU 'CTD'
+Error 3700: CTD (1): A POU with name 'CTD' is already in library 'STANDARD.LBX'
+Interface of POU 'CTU'
+Error 3700: CTU (1): A POU with name 'CTU' is already in library 'STANDARD.LBX'
+Interface of POU 'CTUD'
+Error 3700: CTUD (1): A POU with name 'CTUD' is already in library 'STANDARD.LBX'
+Interface of POU 'DELETE'
+Error 3700: DELETE (1): A POU with name 'DELETE' is already in library 'STANDARD.LBX'
+Interface of POU 'F_TRIG'
+Error 3700: F_TRIG (1): A POU with name 'F_TRIG' is already in library 'STANDARD.LBX'
+Interface of POU 'FIND'
+Error 3700: FIND (1): A POU with name 'FIND' is already in library 'STANDARD.LBX'
+Interface of POU 'INSERT'
+Error 3700: INSERT (1): A POU with name 'INSERT' is already in library 'STANDARD.LBX'
+Interface of POU 'LEFT'
+Error 3700: LEFT (1): A POU with name 'LEFT' is already in library 'STANDARD.LBX'
+Interface of POU 'LEN'
+Error 3700: LEN (1): A POU with name 'LEN' is already in library 'STANDARD.LBX'
+Interface of POU 'MID'
+Error 3700: MID (1): A POU with name 'MID' is already in library 'STANDARD.LBX'
+Interface of POU 'R_TRIG'
+Error 3700: R_TRIG (1): A POU with name 'R_TRIG' is already in library 'STANDARD.LBX'
+Interface of POU 'REPLACE'
+Error 3700: REPLACE (1): A POU with name 'REPLACE' is already in library 'STANDARD.LBX'
+Interface of POU 'RIGHT'
+Error 3700: RIGHT (1): A POU with name 'RIGHT' is already in library 'STANDARD.LBX'
+Interface of POU 'RS'
+Error 3700: RS (1): A POU with name 'RS' is already in library 'STANDARD.LBX'
+Interface of POU 'SEMA'
+Error 3700: SEMA (1): A POU with name 'SEMA' is already in library 'STANDARD.LBX'
+Interface of POU 'SR'
+Error 3700: SR (1): A POU with name 'SR' is already in library 'STANDARD.LBX'
+Interface of POU 'TOF'
+Error 3700: TOF (1): A POU with name 'TOF' is already in library 'STANDARD.LBX'
+Interface of POU 'TON'
+Error 3700: TON (1): A POU with name 'TON' is already in library 'STANDARD.LBX'
+Interface of POU 'TP'
+Error 3700: TP (1): A POU with name 'TP' is already in library 'STANDARD.LBX'
+Interface of POU 'C_TO_F'
+Error 3610: C_TO_F (1): 'LREAL' not supported
+Interface of POU 'C_TO_K'
+Error 3610: C_TO_K (1): 'LREAL' not supported
+Interface of POU 'C_TO_R'
+Error 3610: C_TO_R (1): 'LREAL' not supported
+Interface of POU 'F_SCALE'
+Error 3610: F_Scale (1): 'LREAL' not supported
+Interface of POU 'F_TO_C'
+Error 3610: F_TO_C (1): 'LREAL' not supported
+Interface of POU 'F_TO_K'
+Error 3610: F_TO_K (1): 'LREAL' not supported
+Interface of POU 'F_TO_R'
+Error 3610: F_TO_R (1): 'LREAL' not supported
+Interface of POU 'FB_DIMMER1SWITCH'
+Error 3610: FB_Dimmer1Switch (40): 'LREAL' not supported
+Error 3610: FB_Dimmer1Switch (44): 'LREAL' not supported
+Error 3610: FB_Dimmer1Switch (47): 'LREAL' not supported
+Interface of POU 'FB_DIMMER2SWITCH'
+Error 3610: FB_Dimmer2Switch (41): 'LREAL' not supported
+Error 3610: FB_Dimmer2Switch (45): 'LREAL' not supported
+Error 3610: FB_Dimmer2Switch (48): 'LREAL' not supported
+Interface of POU 'FB_DIMMER3SWITCH'
+Error 3610: FB_Dimmer3Switch (47): 'LREAL' not supported
+Error 3610: FB_Dimmer3Switch (51): 'LREAL' not supported
+Error 3610: FB_Dimmer3Switch (54): 'LREAL' not supported
+Interface of POU 'FB_MAXIMUMDEMANDCONTROLLER'
+Error 3610: FB_MaximumDemandController (4): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (5): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (11): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (12): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (13): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (15): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (28): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (29): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (32): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (48): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (49): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (50): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (51): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (52): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (59): 'LREAL' not supported
+Interface of POU 'FB_PT1'
+Error 3610: FB_PT1 (3): 'LREAL' not supported
+Error 3610: FB_PT1 (4): 'LREAL' not supported
+Error 3610: FB_PT1 (10): 'LREAL' not supported
+Error 3610: FB_PT1 (14): 'LREAL' not supported
+Error 3610: FB_PT1 (15): 'LREAL' not supported
+Interface of POU 'FB_PT2'
+Error 3610: FB_PT2 (3): 'LREAL' not supported
+Error 3610: FB_PT2 (4): 'LREAL' not supported
+Error 3610: FB_PT2 (11): 'LREAL' not supported
+Error 3610: FB_PT2 (15): 'LREAL' not supported
+Error 3610: FB_PT2 (16): 'LREAL' not supported
+Error 3610: FB_PT2 (17): 'LREAL' not supported
+Error 3610: FB_PT2 (18): 'LREAL' not supported
+Interface of POU 'FB_RAMP'
+Error 3610: FB_Ramp (30): 'LREAL' not supported
+Error 3610: FB_Ramp (31): 'LREAL' not supported
+Error 3610: FB_Ramp (32): 'LREAL' not supported
+Interface of POU 'FB_STAIRWELLDIMMER'
+Error 3610: FB_StairwellDimmer (23): 'LREAL' not supported
+Interface of POU 'FB_THRESHOLDSWITCH'
+Error 3610: FB_ThresholdSwitch (3): 'LREAL' not supported
+Error 3610: FB_ThresholdSwitch (4): 'LREAL' not supported
+Error 3610: FB_ThresholdSwitch (5): 'LREAL' not supported
+Interface of POU 'FB_VENETIANBLINDEX'
+Error 3610: FB_VenetianBlindEx (63): 'LREAL' not supported
+Error 3610: FB_VenetianBlindEx (64): 'LREAL' not supported
+Interface of POU 'FB_VENETIANBLINDEX1SWITCH'
+Error 3610: FB_VenetianBlindEx1Switch (56): 'LREAL' not supported
+Error 3610: FB_VenetianBlindEx1Switch (57): 'LREAL' not supported
+Interface of POU 'K_TO_C'
+Error 3610: K_TO_C (1): 'LREAL' not supported
+Interface of POU 'K_TO_F'
+Error 3610: K_TO_F (1): 'LREAL' not supported
+Interface of POU 'K_TO_R'
+Error 3610: K_TO_R (1): 'LREAL' not supported
+Interface of POU 'R_TO_C'
+Error 3610: R_TO_C (1): 'LREAL' not supported
+Interface of POU 'R_TO_F'
+Error 3610: R_TO_F (1): 'LREAL' not supported
+Interface of POU 'R_TO_K'
+Error 3610: R_TO_K (1): 'LREAL' not supported
+80 Error(s), 0 Warning(s).
