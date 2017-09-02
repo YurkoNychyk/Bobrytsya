@@ -1,0 +1,101 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'M_Var_gym' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+	data_gym: ARRAY[0..15] OF BYTE;
+	data_gym_prev: ARRAY[0..15] OF BYTE;
+
+	fb_gym01_send_status_ex: 					EIB_BIT_SEND_EX;
+	fb_gym02_send_status_ex: 					EIB_BIT_SEND_EX;
+	fb_training01_send_status_ex: 				EIB_BIT_SEND_EX;
+	fb_training02_send_status_ex: 				EIB_BIT_SEND_EX;
+	fb_training03_send_status_ex: 				EIB_BIT_SEND_EX;
+	fb_gym_stairs_bra_send_status_ex: 			EIB_BIT_SEND_EX;
+	fb_pool_hall_spotlight_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_pool_hall_LED_send_status_ex: 			EIB_BIT_SEND_EX;
+
+	fb_pool_light_send_status_ex: 				EIB_BIT_SEND_EX;
+	fb_sphere_ceiling_light_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_sphere_light_send_status_ex: 			EIB_BIT_SEND_EX;
+	fb_gym_cinema_bra_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_gym_shower01_light_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_gym_shower02_light_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_gym_corridor_light_send_status_ex: 		EIB_BIT_SEND_EX;
+	fb_gym_stairs_light_send_status_ex: 			EIB_BIT_SEND_EX;
+
+	fb_gym_WC_light_send_status_ex: 			EIB_BIT_SEND_EX;
+	fb_training_light_send_status_ex: 			EIB_BIT_SEND_EX;
+	fb_gym_light_send_status_ex: 				EIB_BIT_SEND_EX;
+	fb_outside_bigBulbs_send_status_ex:		EIB_BIT_SEND_EX;
+	fb_outside_smallBulbs_send_status_ex:		EIB_BIT_SEND_EX;
+	fb_outside_pingPongTable_send_status_ex:	EIB_BIT_SEND_EX;
+	fb_outside_plantsLightning_send_status_ex:	EIB_BIT_SEND_EX;
+
+
+	fb_gym01_read: 					EIB_BIT_REC;
+	fb_gym02_read: 					EIB_BIT_REC;
+	fb_training01_read:				EIB_BIT_REC;
+	fb_training02_read:				EIB_BIT_REC;
+	fb_training03_read:				EIB_BIT_REC;
+	fb_gym_stairs_bra_read:			EIB_BIT_REC;
+	fb_pool_hall_spotlight_read:		EIB_BIT_REC;
+	fb_pool_hall_LED_read:			EIB_BIT_REC;
+
+	fb_pool_light_read:				EIB_BIT_REC;
+	fb_sphere_ceiling_light_read:		EIB_BIT_REC;
+	fb_sphere_light_read:				EIB_BIT_REC;
+	fb_gym_cinema_bra_read:			EIB_BIT_REC;
+	fb_gym_shower01_light_read:		EIB_BIT_REC;
+	fb_gym_shower02_light_read:		EIB_BIT_REC;
+	fb_gym_corridor_light_read:			EIB_BIT_REC;
+	fb_gym_stairs_light_read:			EIB_BIT_REC;
+
+	fb_gym_WC_light_read:			EIB_BIT_REC;
+	fb_training_light_read:				EIB_BIT_REC;
+	fb_gym_light_read:				EIB_BIT_REC;
+	fb_outside_bigBulbs_read:			EIB_BIT_REC;
+	fb_outside_smallBulbs_read:		EIB_BIT_REC;
+	fb_outside_pingPongTable_read:	EIB_BIT_REC;
+	fb_outside_plantsLightning_read:	EIB_BIT_REC;
+
+
+	gym01 						AT %MX510.0:	 BOOL;
+	gym02 						AT %MX510.1:	 BOOL;
+	training01 					AT %MX510.2:	 BOOL;
+	training02					AT %MX510.3:	 BOOL;
+	training03					AT %MX510.4:	 BOOL;
+	gym_stairs_bra				AT %MX510.5:	 BOOL;
+	pool_hall_spotlight			AT %MX510.6:	 BOOL;
+	pool_hall_LED				AT %MX510.7:	 BOOL;
+
+	pool_light 					AT %MX511.0:	 BOOL;
+	sphere_ceiling_light 			AT %MX511.1:	 BOOL;
+	sphere_light 					AT %MX511.2:	 BOOL;
+	gym_cinema_bra 				AT %MX511.3:	 BOOL;
+	gym_shower01_light			AT %MX511.4:	 BOOL;
+	gym_shower02_light			AT %MX511.5:	 BOOL;
+	gym_corridor_light				AT %MX511.6:	 BOOL;
+	gym_stairs_light 				AT %MX511.7:	 BOOL;
+
+	gym_WC_light 				AT %MX512.0:	 BOOL;
+	training_light					AT %MX512.1:	 BOOL;
+	gym_light					AT %MX512.2:	 BOOL;
+	outside_bigBulbs				AT %MX512.3:	 BOOL;
+	outside_pingPongTable		AT %MX512.4:	 BOOL;
+	outside_plantsLightning		AT %MX512.5:	 BOOL;
+	outside_smallBulbs			AT %MX512.6:	 BOOL;
+
+
+	gym_lights	: BOOL;
+END_VAR
+
+
+(* @OBJECT_END := 'M_Var_gym' *)
+(* @CONNECTIONS := M_Var_gym
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)

@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\05gym\gym.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-09-02T19:46:22</ChangeDate>
+		<ChangeDate>2017-09-02T22:38:56</ChangeDate>
 		<Library>
 			<Name>TcBaseBX.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBaseBX.lbx</Path>
@@ -115,6 +115,15 @@
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001015E">ARRAY [1..24] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<BitSize>192</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>24</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -3184,6 +3193,37 @@
 			</FbInfo>
 		</DataType>
 		<DataType>
+			<Name Decoration="1003092A" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_GROUP_ADDR</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MAIN</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..31]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SUB_MAIN</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..7]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">NUMBER</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..255]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
 			<Name Decoration="30000433" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_ERROR_CODE</Name>
 			<Type>INT</Type>
 			<BitSize>16</BitSize>
@@ -3289,6 +3329,85 @@
 			</EnumInfo>
 		</DataType>
 		<DataType>
+			<Name Decoration="20010155">ARRAY [1..15] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<BitSize>120</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>15</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100BA74B" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_REC</Name>
+			<BitSize>288</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_Group</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_Len</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_Idx</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_Data</Name>
+				<Type Decoration="20010155">ARRAY [1..15] OF BYTE</Type>
+				<BitSize>120</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_bWriteBusy</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>184</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_bReadBusy</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_bReady</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_bError</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_iErrorID</Name>
+				<Type Decoration="30000433">EIB_ERROR_CODE</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">pStr_Send</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Rec_Data_rec</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>272</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
 			<Name Decoration="300003B1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_PRIORITY</Name>
 			<Type>INT</Type>
 			<BitSize>16</BitSize>
@@ -3304,6 +3423,337 @@
 				<Text>EIB_PRIORITY_ALARM</Text>
 				<Enum>3</Enum>
 			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1006909A" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_SEND</Name>
+			<BitSize>192</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_bREAD</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_bWRITE</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_PRIO</Name>
+				<Type Decoration="300003B1">EIB_PRIORITY</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_Group</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_Len</Name>
+				<Type>USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">SEND_Data</Name>
+				<Type Decoration="20010155">ARRAY [1..15] OF BYTE</Type>
+				<BitSize>120</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="20010154">ARRAY [1..14] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<Comment>
+				<![CDATA[Contains the user data of the received EIB telegram.]]>
+			</Comment>
+			<BitSize>112</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>14</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1005130B" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_ALL_DATA_TYPES_REC</Name>
+			<BitSize>448</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Group_Address</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<Comment>
+					<![CDATA[Group address from which the data were sent. This group address must be entered in the filters!]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">strData_Rec</Name>
+				<Type Decoration="100BA74B">EIB_REC</Type>
+				<Comment>
+					<![CDATA[The data structure with which the KL6301 function block (VAR_OUTPUT str_Data_Rec) must be linked.]]>
+				</Comment>
+				<BitSize>288</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bDataReceive</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[This bit is set to FALSE for exactly one cycle when an EIB telegram with the group address is received.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_Data_Receive</Name>
+				<Type Decoration="20010154">ARRAY [1..14] OF BYTE</Type>
+				<Comment>
+					<![CDATA[Contains the user data of the received EIB telegram.]]>
+				</Comment>
+				<BitSize>112</BitSize>
+				<BitOffs>328</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_Data_Len</Name>
+				<Type>USINT</Type>
+				<Comment>
+					<![CDATA[Contains the user data length of the incoming EIB telegram.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>440</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>326</CodeIndex>
+				<InitIndex>327</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1004E525" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_BIT_REC</Name>
+			<BitSize>336</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Group_Address</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<Comment>
+					<![CDATA[Group address from which the data were sent. This group address must be entered in the filters!]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">strData_Rec</Name>
+				<Type Decoration="100BA74B">EIB_REC</Type>
+				<Comment>
+					<![CDATA[The data structure with which the KL6301 function block (VAR_OUTPUT str_Data_Rec) must be linked.]]>
+				</Comment>
+				<BitSize>288</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bDataReceive</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[This bit is set to FALSE for exactly one cycle when an EIB telegram with the group address is received.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bData</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Valid values (TRUE/FALSE).]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>328</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>336</CodeIndex>
+				<InitIndex>337</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10187FBA" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_BIT_SEND_EX</Name>
+			<BitSize>1568</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bDataM</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbFlanke</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_ALL_DATA_TYPES_REC</Name>
+				<Type Decoration="1005130B">EIB_ALL_DATA_TYPES_REC</Type>
+				<BitSize>448</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Cycle</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>496</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">str_Send</Name>
+				<Type Decoration="1006909A">EIB_SEND</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>528</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">i</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>720</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">FirstCycle</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>736</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bSend</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>744</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fb_Timer</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>752</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbTimerW</Name>
+				<Type Decoration="10060D24">TOF</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>896</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Constant="1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MODE_SYNC</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1040</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Constant="1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MODE_CYCLIC</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1056</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Constant="1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MODE_ONCHANGE</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1072</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name Constant="1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MODE_ONCHANGE_CYCLIC</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1088</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bStart</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Activates the block. The block starts to work in dependence of the parameterized mode (see iMode).]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iMode</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[0: Manuel, 1: Polling, 2: OnChange]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>1120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">CyclePolling</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Polling time for the polling mode. The minimum time is 200ms.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>1136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">MinSendTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Intervall time that has to be last at minimum until another telegram is changed in OnChange mode. The minimum time is 200ms.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>1168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Group_Address</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<Comment>
+					<![CDATA[Group address to which the data are sent.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>1200</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bData</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The data value in REAL. This is automatically converted to an EIB 2OCTET FLOAT value.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">str_Rec</Name>
+				<Type Decoration="100BA74B">EIB_REC</Type>
+				<Comment>
+					<![CDATA[The data structure with which the KL6301 function block (VAR_OUTPUT str_Data_Rec) must be linked.]]>
+				</Comment>
+				<BitSize>288</BitSize>
+				<BitOffs>1248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bBusy</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The block is active. For new functions wait until bBusy is set back to FALSE.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bError</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The bError output becomes TRUE as soon as an error occurs.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iErrorID</Name>
+				<Type Decoration="30000433">EIB_ERROR_CODE</Type>
+				<Comment>
+					<![CDATA[The iErrorID output issues an error code when an error occurs (EIB_ERROR_CODE).]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>1552</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>340</CodeIndex>
+				<InitIndex>341</InitIndex>
+			</FbInfo>
 		</DataType>
 		<DataType>
 			<Name Decoration="300003A7" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_Read_Typ</Name>
@@ -3325,6 +3775,417 @@
 				<Text>Write_Group</Text>
 				<Enum>3</Enum>
 			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100307C3" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_PHYS_ADDR</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Area</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..15]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Line</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..15]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Device</Name>
+				<Type>BYTE</Type>
+				<Comment>
+					<![CDATA[0..255]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="10022482" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_GROUP_FILTER</Name>
+			<BitSize>48</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">GROUP_ADDR</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">GROUP_LEN</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[iMode 0 - 0..63, iMode 1 - 0..31]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001396E">ARRAY [1..8] OF EIB_GROUP_FILTER</Name>
+			<Type Decoration="10022482">EIB_GROUP_FILTER</Type>
+			<Comment>
+				<![CDATA[Group address filter. A maximum of 8 filters are possible.]]>
+			</Comment>
+			<BitSize>384</BitSize>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>8</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="103038B4" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">KL6301</Name>
+			<BitSize>2384</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">wWriteGroupAddr</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">pWriteData</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_PRIORITY</Name>
+				<Type Decoration="300003B1">EIB_PRIORITY</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">uiLen</Name>
+				<Type>USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">pReadData</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bWrite</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Send write]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bRead</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[-------]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bWriteBusy</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bReadBusy</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bReceiveData</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iLenDataRead</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>176</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">GroupReceive</Name>
+				<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+				<Comment>
+					<![CDATA[-------]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">str_Send</Name>
+				<Type Decoration="1006909A">EIB_SEND</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">i</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">t</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Result</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbFlankeW</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Merker</Name>
+				<Type>BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbFlankeR</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>528</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iLenDataReadM</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>560</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">m</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbTimerTP</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">w</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>736</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">GroupID</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>752</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Read_EIB_Typ</Name>
+				<Type Decoration="300003A7">EIB_Read_Typ</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbTimerStart</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>784</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">CounterEIB_Rec</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>928</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbTimer_EIB_REC</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>944</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">RecPercent</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1088</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">FW</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Filter</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1120</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Filter_len</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">i_Filter</Name>
+				<Type>INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">fbTimerWatchdog</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>1168</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iWarningCnt</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>1312</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">Data_Diag</Name>
+				<Type Decoration="2001015E">ARRAY [1..24] OF BYTE</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>1328</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bActivate</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Activates the block that configures the KL6301 and then activates the data exchange.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1520</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">idx</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[If more than one Bus Terminal per PLC program is used, each KL6301 must have a unique idx number. Valid values 1...64.]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>1536</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_PHYS_ADDR</Name>
+				<Type Decoration="100307C3">EIB_PHYS_ADDR</Type>
+				<Comment>
+					<![CDATA[Physical EIB address. The default address is 1.2.3. This address must be unique in the EIB network!]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>1552</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">EIB_GROUP_FILTER</Name>
+				<Type Decoration="2001396E">ARRAY [1..8] OF EIB_GROUP_FILTER</Type>
+				<Comment>
+					<![CDATA[Group address filter. A maximum of 8 filters are possible.]]>
+				</Comment>
+				<BitSize>384</BitSize>
+				<BitOffs>1584</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iMode</Name>
+				<Type>INT</Type>
+				<Comment>
+					<![CDATA[0: FW B0 and higher - group filter 4/64; 1: FW B1 and higher - group filter 8/32; 100: FW B1 and higher - monitor function]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>1968</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bActive</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The block was activated.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1984</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bReady</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The block is ready for sending and receiving data.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1992</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">bError</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The bError output becomes TRUE as soon as an error occurs.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>2000</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">iErrorId</Name>
+				<Type Decoration="30000433">EIB_ERROR_CODE</Type>
+				<Comment>
+					<![CDATA[The iErrorId output issues an error code when an error occurs (EIB_ERROR_CODE).]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>2016</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">str_Data_Rec</Name>
+				<Type Decoration="100BA74B">EIB_REC</Type>
+				<Comment>
+					<![CDATA[Connected with the send and receive blocks (VAR_INPUT str_Rec).]]>
+				</Comment>
+				<BitSize>288</BitSize>
+				<BitOffs>2032</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">KL6301_IN</Name>
+				<Type Decoration="2001015E" Pointer="1">ARRAY [1..24] OF BYTE</Type>
+				<Comment>
+					<![CDATA[Linked with the KL6301 input addresses.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>2320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcEIB.lbx">KL6301_OUT</Name>
+				<Type Decoration="2001015E" Pointer="1">ARRAY [1..24] OF BYTE</Type>
+				<Comment>
+					<![CDATA[Linked with the KL6301 output addresses.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>2352</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>360</CodeIndex>
+				<InitIndex>361</InitIndex>
+				<ActionInfo>
+					<Name>Receive</Name>
+					<CodeIndex>362</CodeIndex>
+				</ActionInfo>
+				<ActionInfo>
+					<Name>Send</Name>
+					<CodeIndex>363</CodeIndex>
+				</ActionInfo>
+			</FbInfo>
 		</DataType>
 		<DataType>
 			<Name Decoration="30000309" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBX.lbx">E_StartEnd</Name>
@@ -5873,7 +6734,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="100A6CFC" Crc32="4261200264" LastChange="2017-09-02T19:36:36">ADS_Communication</Name>
+			<Name Decoration="100A6CFC" Crc32="4261200264" LastChange="2017-09-02T21:58:57">ADS_Communication</Name>
 			<PrgInfo>
 				<CodeIndex>472</CodeIndex>
 				<Symbol>
@@ -5909,7 +6770,41 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="107BB3B0" Crc32="3325962312" LastChange="2017-09-02T19:46:22">Light</Name>
+			<Name Decoration="10089ECB" Crc32="4132206816" LastChange="2017-09-02T22:29:16">EIB</Name>
+			<PrgInfo>
+				<CodeIndex>478</CodeIndex>
+				<ActionInfo>
+					<Name>gym_and_outside</Name>
+					<CodeIndex>479</CodeIndex>
+				</ActionInfo>
+				<Symbol>
+					<Name>EIB.eib_send_mode_gym</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.eib_send_cyclical_start_gym</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.floors</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.i</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.fb_sending_floor_order</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.fb_heartbeat_timer</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.fb_sending_time_frame</Name>
+				</Symbol>
+				<Symbol>
+					<Name>EIB.fb_start_delay</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="107BB3B0" Crc32="2560463398" LastChange="2017-09-02T22:19:36">Light</Name>
 			<PrgInfo>
 				<CodeIndex>473</CodeIndex>
 				<ActionInfo>
@@ -6292,7 +7187,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="100F38F8" Crc32="0823280623" LastChange="2017-09-02T19:36:36">MAIN</Name>
+			<Name Decoration="100F38F8" Crc32="0788527708" LastChange="2017-09-02T22:29:16">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>476</CodeIndex>
 				<ActionInfo>
@@ -6375,6 +7270,62 @@
 			<IGroup>16448</IGroup>
 			<IOffset>5492</IOffset>
 			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.eib_send_mode_gym</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8028</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.eib_send_cyclical_start_gym</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7547</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.floors</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8030</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.i</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8032</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.fb_sending_floor_order</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8034</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.fb_heartbeat_timer</Name>
+			<Type Decoration="10060D24">TON</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8044</IOffset>
+			<BitSize>144</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.fb_sending_time_frame</Name>
+			<Type Decoration="10060D24">TOF</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8062</IOffset>
+			<BitSize>144</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">EIB.fb_start_delay</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8080</IOffset>
+			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sw_01_1_2</Name>
@@ -8426,6 +9377,608 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name TaskPrio="1">.fb_KL6301_0</Name>
+			<Type Decoration="103038B4">KL6301</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8096</IOffset>
+			<BitSize>2384</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym01_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8394</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym02_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8590</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training01_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8786</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training02_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8982</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training03_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>9178</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_stairs_bra_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>9374</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_hall_spotlight_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>9570</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_hall_LED_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>9766</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>9962</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_sphere_ceiling_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>10158</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_sphere_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>10354</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_cinema_bra_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>10550</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_shower01_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>10746</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_shower02_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>10942</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_gym_corridor_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>11138</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_stairs_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>11334</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_WC_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>11530</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_training_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>11726</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_gym_light_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>11922</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_bigBulbs_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12118</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_smallBulbs_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12314</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_pingPongTable_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12510</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_plantsLightning_send_status_ex</Name>
+			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12706</IOffset>
+			<BitSize>1568</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym01_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12902</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym02_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12944</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training01_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>12986</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training02_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13028</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_training03_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13070</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_stairs_bra_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13112</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_hall_spotlight_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13154</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_hall_LED_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13196</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_pool_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13238</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_sphere_ceiling_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13280</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_sphere_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13322</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_cinema_bra_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13364</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_shower01_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13406</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_shower02_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13448</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_corridor_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13490</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_stairs_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13532</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.fb_gym_WC_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13574</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_training_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13616</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_gym_light_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13658</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_bigBulbs_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13700</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_smallBulbs_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13742</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_pingPongTable_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13784</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.fb_outside_plantsLightning_read</Name>
+			<Type Decoration="1004E525">EIB_BIT_REC</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13826</IOffset>
+			<BitSize>336</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.gym_lights</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>8027</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym01_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13868</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym02_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13872</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training01_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13876</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training02_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13880</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training03_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13884</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_stairs_bra_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13888</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_hall_spotlight_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13892</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_hall_LED_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13896</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13900</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.sphere_ceiling_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13904</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.sphere_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13908</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_cinema_bra_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13912</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_shower01_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13916</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_shower02_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13920</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_corridor_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13924</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_stairs_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13928</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_WC_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13932</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.training_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13936</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.gym_light_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13940</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym01_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13944</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym02_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13948</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training01_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13952</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training02_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13956</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.training03_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13960</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_stairs_bra_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13964</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_hall_spotlight_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13968</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_hall_LED_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13972</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.pool_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13976</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.sphere_ceiling_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13980</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.sphere_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13984</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_cinema_bra_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13988</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_shower01_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13992</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_shower02_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>13996</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.gym_corridor_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14000</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_stairs_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14004</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.gym_WC_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14008</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.training_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14012</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.gym_light_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14016</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">.dataDerevo</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
@@ -8510,137 +10063,144 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym01</Name>
-			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>80</IOffset>
-			<BitSize>1</BitSize>
+			<Name TaskPrio="1">.heartBeatTime</Name>
+			<Type>TIME</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14020</IOffset>
+			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym02</Name>
+			<Name TaskPrio="1">.eib_gym01</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>81</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14024</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_training01</Name>
+			<Name TaskPrio="1">.eib_gym02</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>82</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14025</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_training02</Name>
+			<Name TaskPrio="1">.eib_training01</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>83</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14026</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_training03</Name>
+			<Name TaskPrio="1">.eib_training02</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>84</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14027</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_stairs_bra</Name>
+			<Name TaskPrio="1">.eib_training03</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>85</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14028</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_pool_hall_spotlight</Name>
+			<Name TaskPrio="1">.eib_gym_stairs_bra</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>86</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14029</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_pool_hall_LED</Name>
+			<Name TaskPrio="1">.eib_pool_hall_spotlight</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>87</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14030</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_pool_light</Name>
+			<Name TaskPrio="1">.eib_pool_hall_LED</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>88</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14031</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_sphere_ceiling_light</Name>
+			<Name TaskPrio="1">.eib_pool_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>89</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14032</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_sphere_light</Name>
+			<Name TaskPrio="1">.eib_sphere_ceiling_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>90</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14033</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_cinema_bra</Name>
+			<Name TaskPrio="1">.eib_sphere_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>91</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14034</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_shower01_light</Name>
+			<Name TaskPrio="1">.eib_gym_cinema_bra</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>92</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14035</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_shower02_light</Name>
+			<Name TaskPrio="1">.eib_gym_shower01_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>93</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14036</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_corridor_light</Name>
+			<Name TaskPrio="1">.eib_gym_shower02_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>94</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14037</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_stairs_light</Name>
+			<Name TaskPrio="1">.eib_gym_corridor_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>95</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14038</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym_WC_light</Name>
+			<Name TaskPrio="1">.eib_gym_stairs_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>96</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14039</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_training</Name>
+			<Name TaskPrio="1">.eib_gym_WC_light</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>97</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14040</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_gym</Name>
+			<Name TaskPrio="1">.eib_training</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>98</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14041</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.eib_gym</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14042</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Static="MArea" TaskPrio="1">.eib_outside_bigBulbs</Name>
@@ -9274,6 +10834,20 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name Static="Input" TaskPrio="1">.KL6301_IN_0</Name>
+			<Type Decoration="2001015E">ARRAY [1..24] OF BYTE</Type>
+			<IGroup>61472</IGroup>
+			<IOffset>100</IOffset>
+			<BitSize>192</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.KL6301_OUT_0</Name>
+			<Type Decoration="2001015E">ARRAY [1..24] OF BYTE</Type>
+			<IGroup>61488</IGroup>
+			<IOffset>100</IOffset>
+			<BitSize>192</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name IsDefinedInLibrary="1">.SYSTEMINFO</Name>
 			<Type Decoration="10066081">FW_SystemInfoType</Type>
 			<IGroup>16448</IGroup>
@@ -9281,7 +10855,7 @@
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name IsDefinedInLibrary="1">.SYSTEMTASKINFOARR</Name>
+			<Name IsDefinedInLibrary="1" TaskPrio="1">.SYSTEMTASKINFOARR</Name>
 			<Type Decoration="20017A4E">ARRAY [1..2] OF FW_SystemTaskInfoType</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>7728</IOffset>
@@ -9308,14 +10882,14 @@
 			<BitSize>80</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name IsDefinedInLibrary="1">.EIB_STATE</Name>
+			<Name IsDefinedInLibrary="1" TaskPrio="1">.EIB_STATE</Name>
 			<Type Decoration="2001012D">ARRAY [1..63] OF INT</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>7838</IOffset>
 			<BitSize>1008</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name IsDefinedInLibrary="1">.EIB_BUSY</Name>
+			<Name IsDefinedInLibrary="1" TaskPrio="1">.EIB_BUSY</Name>
 			<Type Decoration="20010177">ARRAY [1..63] OF BOOL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>7964</IOffset>
