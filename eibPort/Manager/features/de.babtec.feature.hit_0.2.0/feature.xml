@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.babtec.feature.hit"
+      label="bab-tec Manager: HIT Feature"
+      version="0.2.0"
+      provider-name="b.a.b-technologie gmbh">
+
+   <description>
+      Configuration Plug-In for HomeInformationTerminal
+   </description>
+
+   <copyright>
+      (c) Copyright b.a.b-technologie gmbh 2007.
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import feature="de.babtec.feature.core" version="0.0.9"/>
+   </requires>
+
+   <plugin
+         id="de.babtec.hit.config"
+         download-size="0"
+         install-size="0"
+         version="0.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.hit.model"
+         download-size="0"
+         install-size="0"
+         version="0.2.0"
+         unpack="false"/>
+
+</feature>

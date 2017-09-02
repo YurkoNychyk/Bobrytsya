@@ -1,0 +1,24 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM heat
+VAR
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+	fancoil_vitalnya_low:=m_fancoil_vitalnya_low;
+	fancoil_vitalnya_med:=m_fancoil_vitalnya_med;
+	fancoil_vitalnya_high:=m_fancoil_vitalnya_high;
+(*клапан управляється з 3го поверху*)
+
+
+	collector_vitalnya1:=m_collector.0;
+	collector_kuh:=m_collector.1;
+	collector_vitalnya2:=m_collector.2;
+
+	collector_vhid:=1;
+	collector_vhid_stina:=1;
+	collector_su2:=1;
+	collector_komora:=1;
+END_PROGRAM

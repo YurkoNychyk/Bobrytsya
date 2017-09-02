@@ -1,0 +1,59 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM ADS_write
+VAR
+	write_timeout: TIME;
+	b_write1, b_write2: BOOL;
+	write_ads1, write_ads2: ADSWRITE;
+
+	timer1, timer2:TP;
+	errorcounter1, errorcounter2, pack_c:CTU ;
+	test_word: WORD;
+	i,j,i1,j1: INT;
+	data_changed: BOOL;
+	try_again2, try_again1: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+write_timeout:=t#3s;
+
+FOR i:=0 TO (SIZEOF(data2floor))-1 DO
+	IF data2floor[i]<>data2floor_prev[i] THEN
+		b_write2:=TRUE;
+		EXIT;
+	ELSE
+		b_write2:=FALSE;
+	END_IF
+END_FOR
+
+IF try_again2 AND NOT timer2.Q THEN
+	b_write2:=TRUE;
+	try_again2:=FALSE;
+END_IF
+
+
+IF write_ads2.BUSY THEN b_write2:=FALSE; END_IF
+
+	write_ads2(
+		NETID:=ads_adr2,
+		PORT:=800,
+		IDXGRP:=16#4020,
+		IDXOFFS:=8,
+		WRITE:=b_write2,
+		TMOUT:=t#5s,
+		LEN:=SIZEOF(data2floor),
+		SRCADDR:=ADR(data2floor));
+
+IF write_ads2.ERR AND NOT timer2.Q THEN
+	timer2.IN:=TRUE;
+	try_again2:=TRUE;
+END_IF
+timer2(PT:=write_timeout);
+timer2.IN:=FALSE;
+
+FOR j:=0 TO (SIZEOF(data2floor))-1 DO
+	data2floor_prev[j]:=data2floor[j];
+END_FOR
+
+END_PROGRAM

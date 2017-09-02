@@ -1,0 +1,10 @@
+Interface of POU 'MAIN'
+Error 3728: MAIN (73): Invalid address: '%MX5002.4'
+Error 3728: MAIN (74): Invalid address: '%MX5002.5'
+Declarations of the global variables
+Error 4024: main (8): Expecting ':' before 'eib_AT'
+Error 4024: main (14): Expecting ':' before 'eib_AT'
+Error 4024: main (15): Expecting ':' before 'eib_AT'
+Error 4024: main (16): Expecting ':' before 'eib_AT'
+Error 4024: main (20): Expecting ':' before 'eib_AT'
+7 Error(s), 0 Warning(s).

@@ -1,0 +1,328 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'physical' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+	din1_1	AT %IX52.0:	BOOL;
+	din1_2	AT %IX52.1:	BOOL;
+	din1_3	AT %IX52.2:	BOOL;
+	din1_4	AT %IX52.3:	BOOL;
+	din1_5	AT %IX52.4:	BOOL;
+	din1_6	AT %IX52.5:	BOOL;
+	din1_7	AT %IX52.6:	BOOL;
+	din1_8	AT %IX52.7:	BOOL;
+	din2_1	AT %IX53.0:	BOOL;
+	din2_2	AT %IX53.1:	BOOL;
+	din2_3	AT %IX53.2:	BOOL;
+	din2_4	AT %IX53.3:	BOOL;
+	din2_5	AT %IX53.4:	BOOL;
+	din2_6	AT %IX53.5:	BOOL;
+	din2_7	AT %IX53.6:	BOOL;
+	din2_8	AT %IX53.7:	BOOL;
+(*din3_1*)sw_kino_balkon	AT %IX54.0:	BOOL;
+(*din3_2*)sw_tambur2		AT %IX54.1:	BOOL;
+(*din3_3*)sw_kino1			AT %IX54.2:	BOOL;
+(*din3_4*)sw_korydor		AT %IX54.3:	BOOL;
+(*din3_5*)sw_kino2			AT %IX54.4:	BOOL;
+(*din3_6*)sw_studio1			AT %IX54.5:	BOOL;
+(*din3_7*)sw_tambur1		AT %IX54.6:	BOOL;
+(*din3_8*)sw_studio2			AT %IX54.7:	BOOL;
+(*din4_1*)sw_kabinet1		AT %IX55.0:	BOOL;
+	din4_2	AT %IX55.1:	BOOL;
+(*din4_3*)sw_kabinet2	AT %IX55.2:	BOOL;
+(*din4_4*)sw_kabinet2_1	AT %IX55.3:	BOOL;
+(*din4_5*)sw_kabinet_balkon	AT %IX55.4:	BOOL;
+(*din4_6*)sw_kabinet2_2	AT %IX55.5:	BOOL;
+(*din4_7*)sw_tambur3		AT %IX55.6:	BOOL;
+	din4_8	AT %IX55.7:	BOOL;
+
+(*dout1_1*)balkon_peryla				AT %QX52.0:	BOOL;
+(*dout1_2*)kino_l					AT %QX52.1:	BOOL;
+(*dout1_3*)balkon_bra				AT %QX52.2:	BOOL;
+(*dout1_4*)kabinet_balkon_l			AT %QX52.3:	BOOL;
+(*dout1_5*)balkon					AT %QX52.4:	BOOL;
+(*dout1_6*)korydor1					AT %QX52.5:	BOOL;
+(*dout1_7*)kino_bra					AT %QX52.6:	BOOL;
+(*dout1_8*)korydor2					AT %QX52.7:	BOOL;
+(*dout2_1*)studio_pidsvitka 			AT %QX53.0:	BOOL;
+(*dout2_2*)skhody2_3				AT %QX53.1:	BOOL;
+(*dout2_3*)studio_l					AT %QX53.2:	BOOL;
+(*dout2_4*)kabinet_pidsvitka_kolo	AT %QX53.3:	BOOL;
+(*dout2_5*)kabinet_svitlo				AT %QX53.4:	BOOL;
+(*dout2_6*)kabinet_kobra 			AT %QX53.5:	BOOL;
+(*dout2_7*)tambur_l					AT %QX53.6:	BOOL;
+	stend	AT %QX53.7:	BOOL;
+(*dout3_1*)collector_kabinet1		AT %QX54.0:	BOOL;
+(*dout3_2*)fancoil_kabinet_low		AT %QX54.1:	BOOL;
+(*dout3_3*)collector_kabinet2		AT %QX54.2:	BOOL;
+(*dout3_4*)fancoil_kabinet_med		AT %QX54.3:	BOOL;
+(*dout3_5*)collector_studio1			AT %QX54.4:	BOOL;
+	fancoil_kabinet_high				AT %QX54.5:	BOOL;
+(*dout3_7*)collector_studio2			AT %QX54.6:	BOOL;
+(*dout3_8*)fancoil_kino_low			AT %QX54.7:	BOOL;
+(*dout4_1*)fancoil_kino_med		AT %QX55.0:	BOOL;
+	dout4_2	AT %QX55.1:	BOOL;
+	fancoil_kino_high				AT %QX55.2:	BOOL;
+	skhody_peryla	AT %QX55.3:	BOOL;
+	dout4_5	AT %QX55.4:	BOOL;
+	dout4_6	AT %QX55.5:	BOOL;
+	dout4_7	AT %QX55.6:	BOOL;
+	dout4_8	AT %QX55.7:	BOOL;
+	kino_tul_open			AT %QX56.0:	BOOL;
+	kabinet_tul_open 		AT %QX56.1:	BOOL;
+	kino_tul_close 			AT %QX56.2:	BOOL;
+	kabinet_tul_close		AT %QX56.3:	BOOL;
+	kino_shtory_open		AT %QX56.4:	BOOL;
+	kabinet_shtory_open	AT %QX56.5:	BOOL;
+	kino_shtory_close		AT %QX56.6:	BOOL;
+	kabinet_shtory_close	AT %QX56.7:	BOOL;
+
+
+	klapan_kino 	AT %QB2:	INT;
+	klapan_kabinet	AT %QB6:	INT;
+	test1 AT %IB51:BYTE;
+	test2 AT %IB2:BYTE;
+	test3 AT %IB10:BYTE;
+	test4 AT %IB54:BYTE;
+	test5 AT %IB55:BYTE;
+	test6 AT %IB56:BYTE;
+	test7 AT %IB57:BYTE;
+	test8 AT %IB58:BYTE;
+	test9 AT %IB59:BYTE;
+	test10 AT %IB60:BYTE;
+	test11 AT %IB61:BYTE;
+	test12 AT %IB62:BYTE;
+	test13 AT %IB63:BYTE;
+	test14 AT %IB64:BYTE;
+	test15 AT %IB65:BYTE;
+
+	Term_2_KL4414_1_State	AT %IB0:	USINT;
+	Term_2_KL4414_1_Data_In	AT %IB2:	INT;
+	Term_2_KL4414_1_Ctrl	AT %QB0:	USINT;
+	Term_2_KL4414_1_Data_Out	AT %QB2:	INT;
+	Term_2_KL4414_2_State	AT %IB4:	USINT;
+	Term_2_KL4414_2_Data_In	AT %IB6:	INT;
+	Term_2_KL4414_2_Ctrl	AT %QB4:	USINT;
+	Term_2_KL4414_2_Data_Out	AT %QB6:	INT;
+	Term_2_KL4414_3_State	AT %IB8:	USINT;
+	Term_2_KL4414_3_Data_In	AT %IB10:	INT;
+	Term_2_KL4414_3_Ctrl	AT %QB8:	USINT;
+	Term_2_KL4414_3_Data_Out	AT %QB10:	INT;
+	Term_2_KL4414_4_State	AT %IB12:	USINT;
+	Term_2_KL4414_4_Data_In	AT %IB14:	INT;
+	Term_2_KL4414_4_Ctrl	AT %QB12:	USINT;
+	Term_2_KL4414_4_Data_Out	AT %QB14:	INT;
+	Term_12_KL3228_4_1_State	AT %IB16:	USINT;
+	Term_12_KL3228_4_1_Data_In	AT %IB18:	INT;
+	Term_12_KL3228_4_1_Ctrl	AT %QB16:	USINT;
+	Term_12_KL3228_4_1_Data_Out	AT %QB18:	INT;
+	Term_12_KL3228_4_2_State	AT %IB20:	USINT;
+	Term_12_KL3228_4_2_Data_In	AT %IB22:	INT;
+	Term_12_KL3228_4_2_Ctrl	AT %QB20:	USINT;
+	Term_12_KL3228_4_2_Data_Out	AT %QB22:	INT;
+	Term_12_KL3228_4_3_State	AT %IB24:	USINT;
+	Term_12_KL3228_4_3_Data_In	AT %IB26:	INT;
+	Term_12_KL3228_4_3_Ctrl	AT %QB24:	USINT;
+	Term_12_KL3228_4_3_Data_Out	AT %QB26:	INT;
+	Term_12_KL3228_4_4_State	AT %IB28:	USINT;
+	Term_12_KL3228_4_4_Data_In	AT %IB30:	INT;
+	Term_12_KL3228_4_4_Ctrl	AT %QB28:	USINT;
+	Term_12_KL3228_4_4_Data_Out	AT %QB30:	INT;
+	Term_13_KL3228_4_1_State	AT %IB32:	USINT;
+	Term_13_KL3228_4_1_Data_In	AT %IB34:	INT;
+	Term_13_KL3228_4_1_Ctrl	AT %QB32:	USINT;
+	Term_13_KL3228_4_1_Data_Out	AT %QB34:	INT;
+	Term_13_KL3228_4_2_State	AT %IB36:	USINT;
+	Term_13_KL3228_4_2_Data_In	AT %IB38:	INT;
+	Term_13_KL3228_4_2_Ctrl	AT %QB36:	USINT;
+	Term_13_KL3228_4_2_Data_Out	AT %QB38:	INT;
+	Term_13_KL3228_4_3_State	AT %IB40:	USINT;
+	Term_13_KL3228_4_3_Data_In	AT %IB42:	INT;
+	Term_13_KL3228_4_3_Ctrl	AT %QB40:	USINT;
+	Term_13_KL3228_4_3_Data_Out	AT %QB42:	INT;
+	Term_13_KL3228_4_4_State	AT %IB44:	USINT;
+	Term_13_KL3228_4_4_Data_In	AT %IB46:	INT;
+	Term_13_KL3228_4_4_Ctrl	AT %QB44:	USINT;
+	Term_13_KL3228_4_4_Data_Out	AT %QB46:	INT;
+	Term_14_KL2761_State	AT %IB48:	USINT;
+	Term_14_KL2761_Data_In	AT %IB50:	INT;
+	Term_14_KL2761_Ctrl	AT %QB48:	USINT;
+	Term_14_KL2761_Data_Out	AT %QB50:	INT;
+	(*Term_2_KL3228_4_1_Data_In	AT %IB2:	INT; (*-45*)
+	Term_2_KL3228_4_3_Data_In	AT %IB10:	INT; (*-45*)
+*)
+
+
+END_VAR
+(*
+(* @OBJECT_END := TwinCAT_Import *)
+
+VAR_GLOBAL (* DO NOT CHANGE THIS SHEET MANUALLY! *)
+	PlcInVar_0	AT %QB128:	USINT;
+	PlcInVar_1	AT %QB129:	USINT;
+	PlcInVar_2	AT %QB130:	USINT;
+	PlcInVar_3	AT %QB131:	USINT;
+	PlcInVar_4	AT %QB132:	USINT;
+	PlcInVar_5	AT %QB133:	USINT;
+	PlcInVar_6	AT %QB134:	USINT;
+	PlcInVar_7	AT %QB135:	USINT;
+	PlcInVar_8	AT %QB136:	USINT;
+	PlcInVar_9	AT %QB137:	USINT;
+	PlcInVar_10	AT %QB138:	USINT;
+	PlcInVar_11	AT %QB139:	USINT;
+	PlcInVar_12	AT %QB140:	USINT;
+	PlcInVar_13	AT %QB141:	USINT;
+	PlcInVar_14	AT %QB142:	USINT;
+	PlcInVar_15	AT %QB143:	USINT;
+	PlcOutVar_0	AT %IB128:	USINT;
+	PlcOutVar_1	AT %IB129:	USINT;
+	PlcOutVar_2	AT %IB130:	USINT;
+	PlcOutVar_3	AT %IB131:	USINT;
+	PlcOutVar_4	AT %IB132:	USINT;
+	PlcOutVar_5	AT %IB133:	USINT;
+	PlcOutVar_6	AT %IB134:	USINT;
+	PlcOutVar_7	AT %IB135:	USINT;
+	PlcOutVar_8	AT %IB136:	USINT;
+	PlcOutVar_9	AT %IB137:	USINT;
+	PlcOutVar_10	AT %IB138:	USINT;
+	PlcOutVar_11	AT %IB139:	USINT;
+	PlcOutVar_12	AT %IB140:	USINT;
+	PlcOutVar_13	AT %IB141:	USINT;
+	PlcOutVar_14	AT %IB142:	USINT;
+	PlcOutVar_15	AT %IB143:	USINT;
+	Term_2_KL3228_4_1_State	AT %IB0:	USINT;
+	Term_2_KL3228_4_1_Data_In	AT %IB2:	INT;
+	Term_2_KL3228_4_1_Ctrl	AT %QB0:	USINT;
+	Term_2_KL3228_4_1_Data_Out	AT %QB2:	INT;
+	Term_2_KL3228_4_2_State	AT %IB4:	USINT;
+	Term_2_KL3228_4_2_Data_In	AT %IB6:	INT;
+	Term_2_KL3228_4_2_Ctrl	AT %QB4:	USINT;
+	Term_2_KL3228_4_2_Data_Out	AT %QB6:	INT;
+	Term_2_KL3228_4_3_State	AT %IB8:	USINT;
+	Term_2_KL3228_4_3_Data_In	AT %IB10:	INT;
+	Term_2_KL3228_4_3_Ctrl	AT %QB8:	USINT;
+	Term_2_KL3228_4_3_Data_Out	AT %QB10:	INT;
+	Term_2_KL3228_4_4_State	AT %IB12:	USINT;
+	Term_2_KL3228_4_4_Data_In	AT %IB14:	INT;
+	Term_2_KL3228_4_4_Ctrl	AT %QB12:	USINT;
+	Term_2_KL3228_4_4_Data_Out	AT %QB14:	INT;
+	Term_3_KL3228_4_1_State	AT %IB16:	USINT;
+	Term_3_KL3228_4_1_Data_In	AT %IB18:	INT;
+	Term_3_KL3228_4_1_Ctrl	AT %QB16:	USINT;
+	Term_3_KL3228_4_1_Data_Out	AT %QB18:	INT;
+	Term_3_KL3228_4_2_State	AT %IB20:	USINT;
+	Term_3_KL3228_4_2_Data_In	AT %IB22:	INT;
+	Term_3_KL3228_4_2_Ctrl	AT %QB20:	USINT;
+	Term_3_KL3228_4_2_Data_Out	AT %QB22:	INT;
+	Term_3_KL3228_4_3_State	AT %IB24:	USINT;
+	Term_3_KL3228_4_3_Data_In	AT %IB26:	INT;
+	Term_3_KL3228_4_3_Ctrl	AT %QB24:	USINT;
+	Term_3_KL3228_4_3_Data_Out	AT %QB26:	INT;
+	Term_3_KL3228_4_4_State	AT %IB28:	USINT;
+	Term_3_KL3228_4_4_Data_In	AT %IB30:	INT;
+	Term_3_KL3228_4_4_Ctrl	AT %QB28:	USINT;
+	Term_3_KL3228_4_4_Data_Out	AT %QB30:	INT;
+	Term_4_KL4414_1_State	AT %IB32:	USINT;
+	Term_4_KL4414_1_Data_In	AT %IB34:	INT;
+	Term_4_KL4414_1_Ctrl	AT %QB32:	USINT;
+	Term_4_KL4414_1_Data_Out	AT %QB34:	INT;
+	Term_4_KL4414_2_State	AT %IB36:	USINT;
+	Term_4_KL4414_2_Data_In	AT %IB38:	INT;
+	Term_4_KL4414_2_Ctrl	AT %QB36:	USINT;
+	Term_4_KL4414_2_Data_Out	AT %QB38:	INT;
+	Term_4_KL4414_3_State	AT %IB40:	USINT;
+	Term_4_KL4414_3_Data_In	AT %IB42:	INT;
+	Term_4_KL4414_3_Ctrl	AT %QB40:	USINT;
+	Term_4_KL4414_3_Data_Out	AT %QB42:	INT;
+	Term_4_KL4414_4_State	AT %IB44:	USINT;
+	Term_4_KL4414_4_Data_In	AT %IB46:	INT;
+	Term_4_KL4414_4_Ctrl	AT %QB44:	USINT;
+	Term_4_KL4414_4_Data_Out	AT %QB46:	INT;
+	Term_14_KL2761_State	AT %IB48:	USINT;
+	Term_14_KL2761_Data_In	AT %IB50:	INT;
+	Term_14_KL2761_Ctrl	AT %QB48:	USINT;
+	Term_14_KL2761_Data_Out	AT %QB50:	INT;
+	Term_5_KL1408_1_Input	AT %IX52.0:	BOOL;
+	Term_5_KL1408_2_Input	AT %IX52.1:	BOOL;
+	Term_5_KL1408_3_Input	AT %IX52.2:	BOOL;
+	Term_5_KL1408_4_Input	AT %IX52.3:	BOOL;
+	Term_5_KL1408_5_Input	AT %IX52.4:	BOOL;
+	Term_5_KL1408_6_Input	AT %IX52.5:	BOOL;
+	Term_5_KL1408_7_Input	AT %IX52.6:	BOOL;
+	Term_5_KL1408_8_Input	AT %IX52.7:	BOOL;
+	Term_6_KL1408_1_Input	AT %IX53.0:	BOOL;
+	Term_6_KL1408_2_Input	AT %IX53.1:	BOOL;
+	Term_6_KL1408_3_Input	AT %IX53.2:	BOOL;
+	Term_6_KL1408_4_Input	AT %IX53.3:	BOOL;
+	Term_6_KL1408_5_Input	AT %IX53.4:	BOOL;
+	Term_6_KL1408_6_Input	AT %IX53.5:	BOOL;
+	Term_6_KL1408_7_Input	AT %IX53.6:	BOOL;
+	Term_6_KL1408_8_Input	AT %IX53.7:	BOOL;
+	Term_7_KL1408_1_Input	AT %IX54.0:	BOOL;
+	Term_7_KL1408_2_Input	AT %IX54.1:	BOOL;
+	Term_7_KL1408_3_Input	AT %IX54.2:	BOOL;
+	Term_7_KL1408_4_Input	AT %IX54.3:	BOOL;
+	Term_7_KL1408_5_Input	AT %IX54.4:	BOOL;
+	Term_7_KL1408_6_Input	AT %IX54.5:	BOOL;
+	Term_7_KL1408_7_Input	AT %IX54.6:	BOOL;
+	Term_7_KL1408_8_Input	AT %IX54.7:	BOOL;
+	Term_8_KL1408_1_Input	AT %IX55.0:	BOOL;
+	Term_8_KL1408_2_Input	AT %IX55.1:	BOOL;
+	Term_8_KL1408_3_Input	AT %IX55.2:	BOOL;
+	Term_8_KL1408_4_Input	AT %IX55.3:	BOOL;
+	Term_8_KL1408_5_Input	AT %IX55.4:	BOOL;
+	Term_8_KL1408_6_Input	AT %IX55.5:	BOOL;
+	Term_8_KL1408_7_Input	AT %IX55.6:	BOOL;
+	Term_8_KL1408_8_Input	AT %IX55.7:	BOOL;
+	Term_9_KL2408_1_Output	AT %QX52.0:	BOOL;
+	Term_9_KL2408_2_Output	AT %QX52.1:	BOOL;
+	Term_9_KL2408_3_Output	AT %QX52.2:	BOOL;
+	Term_9_KL2408_4_Output	AT %QX52.3:	BOOL;
+	Term_9_KL2408_5_Output	AT %QX52.4:	BOOL;
+	Term_9_KL2408_6_Output	AT %QX52.5:	BOOL;
+	Term_9_KL2408_7_Output	AT %QX52.6:	BOOL;
+	Term_9_KL2408_8_Output	AT %QX52.7:	BOOL;
+	Term_10_KL2408_1_Output	AT %QX53.0:	BOOL;
+	Term_10_KL2408_2_Output	AT %QX53.1:	BOOL;
+	Term_10_KL2408_3_Output	AT %QX53.2:	BOOL;
+	Term_10_KL2408_4_Output	AT %QX53.3:	BOOL;
+	Term_10_KL2408_5_Output	AT %QX53.4:	BOOL;
+	Term_10_KL2408_6_Output	AT %QX53.5:	BOOL;
+	Term_10_KL2408_7_Output	AT %QX53.6:	BOOL;
+	Term_10_KL2408_8_Output	AT %QX53.7:	BOOL;
+	Term_11_KL2408_1_Output	AT %QX54.0:	BOOL;
+	Term_11_KL2408_2_Output	AT %QX54.1:	BOOL;
+	Term_11_KL2408_3_Output	AT %QX54.2:	BOOL;
+	Term_11_KL2408_4_Output	AT %QX54.3:	BOOL;
+	Term_11_KL2408_5_Output	AT %QX54.4:	BOOL;
+	Term_11_KL2408_6_Output	AT %QX54.5:	BOOL;
+	Term_11_KL2408_7_Output	AT %QX54.6:	BOOL;
+	Term_11_KL2408_8_Output	AT %QX54.7:	BOOL;
+	Term_12_KL2408_1_Output	AT %QX55.0:	BOOL;
+	Term_12_KL2408_2_Output	AT %QX55.1:	BOOL;
+	Term_12_KL2408_3_Output	AT %QX55.2:	BOOL;
+	Term_12_KL2408_4_Output	AT %QX55.3:	BOOL;
+	Term_12_KL2408_5_Output	AT %QX55.4:	BOOL;
+	Term_12_KL2408_6_Output	AT %QX55.5:	BOOL;
+	Term_12_KL2408_7_Output	AT %QX55.6:	BOOL;
+	Term_12_KL2408_8_Output	AT %QX55.7:	BOOL;
+	Term_13_KL2408_1_Output	AT %QX56.0:	BOOL;
+	Term_13_KL2408_2_Output	AT %QX56.1:	BOOL;
+	Term_13_KL2408_3_Output	AT %QX56.2:	BOOL;
+	Term_13_KL2408_4_Output	AT %QX56.3:	BOOL;
+	Term_13_KL2408_5_Output	AT %QX56.4:	BOOL;
+	Term_13_KL2408_6_Output	AT %QX56.5:	BOOL;
+	Term_13_KL2408_7_Output	AT %QX56.6:	BOOL;
+	Term_13_KL2408_8_Output	AT %QX56.7:	BOOL;
+END_VAR
+
+(* @OBJECT_END := TwinCAT_Import *)
+
+*)
+(* @OBJECT_END := 'physical' *)
+(* @CONNECTIONS := physical
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)

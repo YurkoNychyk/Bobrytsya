@@ -1,0 +1,134 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM shtory_kabinet
+VAR
+	inc1, inc: UINT;
+	impulse: BOOL;
+	last_move: UINT;
+	impulse1: BOOL;
+	last_move1: UINT;
+	lift_move_dir, lift_moves: BOOL;
+	rising1: BOOL;
+	falling1: BOOL;
+	rising2: BOOL;
+	falling2: BOOL;
+	inc2: UINT;
+	panel_shtory_move, panel_tul_move :BOOL;
+
+	(*таймери для формування керуючих імпульсів*)
+	timer_shtory_move, timer_shtory_stop,timer_tul_move, timer_tul_stop, move_lift_up, move_lift_down: TP;
+
+	shtory_counter, tul_counter, lift_counter: UINT;
+	counter:CTU;
+
+	shtory_move: BOOL;
+	shtory_stop: BOOL;
+	tul_move: BOOL;
+	eib_tul_move: BOOL;
+	eib_shtory_move: BOOL;
+	R_SHTORY:R_TRIG;
+	F_SHTORY:F_TRIG;
+	R_TUL:R_TRIG;
+	F_TUL:F_TRIG;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+(*детекція відсутності фронтів*)
+IF light.kabinet1.Q_LONG = impulse THEN
+	rising1:=0;
+	falling1:=0;
+END_IF;
+
+IF light.kabinet2.Q_LONG = impulse1 THEN
+	rising2:=0;
+	falling2:=0;
+END_IF;
+
+(*ловим передній фронт довгого натискання першої клавіші*)
+IF light.kabinet1.Q_LONG AND NOT impulse  THEN
+	rising1:=1;
+	falling1:=0;
+END_IF;
+
+(*задній фронт*)
+IF NOT light.kabinet1.Q_LONG AND  impulse THEN
+	falling1:=1;
+	rising1:=0;
+END_IF;
+
+(*ловим передній фронт довгого натискання другої клавіші*)
+IF light.kabinet2.Q_LONG AND NOT impulse1  THEN
+	rising2:=1;
+	falling2:=0;
+END_IF;
+
+(*ловим задній фронт довгого натискання другої клавіші*)
+IF NOT light.kabinet2.Q_LONG AND  impulse1 THEN
+	falling2:=1;
+	rising2:=0;
+END_IF;
+
+
+(*команди шторам смарт баса на 3 поверсі*)
+R_SHTORY(CLK:=kabinet_shtory, Q=>eib_shtory_move);
+IF NOT R_SHTORY.Q THEN F_SHTORY(CLK:=kabinet_shtory, Q=>eib_shtory_move); END_IF
+
+R_TUL(CLK:=kabinet_tul, Q=>eib_tul_move);
+IF NOT R_TUL.Q THEN F_TUL(CLK:=kabinet_tul, Q=>eib_tul_move); END_IF
+
+shtory_move:= rising1 OR falling1 OR eib_shtory_move;
+tul_move:= rising2 OR falling2 OR eib_tul_move;
+
+(*формування імпульсів для керування шторами, тюлями та ліфтом*)
+timer_shtory_move(IN:=shtory_move, PT:=t#1000ms);
+timer_shtory_stop(IN:=shtory_move , PT:=t#1000ms);
+timer_tul_move(IN:=tul_move  , PT:=t#1000ms);
+timer_tul_stop(IN:=tul_move , PT:=t#1000ms);
+
+	(*вибір рухати чи зупинити  штори*)
+	IF shtory_move THEN
+		inc:=inc+1;
+	END_IF;
+	IF inc>2 THEN inc:=1; END_IF;
+
+	(*вибір рухати чи зупинити  тюль*)
+	IF tul_move THEN
+		inc1:=inc1+1;
+	END_IF;
+	IF inc1>2 THEN inc1:=1; END_IF;
+
+	CASE inc OF
+
+	1:
+		kabinet_shtory_open:=timer_shtory_move.Q; (*відкривати*)
+		kabinet_shtory_close:= 0;
+		last_move:=inc;
+
+	2:
+		kabinet_shtory_close:=timer_shtory_move.Q;(*закривати*)
+		kabinet_shtory_open:= 0;
+		last_move:=inc;
+
+	END_CASE;
+
+	CASE inc1 OF
+
+	1:
+		kabinet_tul_open:=timer_tul_move.Q; (*відкривати*)
+		kabinet_tul_close:= 0;
+		last_move1:=inc;
+	2:
+		kabinet_tul_close:=timer_tul_move.Q;(*закривати*)
+		kabinet_tul_open:= 0;
+		last_move1:=inc;
+
+	END_CASE;
+
+
+(*запам'ятовування стану довгого натискання для детекції фронтів*)
+
+impulse:=light.kabinet1.Q_LONG;
+impulse1:=light.kabinet2.Q_LONG;
+END_PROGRAM

@@ -1,0 +1,29 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM heat
+VAR
+	fancoil_kino: WORD;
+	fancoil_kabinet:  WORD;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	fancoil_kino_low:=m_fancoil_kino_low;
+	fancoil_kino_med:=m_fancoil_kino_med;
+	fancoil_kino_high:=m_fancoil_kino_high;
+	klapan_kino:=m_klapan_kino;
+
+	fancoil_kabinet_low:=m_fancoil_kabinet_low;
+	fancoil_kabinet_med:=m_fancoil_kabinet_med;
+	fancoil_kabinet_high:=m_fancoil_kabinet_high;
+	klapan_kabinet:=m_klapan_kabinet;
+
+collector_kabinet1:=m_collector.0;
+collector_kabinet2:=m_collector.1;
+collector_studio1:=m_collector.2;
+collector_studio2:=m_collector.3;
+
+
+END_PROGRAM

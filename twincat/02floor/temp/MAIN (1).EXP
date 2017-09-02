@@ -1,0 +1,55 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'main' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+(*ADS*)
+	ads_adr1: STRING:='10.0.5.61.1.1';
+	ads_adr2: STRING:='10.0.5.62.1.1';
+	ads_adr3: STRING:='10.0.5.63.1.1';
+
+	write_ads: ADSWRITE;
+	close_ads:ADSCLOSE;
+	read_ads1: ADSREADEX;
+	read_ads3: ADSREADEX;
+
+	data1floor: ARRAY[0..4] OF BYTE;
+	data1floor_prev: ARRAY[0..4] OF BYTE;
+
+
+	m_fancoil_kabinet_low 	AT%MX0.0: BOOL;
+	m_fancoil_kabinet_med 	AT%MX0.1: BOOL;
+	m_fancoil_kabinet_high 	AT%MX0.2: BOOL;
+	m_collector				AT%MB1:BYTE;
+	m_klapan_kabinet		AT%MW2: WORD;
+
+	m_fancoil_kino_low 		AT%MX0.3: BOOL;
+	m_fancoil_kino_med 	AT%MX0.4: BOOL;
+	m_fancoil_kino_high		AT%MX0.5: BOOL;
+
+	kabinet_shtory			AT%MX7.0:BOOL;
+	kabinet_tul				AT%MX7.1:BOOL;
+	kino_shtory				AT%MX7.2:BOOL;
+	kino_tul					AT%MX7.3:BOOL;
+
+
+	m_klapan_kino			AT%MW4: WORD;
+
+	svitlo_skhody3_2		AT%MX6.0:BOOL;
+	skhody3				AT%MX6.1:BOOL;
+	svitlo_skhody1_2		AT%MX8.0:BOOL;
+	skhody1				AT%MX8.1:BOOL;
+
+
+
+
+
+END_VAR
+
+(* @OBJECT_END := 'main' *)
+(* @CONNECTIONS := main
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)

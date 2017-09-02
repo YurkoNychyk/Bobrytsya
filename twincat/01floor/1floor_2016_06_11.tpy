@@ -1,0 +1,6175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--This file is created by the TCatPlcCtrl automatically. Manually changes will be overwritten!-->
+<PlcProjectInfo xmlns:p="http://www.beckhoff.com/2002/01/TcPlcProjectDesc">
+	<ProjectInfo>
+		<Path>F:\Альпако\1floor\1floor_2016_06_11.pr6</Path>
+		<IsLibrary>false</IsLibrary>
+		<ChangeDate>2016-06-11T19:37:00</ChangeDate>
+		<Library>
+			<Name>TcBABasicBC.lb6</Name>
+			<Path>C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6</Path>
+			<ChangeDate>2015-07-22T15:46:36</ChangeDate>
+		</Library>
+		<Library>
+			<Name>TcPlcUtilitiesBC.lb6</Name>
+			<Path>C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6</Path>
+			<ChangeDate>2005-05-13T11:19:40</ChangeDate>
+		</Library>
+		<Library>
+			<Name>PlcSystemBC.lb6</Name>
+			<Path>C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6</Path>
+			<ChangeDate>2001-03-21T11:03:02</ChangeDate>
+		</Library>
+		<Library>
+			<Name>TcAdsBC.lb6</Name>
+			<Path>C:\TWINCAT\PLC\LIB\TcAdsBC.lb6</Path>
+			<ChangeDate>2002-07-05T11:03:02</ChangeDate>
+		</Library>
+		<Library>
+			<Name>standard.lb6</Name>
+			<Path>C:\TWINCAT\PLC\LIB\standard.lb6</Path>
+			<ChangeDate>1998-06-05T11:03:02</ChangeDate>
+		</Library>
+	</ProjectInfo>
+	<RoutingInfo>
+		<AdsInfo>
+			<NetId>10.0.5.61.1.1</NetId>
+			<Port>800</Port>
+			<TargetName>
+				<![CDATA[Target: BC/BX BC9100_1fsFloor (10.0.5.61.1.1), Port: 800]]>
+			</TargetName>
+		</AdsInfo>
+	</RoutingInfo>
+	<CompilerInfo>
+		<CpuFamily>80C16x</CpuFamily>
+		<CompilerVersion>2.9.9.47</CompilerVersion>
+		<Alignment>Word</Alignment>
+		<PackSize>2</PackSize>
+		<TwinCATVersion>2.11.0</TwinCATVersion>
+		<TCatPlcCtrlVersion>2.11.2224</TCatPlcCtrlVersion>
+	</CompilerInfo>
+	<TargetInfo>
+		<CpuFamily>80C16x</CpuFamily>
+		<DataAreaInfo>
+			<DataSize>131072</DataSize>
+			<RetainSize>4080</RetainSize>
+			<MAreaSize>4096</MAreaSize>
+			<InputSize>512</InputSize>
+			<OutputSize>512</OutputSize>
+			<MaxNumOfPOUs>256</MaxNumOfPOUs>
+		</DataAreaInfo>
+	</TargetInfo>
+	<TaskInfos/>
+	<DirectoryInfos>
+		<DirectoryInfo>
+			<Type>LibraryDir</Type>
+			<Path>C:\TWINCAT\PLC\LIB\</Path>
+		</DirectoryInfo>
+		<DirectoryInfo>
+			<Type>CompileDir</Type>
+			<Path>C:\TWINCAT\PLC\</Path>
+		</DirectoryInfo>
+	</DirectoryInfos>
+	<DataTypes>
+		<DataType>
+			<Name Decoration="300002AE" Crc32="1873262478" LastChange="2016-04-17T11:02:20">ManSwitch</Name>
+			<Type>INT</Type>
+			<BitSize>16</BitSize>
+			<EnumInfo>
+				<Text>OFF</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ON</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>AUTO</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="3000034E" Crc32="3707220097" LastChange="2016-04-17T11:02:20">ContactType</Name>
+			<Type>INT</Type>
+			<BitSize>16</BitSize>
+			<EnumInfo>
+				<Text>NO</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>NC</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10048083" Crc32="2453032180" LastChange="2016-04-17T11:02:20">WaterLeakageDetectionCfg</Name>
+			<BitSize>96</BitSize>
+			<SubItem>
+				<Name>sensorContacts</Name>
+				<Type Decoration="3000034E">ContactType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>valveContacts</Name>
+				<Type Decoration="3000034E">ContactType</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>sensorDelay</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>waterOnTimerDelay</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name Decoration="100BBED9" Crc32="3840782176" LastChange="2016-04-17T11:02:20">fbWaterLeakage</Name>
+			<BitSize>480</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">alarmSet</Name>
+				<Type Decoration="100306C6">SR</Type>
+				<Comment>
+					<![CDATA[Sets alarm in CASE OF water leakage AND resets it on "resetAlarm" going TRUE]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">sensorLagTimer</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">waterOnAfterAlarmTimer</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<Comment>
+					<![CDATA[Makes a delay after alarm was reseted AND before turning on water]]>
+				</Comment>
+				<BitSize>144</BitSize>
+				<BitOffs>176</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">sensor</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">manualSw</Name>
+				<Type Decoration="300002AE">ManSwitch</Type>
+				<Comment>
+					<![CDATA[button in UI FOR manual mode switching]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">valve</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[hardware output]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">alarm</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>360</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">waterState</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[shows IF valve is open]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>368</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">timeTillValveOpen</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[informational output FOR user TO know in how much TIME water will turn on]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">cfg</Name>
+				<Type Decoration="10048083" Pointer="1">WaterLeakageDetectionCfg</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="InOut">resetAlarm</Name>
+				<Type Pointer="1">BOOL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>220</CodeIndex>
+				<InitIndex>221</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100B72C5" Crc32="3225525127" LastChange="2016-06-11T18:47:19">fbMoovingSensorLight</Name>
+			<BitSize>880</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fbStairwayLight_00</Name>
+				<Type Decoration="100DC498">FB_StairwellLight</Type>
+				<BitSize>640</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">button_rising</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">sensor_falling</Name>
+				<Type Decoration="1003051C">F_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>672</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">timer_falling</Name>
+				<Type Decoration="1003051C">F_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">knx_falling</Name>
+				<Type Decoration="1003051C">F_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>736</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">knx_rising</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">button</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>800</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">duration</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>816</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">sensor</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>848</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input">knx</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>856</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output">out</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>864</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>231</CodeIndex>
+				<InitIndex>232</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="20010148">ARRAY [0..3] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<BitSize>32</BitSize>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001014F">ARRAY [0..10] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<BitSize>88</BitSize>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>11</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1003051C" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">R_TRIG</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CLK</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Signal to detect]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Edge detected]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>203</CodeIndex>
+				<InitIndex>204</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060D24" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">TON</Name>
+			<BitSize>144</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[starts timer with rising edge, resets timer with falling edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[time to pass, before Q is set]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[is TRUE, PT seconds after IN had a rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[elapsed time]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>215</CodeIndex>
+				<InitIndex>216</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="30000309" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">E_StartEnd</Name>
+			<Type>INT</Type>
+			<BitSize>16</BitSize>
+			<EnumInfo>
+				<Text>eSTARTTIME_ENDTIME</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>eSTARTTIME_DURATION</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>eSTARTTIME_ENDEVENT</Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>eSTARTEVENT_ENDTIME</Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>eSTARTEVENT_DURATION</Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>eSTARTEVENT_ENDEVENT</Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1003051C" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">F_TRIG</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CLK</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Signal to detect]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Edge detected]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>196</CodeIndex>
+				<InitIndex>197</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10075B82" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FB_Light</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeOn</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeOff</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeSwitch</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bOn</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Switches the output on.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bOff</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Switches the output off.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bToggle</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Negates the state of the output.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bLight</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[A rising edge at the bOn input sets the output.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>120</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>72</CodeIndex>
+				<InitIndex>73</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10086D4F" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FB_ShortLongClick</Name>
+			<BitSize>272</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">TimerDelay</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeSwitch</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FallingEdgeSwitch</Name>
+				<Type Decoration="1003051C">F_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>176</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bDelayOver</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bSwitch</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Input signal.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>216</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">tSwitchTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Duration above which the input signal is to be interpreted as a long button press.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bShortClick</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Indicates a short button press.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bLongClick</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Indicates a long button press.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>264</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>93</CodeIndex>
+				<InitIndex>94</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100DC498" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FB_StairwellLight</Name>
+			<BitSize>640</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">TimerLightDuration</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">TimerPreWarningStart</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>144</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">TimerPreWarningDuration</Name>
+				<Type Decoration="10060D24">TON</Type>
+				<BitSize>144</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeSwitch</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">RisingEdgeOff</Name>
+				<Type Decoration="1003051C">R_TRIG</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>464</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bStart</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>496</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">nStep</Name>
+				<Type>BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>504</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bSwitch</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Switches the output on for the period of time given by tLightDuration.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bOff</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Switches the output off.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>520</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">tLightDuration</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Period of time for which the output is set.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>528</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">tPreWarningStart</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Warning time.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>560</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">tPreWarningDuration</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[Duration of the prewarning.]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bLight</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[A rising edge at the bSwitch input sets the output for the duration of tLightDuration.]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>624</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>101</CodeIndex>
+				<InitIndex>102</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10050B9B" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">TP</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Trigger for Start of the Signal]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[The length of the High-Signal in 10ms]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[The pulse]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[The current phase of the High-Signal]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>217</CodeIndex>
+				<InitIndex>218</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060D24" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">TOF</Name>
+			<BitSize>144</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">StartTime</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[internal variable]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">IN</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[starts timer with falling edge, resets timer with rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PT</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[time to pass, before Q is set]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[is FALSE, PT seconds after IN had a falling edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">ET</Name>
+				<Type>TIME</Type>
+				<Comment>
+					<![CDATA[elapsed time]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>213</CodeIndex>
+				<InitIndex>214</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="300002C0" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">E_ArgType</Name>
+			<Type>INT</Type>
+			<BitSize>16</BitSize>
+			<EnumInfo>
+				<Text>ARGTYPE_UNKNOWN</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_BYTE</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_WORD</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_DWORD</Text>
+				<Enum>3</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_REAL</Text>
+				<Enum>4</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_LREAL</Text>
+				<Enum>5</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_SINT</Text>
+				<Enum>6</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_INT</Text>
+				<Enum>7</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_DINT</Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_USINT</Text>
+				<Enum>9</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_UINT</Text>
+				<Enum>10</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_UDINT</Text>
+				<Enum>11</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_STRING</Text>
+				<Enum>12</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>ARGTYPE_TIME</Text>
+				<Enum>13</Enum>
+			</EnumInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="40000018" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">T_AmsNetId</Name>
+			<Type Decoration="40000018">STRING(23)</Type>
+			<BitSize>192</BitSize>
+		</DataType>
+		<DataType>
+			<Name Decoration="100CAA89" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSCLOSE</Name>
+			<BitSize>416</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">bLastEdge</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[status of last edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">State</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[internal state]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeStamp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LocalVar</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pCurrSession</Name>
+				<Type Pointer="1">BYTE</Type>
+				<Comment>
+					<![CDATA[pointer to csp]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLOSE</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TMOUT</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>368</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>376</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERRID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>168</CodeIndex>
+				<InitIndex>169</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">T_AmsPort</Name>
+			<Type>UINT</Type>
+			<BitSize>16</BitSize>
+		</DataType>
+		<DataType>
+			<Name Decoration="2001014A">ARRAY [0..5] OF BYTE</Name>
+			<Type>BYTE</Type>
+			<BitSize>48</BitSize>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1018FD6F" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSRDWRTEX</Name>
+			<BitSize>768</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">bLastEdge</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[status of last edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">State</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[internal state]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LocalVar</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">MyPortNo</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeOutAct</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeStamp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ACT_HUSER</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TargetNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pCurrSession</Name>
+				<Type Pointer="1">BYTE</Type>
+				<Comment>
+					<![CDATA[pointer to csp]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">WRITELEN</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">READLEN</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">SRCADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DESTADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>608</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">WRTRD</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TMOUT</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>656</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>688</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>696</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERRID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">COUNT_R</Name>
+				<Type>UDINT</Type>
+				<Comment>
+					<![CDATA[count of bytes actually read]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>736</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>170</CodeIndex>
+				<InitIndex>171</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100F72E7" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSRDWRTIND</Name>
+			<BitSize>512</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iIdent</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pQueue</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">VALID</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>304</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RDLENGTH</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">WRTLENGTH</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DATAADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>172</CodeIndex>
+				<InitIndex>173</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100E90BD" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSRDWRTRESBC</Name>
+			<BitSize>496</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">cNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">csp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESULT</Name>
+				<Type>DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LEN</Name>
+				<Type>DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DATAADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>488</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>174</CodeIndex>
+				<InitIndex>175</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1016F454" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSREADEX</Name>
+			<BitSize>704</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">bLastEdge</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[status of last edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">State</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[internal state]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LocalVar</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">MyPortNo</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeOutAct</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeStamp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ACT_HUSER</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TargetNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pCurrSession</Name>
+				<Type Pointer="1">BYTE</Type>
+				<Comment>
+					<![CDATA[pointer to csp]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LEN</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DESTADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">READ</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TMOUT</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>624</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>632</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERRID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">COUNT_R</Name>
+				<Type>UDINT</Type>
+				<Comment>
+					<![CDATA[count of bytes actually read]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>672</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>176</CodeIndex>
+				<InitIndex>177</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100D69E7" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSREADIND</Name>
+			<BitSize>448</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pQueue</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">VALID</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>304</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LENGTH</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>178</CodeIndex>
+				<InitIndex>179</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100E91B7" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSREADRESBC</Name>
+			<BitSize>496</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">cNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">csp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESULT</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LEN</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DATAADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>488</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>180</CodeIndex>
+				<InitIndex>181</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="1015F097" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSWRITE</Name>
+			<BitSize>672</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">bLastEdge</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[status of last edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">State</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[internal state]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LocalVar</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">MyPortNo</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeOutAct</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TimeStamp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ACT_HUSER</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TargetNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pCurrSession</Name>
+				<Type Pointer="1">BYTE</Type>
+				<Comment>
+					<![CDATA[pointer to csp]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>208</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>432</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>480</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LEN</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">SRCADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>544</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">WRITE</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">TMOUT</Name>
+				<Type>TIME</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>592</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>624</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>632</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ERRID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>182</CodeIndex>
+				<InitIndex>183</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100E6DB2" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSWRITEIND</Name>
+			<BitSize>480</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">pQueue</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">CLEAR</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">VALID</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>104</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>304</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXGRP</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">IDXOFFS</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">LENGTH</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">DATAADDR</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>184</CodeIndex>
+				<InitIndex>185</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100C8B52" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">ADSWRITERESBC</Name>
+			<BitSize>432</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">Ident</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iState</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">iLocal</Name>
+				<Type>WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">cNetId</Name>
+				<Type Decoration="2001014A">ARRAY [0..5] OF BYTE</Type>
+				<BitSize>48</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">csp</Name>
+				<Type>DWORD</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND_I</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">NETID</Name>
+				<Type Decoration="40000018">STRING(23)</Type>
+				<BitSize>192</BitSize>
+				<BitOffs>136</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">PORT</Name>
+				<Type>UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>336</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">INVOKEID</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>352</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESULT</Name>
+				<Type>UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">RESPOND</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>416</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcAdsBC.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>424</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>186</CodeIndex>
+				<InitIndex>187</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060AFD" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CTD</Name>
+			<BitSize>80</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CD Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Down on rising edge]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LOAD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Load Start Value]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Start Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached 0]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>189</CodeIndex>
+				<InitIndex>190</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="10060B75" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CTU</Name>
+			<BitSize>80</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">M</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CU Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Up]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RESET</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Reset Counter to 0]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Counter Limit]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached the Limit]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>191</CodeIndex>
+				<InitIndex>192</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100A13D0" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CTUD</Name>
+			<BitSize>96</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">MU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CU Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">MD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Variable for CD Edge Detection]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Up]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Count Down]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RESET</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Reset Counter to Null]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LOAD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Load Start Value]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">PV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Start Value / Counter Limit]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">QU</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached Limit]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">QD</Name>
+				<Type>BOOL</Type>
+				<Comment>
+					<![CDATA[Counter reached Null]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CV</Name>
+				<Type>WORD</Type>
+				<Comment>
+					<![CDATA[Current Counter Value]]>
+				</Comment>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>193</CodeIndex>
+				<InitIndex>194</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100306C8" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RS</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SET</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RESET1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>207</CodeIndex>
+				<InitIndex>208</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100409DC" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SEMA</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">X</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CLAIM</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RELEASE</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">BUSY</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>209</CodeIndex>
+				<InitIndex>210</InitIndex>
+			</FbInfo>
+		</DataType>
+		<DataType>
+			<Name Decoration="100306C6" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SR</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SET1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RESET</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name FbParameter="Output" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">Q1</Name>
+				<Type>BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<FbInfo>
+				<CodeIndex>211</CodeIndex>
+				<InitIndex>212</InitIndex>
+			</FbInfo>
+		</DataType>
+	</DataTypes>
+	<Functions>
+		<Function>
+			<Name Decoration="100204D9" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_F</Name>
+			<FunInfo>
+				<CodeIndex>42</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_F</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204DE" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_K</Name>
+			<FunInfo>
+				<CodeIndex>43</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_K</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E5" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_R</Name>
+			<FunInfo>
+				<CodeIndex>44</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">C_TO_R</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10020CE3" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_GetVersionTcBABasic</Name>
+			<FunInfo>
+				<CodeIndex>45</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_GetVersionTcBABasic</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">nVersionElement</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1008284E" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_Scale</Name>
+			<FunInfo>
+				<CodeIndex>46</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_Scale</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fA</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fB</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fRawData</Name>
+					<Type>REAL</Type>
+					<Comment>
+						<![CDATA[Raw data.]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fRawDataLowerOffLimit</Name>
+					<Type>REAL</Type>
+					<Comment>
+						<![CDATA[Lower limit for raw data.]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fRawDataUpperOffLimit</Name>
+					<Type>REAL</Type>
+					<Comment>
+						<![CDATA[Upper limit for raw data.]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fScaleDataLowerOffLimit</Name>
+					<Type>REAL</Type>
+					<Comment>
+						<![CDATA[Lower limit of scaled measurement.]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fScaleDataUpperOffLimit</Name>
+					<Type>REAL</Type>
+					<Comment>
+						<![CDATA[Upper limit of scaled measurement.]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204D9" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_C</Name>
+			<FunInfo>
+				<CodeIndex>47</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_C</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_K</Name>
+			<FunInfo>
+				<CodeIndex>48</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_K</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E8" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_R</Name>
+			<FunInfo>
+				<CodeIndex>49</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">F_TO_R</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100541BE" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_DayOfYear</Name>
+			<FunInfo>
+				<CodeIndex>119</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_DayOfYear</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">bLeapyear</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">uiDayOfYear</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">i</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">stSystemTime</Name>
+					<Type Decoration="10081BB4">TIMESTRUCT</Type>
+					<BitSize>128</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10030D2F" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_ValidDayOfMonth</Name>
+			<FunInfo>
+				<CodeIndex>120</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_ValidDayOfMonth</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">uiDay</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">uiMonth</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100B52F2" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_WeekOfYear</Name>
+			<FunInfo>
+				<CodeIndex>121</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">FUN_WeekOfYear</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">in</Name>
+					<Type>DT</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">date_sec</Name>
+					<Type>DWORD</Type>
+					<Comment>
+						<![CDATA[date seconds]]>
+					</Comment>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">dow</Name>
+					<Type>WORD</Type>
+					<Comment>
+						<![CDATA[day of week]]>
+					</Comment>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">year</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">KWStart</Name>
+					<Type>DATE</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">first</Name>
+					<Type>DATE</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">ff</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">dwSECPERDAY</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">dwSECPERWEEK</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">systemtime</Name>
+					<Type Decoration="10081BB4">TIMESTRUCT</Type>
+					<BitSize>128</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204DE" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_C</Name>
+			<FunInfo>
+				<CodeIndex>122</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_C</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_F</Name>
+			<FunInfo>
+				<CodeIndex>123</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_F</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204ED" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_R</Name>
+			<FunInfo>
+				<CodeIndex>124</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">K_TO_R</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E5" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_C</Name>
+			<FunInfo>
+				<CodeIndex>125</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_C</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204E8" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_F</Name>
+			<FunInfo>
+				<CodeIndex>126</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_F</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100204ED" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_K</Name>
+			<FunInfo>
+				<CodeIndex>127</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">R_TO_K</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6">fX</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10040E2B" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">CLEARBIT32</Name>
+			<FunInfo>
+				<CodeIndex>134</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">CLEARBIT32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">dwConst</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">inVal32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">bitNo</Name>
+					<Type>SINT</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100510E8" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">CSETBIT32</Name>
+			<FunInfo>
+				<CodeIndex>135</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">CSETBIT32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">dwConst</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">inVal32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">bitNo</Name>
+					<Type>SINT</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">bitVal</Name>
+					<Type>BOOL</Type>
+					<Comment>
+						<![CDATA[value to which the bit should be set]]>
+					</Comment>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100B41EB" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">DT_TO_SYSTEMTIME</Name>
+			<FunInfo>
+				<CodeIndex>140</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">DT_TO_SYSTEMTIME</Name>
+					<Type Decoration="10081BB4">TIMESTRUCT</Type>
+					<BitSize>128</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sDT</Name>
+					<Type Decoration="40000019">STRING(24)</Type>
+					<BitSize>200</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sYear</Name>
+					<Type Decoration="40000006">STRING(5)</Type>
+					<BitSize>48</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sMonth</Name>
+					<Type Decoration="40000004">STRING(3)</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sDay</Name>
+					<Type Decoration="40000004">STRING(3)</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sHour</Name>
+					<Type Decoration="40000004">STRING(3)</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sMin</Name>
+					<Type Decoration="40000004">STRING(3)</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">sSek</Name>
+					<Type Decoration="40000004">STRING(3)</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">nDay</Name>
+					<Type>BYTE</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TS</Name>
+					<Type Decoration="10081BB4">TIMESTRUCT</Type>
+					<BitSize>128</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">DTIN</Name>
+					<Type>DT</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10020F1E" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_GetVersionTcPlcUtilitiesBC</Name>
+			<FunInfo>
+				<CodeIndex>141</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_GetVersionTcPlcUtilitiesBC</Name>
+					<Type>UINT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">nVersionElement</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100255E5" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_REAL</Name>
+			<FunInfo>
+				<CodeIndex>142</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_REAL</Name>
+					<Type Decoration="10033D04">T_Arg</Type>
+					<BitSize>80</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="InOut" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">in</Name>
+					<Type Pointer="1">REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10049A70" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_SwapReal</Name>
+			<FunInfo>
+				<CodeIndex>143</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">F_SwapReal</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">pReal</Name>
+					<Type Decoration="2001014F" Pointer="1">ARRAY [0..1] OF WORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">pResult</Name>
+					<Type Decoration="2001014F" Pointer="1">ARRAY [0..1] OF WORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">fVal</Name>
+					<Type>REAL</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10040D48" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">GETBIT32</Name>
+			<FunInfo>
+				<CodeIndex>146</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">GETBIT32</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">dwConst</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">inVal32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">bitNo</Name>
+					<Type>SINT</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1004E4D6" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">IsFinite</Name>
+			<FunInfo>
+				<CodeIndex>147</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">IsFinite</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">ptrDouble</Name>
+					<Type Decoration="20010194" Pointer="1">ARRAY [0..1] OF DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">ptrSingle</Name>
+					<Type Pointer="1">DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">x</Name>
+					<Type Decoration="10033D04">T_Arg</Type>
+					<BitSize>80</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10033284" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">OTSTRUCT_TO_TIME</Name>
+			<FunInfo>
+				<CodeIndex>148</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">OTSTRUCT_TO_TIME</Name>
+					<Type>TIME</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">tmpMilli</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">OTIN</Name>
+					<Type Decoration="10061439">OTSTRUCT</Type>
+					<BitSize>96</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10040DB0" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">SETBIT32</Name>
+			<FunInfo>
+				<CodeIndex>155</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">SETBIT32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">dwConst</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">inVal32</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">bitNo</Name>
+					<Type>SINT</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1004807B" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">SYSTEMTIME_TO_DT</Name>
+			<FunInfo>
+				<CodeIndex>156</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">SYSTEMTIME_TO_DT</Name>
+					<Type>DT</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TempString</Name>
+					<Type Decoration="40000051">STRING(80)</Type>
+					<BitSize>648</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">nSeconds</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TIMESTR</Name>
+					<Type Decoration="10081BB4">TIMESTRUCT</Type>
+					<BitSize>128</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10033235" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TIME_TO_OTSTRUCT</Name>
+			<FunInfo>
+				<CodeIndex>157</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TIME_TO_OTSTRUCT</Name>
+					<Type Decoration="10061439">OTSTRUCT</Type>
+					<BitSize>96</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">tmpMilli</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcPlcUtilitiesBC.lb6">TIN</Name>
+					<Type>TIME</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10020846" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetFBusStatus</Name>
+			<FunInfo>
+				<CodeIndex>161</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetFBusStatus</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">bDummy</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1002075D" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetSysInfo</Name>
+			<FunInfo>
+				<CodeIndex>162</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetSysInfo</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">bDummy</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100207A1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetSysTick</Name>
+			<FunInfo>
+				<CodeIndex>163</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetSysTick</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">bDummy</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10020854" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetTBusStatus</Name>
+			<FunInfo>
+				<CodeIndex>164</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">GetTBusStatus</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">bDummy</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100208E8" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">PresetSysTick</Name>
+			<FunInfo>
+				<CodeIndex>165</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">PresetSysTick</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">iValue</Name>
+					<Type>DWORD</Type>
+					<BitSize>32</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1002061D" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">Reboot</Name>
+			<FunInfo>
+				<CodeIndex>166</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">Reboot</Name>
+					<Type>WORD</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">bDummy</Name>
+					<Type>BOOL</Type>
+					<BitSize>8</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="100209ED" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">TrigTBusCycle</Name>
+			<FunInfo>
+				<CodeIndex>167</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">TrigTBusCycle</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\PlcSystemBC.lb6">iProcessImage</Name>
+					<Type>UINT</Type>
+					<Comment>
+						<![CDATA[0-3]]>
+					</Comment>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1003CF58" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CONCAT</Name>
+			<FunInfo>
+				<CodeIndex>188</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">CONCAT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10048DE1" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">DELETE</Name>
+			<FunInfo>
+				<CodeIndex>195</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">DELETE</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038BEA" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">FIND</Name>
+			<FunInfo>
+				<CodeIndex>198</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">FIND</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1004D151" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">INSERT</Name>
+			<FunInfo>
+				<CodeIndex>199</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">INSERT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038BD5" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEFT</Name>
+			<FunInfo>
+				<CodeIndex>200</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEFT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SIZE</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10024688" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEN</Name>
+			<FunInfo>
+				<CodeIndex>201</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10048D08" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">MID</Name>
+			<FunInfo>
+				<CodeIndex>202</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">MID</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">LEN</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">POS</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="1005D217" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">REPLACE</Name>
+			<FunInfo>
+				<CodeIndex>205</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">REPLACE</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR1</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR2</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">L</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">P</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+		<Function>
+			<Name Decoration="10038C28" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RIGHT</Name>
+			<FunInfo>
+				<CodeIndex>206</CodeIndex>
+				<ReturnValue>
+					<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">RIGHT</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</ReturnValue>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">STR</Name>
+					<Type Decoration="40000100">STRING(255)</Type>
+					<BitSize>2048</BitSize>
+				</FunParameter>
+				<FunParameter>
+					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lb6">SIZE</Name>
+					<Type>INT</Type>
+					<BitSize>16</BitSize>
+				</FunParameter>
+			</FunInfo>
+		</Function>
+	</Functions>
+	<Programs>
+		<Program>
+			<Name Decoration="10185D5B" Crc32="0573993620" LastChange="2016-04-17T11:02:20">ADS_write</Name>
+			<PrgInfo>
+				<CodeIndex>219</CodeIndex>
+				<Symbol>
+					<Name>ADS_write.write_timeout</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.b_write3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.b_write2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.write_ads3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.write_ads2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.timer3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.timer2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.errorcounter3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.errorcounter2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.pack_c</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.test_word</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.i</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.j</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.i1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.j1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.data_changed</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.try_again2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.try_again3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.temp</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.SENT2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.SENT3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.SNT_CNT2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.SNT_CNT3</Name>
+				</Symbol>
+				<Symbol>
+					<Name>ADS_write.fb_heartbeat_timer</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="101778AD" Crc32="3476281408" LastChange="2016-04-17T11:02:20">heat</Name>
+			<PrgInfo>
+				<CodeIndex>222</CodeIndex>
+				<ActionInfo>
+					<Name>init</Name>
+					<CodeIndex>223</CodeIndex>
+				</ActionInfo>
+				<Symbol>
+					<Name>heat.temp_measure</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhid</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_dush</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_kuh</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhid_stina</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_max</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_min</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_out</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.i</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhid_sum</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_dush_sum</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhid_stina_sum</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_kuh_sum</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhidPrev</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_dushPrev</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_vhid_stinaPrev</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.t_kuhPrev</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.delta_kuh</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.delta_vhid_stina</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.delta_dush</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.delta_vhid</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.retry</Name>
+				</Symbol>
+				<Symbol>
+					<Name>heat.iRetryCounter</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="10010136" Crc32="1599259375" LastChange="2016-04-17T11:02:20">MAIN</Name>
+			<PrgInfo>
+				<CodeIndex>225</CodeIndex>
+				<Symbol>
+					<Name>MAIN.i</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="100B116A" Crc32="1853726633" LastChange="2016-04-17T11:02:20">WaterAndGasLeakage</Name>
+			<PrgInfo>
+				<CodeIndex>228</CodeIndex>
+				<Symbol>
+					<Name>WaterAndGasLeakage.defaultCfg</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.gasValveCfg</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.firstFloorLeakageDetection</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.thirdFloorLeakageDetection</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.tempReset</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.firstFloorWaterAlarm</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.thirdFloorWaterAlarm</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.firstFloorWaterState</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.thirdFloorWaterState</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.gasAlarm</Name>
+				</Symbol>
+				<Symbol>
+					<Name>WaterAndGasLeakage.gasState</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+		<Program>
+			<Name Decoration="1026CCDA" Crc32="0683926707" LastChange="2016-06-11T19:37:00">Light</Name>
+			<PrgInfo>
+				<CodeIndex>224</CodeIndex>
+				<Symbol>
+					<Name>Light.longPressDelay</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.lightDuration</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu1_l</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu2_l</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu2_bra</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu1_rakovyna</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu2_dush</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbDush</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKuh_su2_sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbDush_sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbDush_vent</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSmugy</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKuhnya</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbVitalnya_l</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbProkladka</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTerassa</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTerassa_stina</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTambur3_sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbPidval_shody</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTamburFirstFloor</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSkhody2Pov</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKuhnyaVent</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKuh1_sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu1_1sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbSu1Vent</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKomora1_sw</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKomoraVent</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbKomoraLight</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTopochnaLight</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fbTamburLight</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.msecMultiplier</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_694</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_49</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_101</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_115</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_526</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_520</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light._ImpVar_157_691</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
+	</Programs>
+	<Symbols>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.write_timeout</Name>
+			<Type>TIME</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>894</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.b_write3</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>763</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.b_write2</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>849</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.write_ads3</Name>
+			<Type Decoration="1015F097">ADSWRITE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>898</IOffset>
+			<BitSize>672</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.write_ads2</Name>
+			<Type Decoration="1015F097">ADSWRITE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>982</IOffset>
+			<BitSize>672</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.timer3</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1066</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.timer2</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1082</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.errorcounter3</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1098</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.errorcounter2</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1108</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.pack_c</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1118</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.test_word</Name>
+			<Type>WORD</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1128</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.i</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1130</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.j</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1132</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.i1</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1134</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.j1</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1136</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.data_changed</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1138</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.try_again2</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1139</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.try_again3</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1140</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>ADS_write.temp</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1142</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.SENT2</Name>
+			<Type Decoration="1003051C">F_TRIG</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1144</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.SENT3</Name>
+			<Type Decoration="1003051C">F_TRIG</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1148</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.SNT_CNT2</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1152</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.SNT_CNT3</Name>
+			<Type Decoration="10060B75">CTU</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1162</IOffset>
+			<BitSize>80</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">ADS_write.fb_heartbeat_timer</Name>
+			<Type Decoration="10060D24">TON</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1172</IOffset>
+			<BitSize>144</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.temp_measure</Name>
+			<Type Decoration="10060D24">TOF</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1190</IOffset>
+			<BitSize>144</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhid</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1208</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_dush</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1212</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_kuh</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1216</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhid_stina</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1220</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_max</Name>
+			<Type>SINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1141</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_min</Name>
+			<Type>SINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1224</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_out</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1226</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.i</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1230</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhid_sum</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1232</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_dush_sum</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1236</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhid_stina_sum</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1240</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_kuh_sum</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1244</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhidPrev</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1248</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_dushPrev</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1252</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_vhid_stinaPrev</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1256</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.t_kuhPrev</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1260</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.delta_kuh</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1264</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.delta_vhid_stina</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1268</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.delta_dush</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1272</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.delta_vhid</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1276</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.retry</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[переміряти температуру]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1225</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">heat.iRetryCounter</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1280</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>MAIN.i</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2080</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.defaultCfg</Name>
+			<Type Decoration="10048083">WaterLeakageDetectionCfg</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2082</IOffset>
+			<BitSize>96</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.gasValveCfg</Name>
+			<Type Decoration="10048083">WaterLeakageDetectionCfg</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2094</IOffset>
+			<BitSize>96</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.firstFloorLeakageDetection</Name>
+			<Type Decoration="100BBED9">fbWaterLeakage</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2106</IOffset>
+			<BitSize>480</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.thirdFloorLeakageDetection</Name>
+			<Type Decoration="100BBED9">fbWaterLeakage</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2166</IOffset>
+			<BitSize>480</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.tempReset</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2067</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.firstFloorWaterAlarm</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2226</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.thirdFloorWaterAlarm</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2227</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.firstFloorWaterState</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2228</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.thirdFloorWaterState</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2229</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.gasAlarm</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2230</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">WaterAndGasLeakage.gasState</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2231</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.longPressDelay</Name>
+			<Type>TIME</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1282</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.lightDuration</Name>
+			<Type>TIME</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>1448</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu1_l</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching light group in wc near main enterance]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1288</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu2_l</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching main light group in wc with a shower]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1384</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu2_bra</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching bra group in wc with a shower]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1400</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu1_rakovyna</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching light group on the ceiling above washing basin in wc near main enterance]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1416</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu2_dush</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for light group in wc with a shower]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1432</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbDush</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching light in a shower room]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1528</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKuh_su2_sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[process signals from switch in kitchen near shower#2 enterance]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1544</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbDush_sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[process signals from switch in su2 near the shower]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1578</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbDush_vent</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for shover fan switching]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1612</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSmugy</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching LED stripes in livingroom]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1628</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKuhnya</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching main lightgroup in "kitchen" part of the livingroom]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1644</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbVitalnya_l</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching main lightgroup in livinngroom]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1660</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbProkladka</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching curved LED lightgroup on the livingroom ceiling]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1676</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbTerassa</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching terrade lights in the floor]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1692</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbTerassa_stina</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching terrade lights on the wall]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1708</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbTambur3_sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[process signals from third switch in first floor hall]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1724</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbPidval_shody</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching light on stairs to the basement junction]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1758</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>Light.fbTamburFirstFloor</Name>
+			<Type Decoration="100DC498">FB_StairwellLight</Type>
+			<Comment>
+				<![CDATA[fb for switching 'zebra' light in first floor hall]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1774</IOffset>
+			<BitSize>640</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSkhody2Pov</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching wall bras on the stairway to 2 floor]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1854</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKuhnyaVent</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching fan in kitchen above the stove]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1870</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKuh1_sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[process signals from switch near livingroom door]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1886</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu1_1sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[process signals from switch in WC near main entrance]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1920</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbSu1Vent</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching fan in WC near main enterance]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1954</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKomora1_sw</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<Comment>
+				<![CDATA[processing signals from switch in tech room]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>1970</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKomoraVent</Name>
+			<Type Decoration="10075B82">FB_Light</Type>
+			<Comment>
+				<![CDATA[fb for switching fan in tech room]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>2004</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbKomoraLight</Name>
+			<Type Decoration="100B72C5">fbMoovingSensorLight</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2954</IOffset>
+			<BitSize>880</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbTopochnaLight</Name>
+			<Type Decoration="100B72C5">fbMoovingSensorLight</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>3272</IOffset>
+			<BitSize>880</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fbTamburLight</Name>
+			<Type Decoration="100B72C5">fbMoovingSensorLight</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>3382</IOffset>
+			<BitSize>880</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1">Light.msecMultiplier</Name>
+			<Type>DINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2020</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_INVALID</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is not initialized]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>50</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_SIGNALED</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is in a signaled state]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>52</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_RESET</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is in a reset state]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>54</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_CONFIRMED</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is confirmed but not reset]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>56</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_SIGNALCON</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is signaled and confirmed]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>58</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TCSIGNAL_RESETCON</Name>
+			<Type>WORD</Type>
+			<Comment>
+				<![CDATA[signal is confirmed and reset]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>60</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.OPTION_INFINITE_LOOP</Name>
+			<Type>DWORD</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>62</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_LOGGER</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>66</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_EVENTLOG</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>68</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_RTIME</Name>
+			<Type>UINT</Type>
+			<Comment>
+				<![CDATA[R0 Real time]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>70</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_IO</Name>
+			<Type>UINT</Type>
+			<Comment>
+				<![CDATA[I/O Driver]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>72</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_NC</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>74</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_NCSAF</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>76</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_NCSVB</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>78</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_ISG</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>80</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_CNC</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>82</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_LINE</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>84</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_PLC</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>86</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_PLC_RTS1</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>88</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_PLC_RTS2</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>90</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_PLC_RTS3</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>92</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_PLC_RTS4</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>94</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_CAM</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>96</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_CAMTOOL</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>98</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R3_SYSSERV</Name>
+			<Type>UINT</Type>
+			<Comment>
+				<![CDATA[System Service]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>100</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_INVALID</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>102</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_IDLE</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>104</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_RESET</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>106</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_INIT</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>108</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_START</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>110</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_RUN</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>112</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_STOP</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>114</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_SAVECFG</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>116</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_LOADCFG</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>118</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_POWERFAILURE</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>120</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_POWERGOOD</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>122</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_ERROR</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>124</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_SHUTDOWN</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>126</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_SUSPEND</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>128</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_RESUME</Name>
+			<Type>UINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>130</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_MAXSTATES</Name>
+			<Type>UINT</Type>
+			<Comment>
+				<![CDATA[ADS reserved index groups]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>132</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYMTAB</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>134</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYMNAME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>138</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYMVAL</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>142</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_HNDBYNAME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>146</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_VALBYNAME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>150</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_VALBYHND</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>154</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_RELEASEHND</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>158</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_INFOBYNAME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>162</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_VERSION</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>166</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_INFOBYNAMEEX</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>170</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_DOWNLOAD</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>174</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_UPLOAD</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>178</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYM_UPLOADINFO</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>182</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYMNOTE</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[notification OF named handle]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>186</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIB</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read/write input BYTE(S)]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>190</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIX</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read/write input bit]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>194</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RISIZE</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read input size (in BYTE)]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>198</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWOB</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read/write output BYTE(S)]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>202</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWOX</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read/write output bit]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>206</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_ROSIZE</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read/write output bit]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>210</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_CLEARI</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[write inputs TO null]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>214</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_CLEARO</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[write outputs TO null]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>218</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIOB</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[read input AND write output BYTE(S)  ADS-READWRITE]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>222</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_DEVICE_DATA</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[state, name, etc...]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>226</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIOFFS_DEVDATA_ADSSTATE</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[ads state OF device]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>230</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.ADSIOFFS_DEVDATA_DEVSTATE</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[device state]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>234</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_OPENCREATE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>238</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_OPENREAD</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>242</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_OPENWRITE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>246</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_CREATEFILE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>250</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_CLOSEHANDLE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>254</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FOPEN</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>258</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FCLOSE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>262</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FREAD</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>266</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FWRITE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>270</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FSEEK</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>274</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FTELL</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>278</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FGETS</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>282</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FPUTS</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>286</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FSCANF</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>290</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FPRINTF</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>294</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FEOF</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>298</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FDELETE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>302</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_FRENAME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>306</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_REG_HKEYLOCALMACHINE</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>310</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_SENDEMAIL</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>314</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_TIMESERVICES</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>318</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_STARTPROCESS</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>322</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_CHANGENETID</Name>
+			<Type>UDINT</Type>
+			<Comment>
+				<![CDATA[System service index offsets: SYSTEMSERVICE_TIMESERVICES]]>
+			</Comment>
+			<IGroup>16448</IGroup>
+			<IOffset>326</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TIMESERVICE_DATEANDTIME</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>330</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TIMESERVICE_SYSTEMTIMES</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>334</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TIMESERVICE_RTCTIMEDIFF</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>338</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Constant="1" IsDefinedInLibrary="1">.TIMESERVICE_ADJUSTTIMETORTC</Name>
+			<Type>UDINT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>342</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.ads_adr1</Name>
+			<Type Decoration="40000051">STRING(80)</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2252</IOffset>
+			<BitSize>648</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.ads_adr2</Name>
+			<Type Decoration="40000051">STRING(80)</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2333</IOffset>
+			<BitSize>648</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.ads_adr3</Name>
+			<Type Decoration="40000051">STRING(80)</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2414</IOffset>
+			<BitSize>648</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>.write_ads</Name>
+			<Type Decoration="1015F097">ADSWRITE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2496</IOffset>
+			<BitSize>672</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.data2floor</Name>
+			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2580</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.data2floor_prev</Name>
+			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2584</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.data3floor</Name>
+			<Type Decoration="2001014F">ARRAY [0..10] OF BYTE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2588</IOffset>
+			<BitSize>88</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.data3floor_prev</Name>
+			<Type Decoration="2001014F">ARRAY [0..10] OF BYTE</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>2599</IOffset>
+			<BitSize>88</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.m_fancoil_vitalnya_low</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2400</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.m_fancoil_vitalnya_med</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2401</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.m_fancoil_vitalnya_high</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2402</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.skvazhyna</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2403</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.tepla_pidloga</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2404</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.T_out3</Name>
+			<Type>BYTE</Type>
+			<IGroup>16416</IGroup>
+			<IOffset>303</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.iHour</Name>
+			<Type>BYTE</Type>
+			<IGroup>16416</IGroup>
+			<IOffset>304</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.iMinute</Name>
+			<Type>BYTE</Type>
+			<IGroup>16416</IGroup>
+			<IOffset>305</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.lights</Name>
+			<Type>DWORD</Type>
+			<IGroup>16416</IGroup>
+			<IOffset>306</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.sw_tambur2_1</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>1600</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.sw_tambur3_2</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2401</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.bDarkOutside</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2406</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.bT_out_sign</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>2407</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_komora_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3200</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_su1_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3201</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_topochna_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3202</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_su2_bra</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[eib_topochna2_l 						AT%MX400.4:BOOL;]]>
+			</Comment>
+			<IGroup>16417</IGroup>
+			<IOffset>3203</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_su2_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3205</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_su1_rakovyna</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3206</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_su2_dush</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3207</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_dush</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[eib_vitalnya_smugy2 					AT%MX401.1:BOOL;
+	eib_su2_polytsi 						AT%MX401.2:BOOL;]]>
+			</Comment>
+			<IGroup>16417</IGroup>
+			<IOffset>3208</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_kuhnya1</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[eib_kuhnya2	 						AT%MX401.4:BOOL;]]>
+			</Comment>
+			<IGroup>16417</IGroup>
+			<IOffset>3211</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vitalnya_smugy1</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3213</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vitalnya_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3214</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vitalnya_prokladka</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3215</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_terassa_stina</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3216</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_pidval_shody</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3217</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_terassa</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3218</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_skhody2pov</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3219</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_tambur_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3220</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vent_su1</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3221</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vent_kuh_low</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3222</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vent_dush</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3223</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea" TaskPrio="1">.eib_vent_komora</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3224</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="MArea">.eib_vent_kuh_high</Name>
+			<Type>BOOL</Type>
+			<IGroup>16417</IGroup>
+			<IOffset>3225</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.moove_su1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>640</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_topochna</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>641</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.moove_su2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>642</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.moove_korydor_ops</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>643</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_korydor</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>644</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.moove_vitalnya</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>645</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_komora</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din1_8	AT %IX80.7:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>646</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_kino</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>648</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_skhody2_3</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>649</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_skhody1_2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>650</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_garderob</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>651</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_studio</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>652</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_tambur3</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>653</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_kabinet</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>654</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_dytjacha</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>655</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_spalnya</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din3_2	AT %IX82.1:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>656</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.moove_korydor3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din3_4	AT %IX82.3:	BOOL;
+	din3_5	AT %IX82.4:	BOOL;
+	din3_6	AT %IX82.5:	BOOL;
+	din3_7	AT %IX82.6:	BOOL;
+	din3_8sw_vhid2		AT %IX82.7:	BOOL;
+	din4_1	AT %IX83.0:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>658</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_su1_2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>665</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_komora1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>666</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_vhid1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>667</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_topochna2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>668</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_vhid2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>669</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_topochna1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>670</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_su1_1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>671</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_tambur1_2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>672</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_su2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>673</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_kuh_su2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>674</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_kuh3</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din5_5	AT %IX84.4:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>675</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_kuh4</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>677</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_tambur1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>678</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_vitalnya1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>679</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_vitalnya2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>680</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_kuh2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din6_3	AT %IX85.2:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>681</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_kuh1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>683</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_vitalnya3</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>684</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_tambur3</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>685</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.sw_tambur_su</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>686</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.sw_transit2pov</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>687</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ch_sensor1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>688</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.ch_sensor2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>689</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.zatoplennya_kot</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>690</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.zatoplennya_komora</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>691</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.zatoplennya_su2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>692</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input">.zatoplennya_kuh</Name>
+			<Type>BOOL</Type>
+			<IGroup>61473</IGroup>
+			<IOffset>693</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.zatoplennya_su3pov</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[din7_8	AT %IX86.7:	BOOL;]]>
+			</Comment>
+			<IGroup>61473</IGroup>
+			<IOffset>694</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.komora_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>640</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su1_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>641</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.topochna_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>642</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su2_bra</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>643</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.topochna2_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>644</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su2_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>645</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su1_rakovyna</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>646</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su2_dush</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>647</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.dush</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>648</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vitalnya_smugy2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>649</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.su2_polytsi</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>650</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.fancoil_vitalnya_low</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>651</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.kuhnya1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>652</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.fancoil_vitalnya_med</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>653</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.kuhnya2</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>654</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.fancoil_vitalnya_high</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>655</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.w_valve_recirc</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout3_2	AT %QX82.1:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>656</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.w_valve3pov</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>658</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vitalnya_smugy1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>659</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.w_valve1pov</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>660</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vitalnya_l</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>661</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.freecooling</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>662</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vitalnya_prokladka</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>663</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.terassa_stina</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>664</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.pidval_shody</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>665</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.terassa</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>666</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.skhody2pov</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout4_5	AT %QX83.4:	BOOL;
+	dout4_6	AT %QX83.5:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>667</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.dout4_7</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>670</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.tambur_l</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout5_1	AT %QX84.0:	BOOL;
+	dout5_2 AT %QX84.1:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>671</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.gas_valve</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout5_4	AT %QX84.3:	BOOL;
+	dout5_5	AT %QX84.4:	BOOL;
+	dout5_6	AT %QX84.5:	BOOL;
+	dout5_7	AT %QX84.6:	BOOL;
+	dout5_8	AT %QX84.7:	BOOL;
+	dout6_1	AT %QX85.0:	BOOL;
+	dout6_2	AT %QX85.1:	BOOL;
+	dout6_3	AT %QX85.2:	BOOL;
+	dout6_4	AT %QX85.3:	BOOL;
+	dout6_5	AT %QX85.4:	BOOL;
+	dout6_6	AT %QX85.5:	BOOL;
+	dout6_7	AT %QX85.6:	BOOL;
+	dout6_8	AT %QX85.7:	BOOL;
+	dout7_1	AT %QX86.0:	BOOL;
+	dout7_2	AT %QX86.1:	BOOL;
+	dout7_3	AT %QX86.2:	BOOL;
+	dout7_4	AT %QX86.3:	BOOL;
+	dout7_5	AT %QX86.4:	BOOL;
+	dout7_6	AT %QX86.5:	BOOL;
+	dout7_7	AT %QX86.6:	BOOL;
+	dout7_8	AT %QX86.7:	BOOL;
+	dout8_1	AT %QX87.0:	BOOL;
+	dout8_2	AT %QX87.1:	BOOL;
+	dout8_3	AT %QX87.2:	BOOL;
+	dout8_4	AT %QX87.3:	BOOL;
+	dout8_5	AT %QX87.4:	BOOL;
+	dout8_6	AT %QX87.5:	BOOL;
+	dout8_7	AT %QX87.6:	BOOL;
+	dout8_8	AT %QX87.7:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>674</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vent_su1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>704</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vent_kuh_low</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>705</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vent_dush</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>706</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.collector_komora</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>707</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vent_komora</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>708</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_kuh</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>709</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.vent_kuh_high</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>710</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_vitalnya1</Name>
+			<Type>BOOL</Type>
+			<IGroup>61489</IGroup>
+			<IOffset>711</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_vitalnya2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout10_2	AT %QX89.1:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>712</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_su2</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout10_4	AT %QX89.3:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>714</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_vhid_stina</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout10_6	AT %QX89.5:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>716</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output" TaskPrio="1">.collector_vhid</Name>
+			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[dout10_8	AT %QX89.7:	BOOL;
+	dout11_1	AT %QX90.0:	BOOL;
+	dout11_2	AT %QX90.1:	BOOL;
+	dout11_3	AT %QX90.2:	BOOL;
+	dout11_4	AT %QX90.3:	BOOL;
+	dout11_5	AT %QX90.4:	BOOL;
+	dout11_6	AT %QX90.5:	BOOL;
+	dout11_7	AT %QX90.6:	BOOL;
+	dout11_8	AT %QX90.7:	BOOL;]]>
+			</Comment>
+			<IGroup>61489</IGroup>
+			<IOffset>718</IOffset>
+			<BitSize>1</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.klapan_vitalnya</Name>
+			<Type>INT</Type>
+			<IGroup>61488</IGroup>
+			<IOffset>2</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.KL4414_2_Out</Name>
+			<Type>INT</Type>
+			<IGroup>61488</IGroup>
+			<IOffset>6</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.KL4414_3_Out</Name>
+			<Type>INT</Type>
+			<IGroup>61488</IGroup>
+			<IOffset>10</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Output">.KL4414_4_Out</Name>
+			<Type>INT</Type>
+			<IGroup>61488</IGroup>
+			<IOffset>14</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.temp_vhid</Name>
+			<Type>INT</Type>
+			<Comment>
+				<![CDATA[25]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset>50</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.temp_dush</Name>
+			<Type>INT</Type>
+			<Comment>
+				<![CDATA[25]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset>58</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.temp_kuh</Name>
+			<Type>INT</Type>
+			<Comment>
+				<![CDATA[-136]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset>66</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Static="Input" TaskPrio="1">.temp_vhid_stina</Name>
+			<Type>INT</Type>
+			<Comment>
+				<![CDATA[0]]>
+			</Comment>
+			<IGroup>61472</IGroup>
+			<IOffset>70</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+	</Symbols>
+	<VarConfigs/>
+</PlcProjectInfo>

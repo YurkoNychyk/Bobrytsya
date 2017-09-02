@@ -1,0 +1,115 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM ADS_write
+VAR
+	write_timeout: TIME;
+	b_write3, b_write2: BOOL;
+	write_ads3, write_ads2: ADSWRITE;
+
+	timer3, timer2:TP;
+	errorcounter3, errorcounter2, pack_c:CTU ;
+	test_word: WORD;
+	i,j,i1,j1: INT;
+	data_changed: BOOL;
+	try_again2, try_again3: BOOL;
+	temp: INT;
+	SENT2, SENT3:F_TRIG;
+	SNT_CNT2, SNT_CNT3:CTU;
+	fb_heartbeat_timer: TON;
+END_VAR
+(* @END_DECLARATION := '0' *)
+write_timeout:=t#1s;
+fb_heartbeat_timer(in:=NOT fb_heartbeat_timer.Q, pt:=t#10s);
+
+FOR i:=0 TO (SIZEOF(data2floor)-1)-1 DO
+	IF data2floor[i]<>data2floor_prev[i] THEN
+		b_write2:=TRUE;
+		EXIT;
+	ELSE
+		b_write2:=FALSE;
+	END_IF
+END_FOR
+
+IF try_again2 AND NOT timer2.Q THEN
+	b_write2:=TRUE;
+	try_again2:=FALSE;
+END_IF
+
+
+IF write_ads2.BUSY THEN b_write2:=FALSE; END_IF
+
+	write_ads2(
+		NETID:=ads_adr2,
+		PORT:=800,
+		IDXGRP:=16#4020,
+		IDXOFFS:=100,
+		WRITE:=b_write2,
+		TMOUT:=write_timeout,
+		LEN:=SIZEOF(data2floor),
+		SRCADDR:=ADR(data2floor));
+
+IF write_ads2.ERR AND NOT timer2.Q THEN
+	timer2.IN:=TRUE;
+	try_again2:=TRUE;
+END_IF
+timer2(PT:=write_timeout);
+timer2.IN:=FALSE;
+
+FOR j:=0 TO (SIZEOF(data2floor)-1)-1 DO
+	data2floor_prev[j]:=data2floor[j];
+END_FOR
+
+SENT2(CLK:=write_ads2.BUSY);
+
+IF NOT write_ads2.ERR THEN
+	SNT_CNT2(CU:=SENT2.Q);
+END_IF
+
+(*3floor*)
+FOR i1:=0 TO (SIZEOF(data3floor)-1)-1DO
+	IF data3floor[i1]<>data3floor_prev[i1] OR fb_heartbeat_timer.Q  THEN
+		b_write3:=TRUE;
+		EXIT;
+	ELSE
+		b_write3:=FALSE;
+	END_IF
+END_FOR
+
+IF try_again3 AND NOT timer3.Q THEN
+	b_write3:=TRUE;
+	try_again3:=FALSE;
+END_IF
+
+
+IF write_ads3.BUSY THEN b_write3:=FALSE; END_IF
+
+	write_ads3(
+		NETID:=ads_adr3,
+		PORT:=801,
+		IDXGRP:=16#4020,
+		IDXOFFS:=100,
+		WRITE:=b_write3,
+		TMOUT:=write_timeout,
+		LEN:=SIZEOF(data3floor),
+		SRCADDR:=ADR(data3floor));
+
+IF write_ads3.ERR AND NOT timer3.Q THEN
+	timer3.IN:=TRUE;
+	try_again3:=TRUE;
+END_IF
+timer3(PT:=write_timeout);
+timer3.IN:=FALSE;
+
+SENT3(CLK:=write_ads3.BUSY);
+
+IF NOT write_ads3.ERR THEN
+	SNT_CNT3(CU:=SENT3.Q);
+END_IF
+
+FOR j1:=0 TO (SIZEOF(data3floor)-1)-1 DO
+	data3floor_prev[j1]:=data3floor[j1];
+END_FOR
+END_PROGRAM

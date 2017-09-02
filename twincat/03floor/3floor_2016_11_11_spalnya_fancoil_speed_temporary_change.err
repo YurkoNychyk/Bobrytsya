@@ -1,0 +1,67 @@
+Interface of POU 'EIB'
+Data allocation
+Check task configuration
+Library 'TcBaseBX.lbx 10.5.06 07:50:20'
+Library 'standard.lbx 5.12.03 07:02:30'
+Generating prolog
+Implementation of POU 'EIB'
+Implementation of POU 'EIB.central_lights'
+Implementation of POU 'EIB.derevo'
+Implementation of POU 'EIB.eibPort_climate'
+Implementation of POU 'EIB.floor1'
+Implementation of POU 'EIB.floor2'
+Warning 1508: EIB.floor2 (151): Type 'BYTE' of the operand does not match type 'INT' of the conversion! 'BYTE' will be used for the conversion.
+Implementation of POU 'EIB.floor3'
+Implementation of POU 'EIB.PanelBus'
+Implementation of POU 'EIB.timers'
+Implementation of POU 'seasonChange'
+Error 4001: seasonChange (4): Identifier 'HEATING_MODE' not defined
+Error 4001: seasonChange (8): Identifier 'HEATING_MODE' not defined
+Implementation of POU 'summer'
+Error 4001: summer (1): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (6): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (10): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (12): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (14): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (19): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (20): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (25): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (27): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (29): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (56): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (60): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (62): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (64): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (69): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (70): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (75): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (77): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (79): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (104): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (108): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (110): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (112): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (117): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (118): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (123): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (125): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (127): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (152): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (156): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (158): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (160): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (165): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (166): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (171): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (173): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (175): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (197): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (201): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (203): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (205): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (210): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (211): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (216): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (218): Identifier 'HEATING_MODE' not defined
+Error 4001: summer (220): Identifier 'HEATING_MODE' not defined
+Implementation of the task configuration

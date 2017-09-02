@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+    <page id="root" content="content/root.xhtml"/>
+    <page id="device" content="content/device.xhtml"/>
+    <page id="sam" content="content/sam.xhtml"></page>
+    <page id="hit" content="content/HomeInformationTerminal.xhtml"/>
+</introContent>

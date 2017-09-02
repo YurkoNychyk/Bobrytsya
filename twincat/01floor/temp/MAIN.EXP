@@ -1,0 +1,36 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'main' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+(*ADS*)
+
+	ads_adr1: STRING:='10.0.5.61.1.1';
+	ads_adr2: STRING:='10.0.5.62.1.1';
+	ads_adr3: STRING:='10.0.5.63.1.1';
+
+	write_ads: ADSWRITE;
+	close_ads:ADSCLOSE;
+	read_ads2: ADSREADEX;
+	read_ads3: ADSREADEX;
+
+	data2floor: ARRAY[0..3] OF WORD; (*сюди пишуться дані, прочитані з другого поверха*)
+	data2floor_prev :ARRAY[0..3] OF WORD;
+
+	m_fancoil_vitalnya_low 	AT%MX0.0: BOOL;
+	m_fancoil_vitalnya_med 	AT%MX0.1: BOOL;
+	m_fancoil_vitalnya_high 	AT%MX0.2: BOOL;
+
+	m_collector				AT%MB1:BYTE;
+
+	svitlo_skhody2_1	AT%MX2.0:BOOL;
+	skhody3			AT%MX2.1:BOOL;
+END_VAR
+
+(* @OBJECT_END := 'main' *)
+(* @CONNECTIONS := main
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)

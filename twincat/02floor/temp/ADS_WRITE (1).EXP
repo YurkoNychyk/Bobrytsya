@@ -1,0 +1,59 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM ADS_write
+VAR
+	write_timeout: TIME;
+	b_write1: BOOL;
+	write_ads1: ADSWRITE;
+
+	timer1:TP;
+	errorcounter1, pack_c:CTU ;
+	test_word: WORD;
+	i1,j1: INT;
+	data_changed: BOOL;
+	try_again1: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+(*1floor*)
+FOR i1:=0 TO (SIZEOF(data1floor))-1 DO
+	IF data1floor[i1]<>data1floor_prev[i1] THEN
+		b_write1:=TRUE;
+		EXIT;
+	ELSE
+		b_write1:=FALSE;
+	END_IF
+END_FOR
+
+IF try_again1 AND NOT timer1.Q THEN
+	b_write1:=TRUE;
+	try_again1:=FALSE;
+END_IF
+
+
+IF write_ads1.BUSY THEN b_write1:=FALSE; END_IF
+
+	write_ads1(
+		NETID:=ads_adr1,
+		PORT:=800,
+		IDXGRP:=16#4020,
+		IDXOFFS:=2,
+		WRITE:=b_write1,
+		TMOUT:=t#5s,
+		LEN:=SIZEOF(data1floor),
+		SRCADDR:=ADR(data1floor));
+
+IF write_ads1.ERR AND NOT timer1.Q THEN
+	timer1.IN:=TRUE;
+	try_again1:=TRUE;
+END_IF
+timer1(PT:=write_timeout);
+timer1.IN:=FALSE;
+
+
+FOR j1:=0 TO (SIZEOF(data1floor))-1 DO
+	data1floor_prev[j1]:=data1floor[j1];
+END_FOR
+END_PROGRAM

@@ -1,0 +1,8 @@
+Data allocation
+Check task configuration
+Library 'TcBaseBX.lbx 10.5.06 09:50:20'
+Library 'standard.lbx 5.12.03 09:02:30'
+Generating prolog
+Implementation of POU 'EIB'
+Error 4010: EIB (232): Type mismatch: Cannot convert 'REAL' to 'INT'.
+Implementation of the task configuration

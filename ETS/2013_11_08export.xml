@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<GroupAddress-Export xmlns="http://knx.org/xml/ga-export/01">
+  <GroupAddress Name="System time" Address="1/7/2" Unfiltered="true" />
+</GroupAddress-Export>

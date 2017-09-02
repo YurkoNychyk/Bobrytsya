@@ -1,0 +1,18 @@
+Declarations of the global constants
+Declarations of the global library constants
+Declarations of the global constants
+Declarations of the global library constants
+Interface of POU 'ADS_COMMUNICATION'
+Interface of POU 'MAIN'
+Declarations of the global variables
+Data allocation
+Check task configuration
+Library 'TcAdsBC.lb6 5.7.02 11:03:02'
+Library 'standard.lb6 5.6.98 11:03:02'
+Library 'PlcSystemBC.lb6 21.3.01 11:03:02'
+Generating prolog
+Implementation of POU 'ADS_Communication'
+Error 4332: ADS_Communication (6): Expression expected at input 'WRITE' of the box 'ADSWRITE'
+Error 4121: ADS_Communication (6): 'WRITE2' is not a component of 'MAIN'
+Implementation of POU 'MAIN.ADS_Write'
+Implementation of POU 'MAIN'

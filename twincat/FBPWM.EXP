@@ -1,0 +1,27 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK fbPWM
+VAR_INPUT
+	enable				: BOOL 		:= TRUE;
+	cycleLength			: TIME 		:= t#10m;
+	pulseWidth			: INT		:= 100; (*0-100%*)
+END_VAR
+VAR_OUTPUT
+	out					: BOOL;
+END_VAR
+VAR
+	pulseTimer			: TP;
+	gapTimer			: TP;
+	pulseLength			: TIME;
+	temp				: REAL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+temp:= TIME_TO_REAL(cycleLength) * (INT_TO_REAL(pulseWidth)/100);
+pulseLength := REAL_TO_TIME(temp );
+gapTimer(IN := enable AND NOT pulseTimer.Q, PT := cycleLength-pulseLength);
+pulseTimer(IN := enable AND NOT gapTimer.Q, PT := pulseLength, q=>out);
+
+END_FUNCTION_BLOCK

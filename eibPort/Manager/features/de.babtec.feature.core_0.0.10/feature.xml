@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.babtec.feature.core"
+      label="bab-tec Manager: Core Utils"
+      version="0.0.10"
+      provider-name="b.a.b-technologie gmbh"
+      plugin="de.babtec.manager">
+
+   <description>
+      Manager Core Feature
+
+Contains basic UI additions, utils and network communication
+protocols.
+   </description>
+
+   <copyright>
+      (c) Copyright b.a.b-technologie gmbh 2007.
+   </copyright>
+
+   <license>
+      Lizenzbedingungen
+
+1. Gegenstand 
+Das Softwarepaket, das der Lizenznehmer von der Firma b.a.b-technologie gmbh (&apos;Lizenzgeber&apos;) erhalten hat, bestehend aus den Programm Manager und den zusätzlichen Plug-Ins sowie dazugehörigem Hilfetext und, falls vom Lizenznehmer gewünscht, einer Beschreibung.
+
+2. Urheberrechts-Vermerk
+Alle Rechte an Original und Kopie bleiben bei der Firma b.a.b-technologie gmbh.
+
+3. Änderungen   
+Änderungen des Programmes in Rahmen der Weiterentwicklung bleiben dem Lizenzgeber vorbehalten.
+
+4. Gewährleistung   
+Das Programm und die Beschreibung sind nach bestem Wissen erstellt worden. Dem Lizenznehmer ist bekannt, dass nach dem Stand der Technik Fehler in Programmen und dem dazugehörigen Material nicht ausgeschlossen werden können. Es wird keine Gewähr für bestimmte Eigenschaften des Softwareprodukts, oder dass es bestimmten Anforderungen des Lizenznehmers entspricht, übernommen. Der Lizenznehmer ist ausschließlich für die Auswahl des Programmes, dessen Einsatz und Nutzung verantwortlich. Der Lizenzgeber ist nicht verantwortlich für den Verlust oder die Ungenauigkeit von Daten. Die Firma b.a.b-technologie gmbh haftet nicht für entgangenen Gewinn, für Schäden aus Ansprüchen gegenüber dem Lizenznehmer und für sonstige Folgeschäden.
+   </license>
+
+   <url>
+      <update label="Manager Updates" url="http://www.bab-tec.de/download/produkte/manager/updates/public"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.rcp" version="3.5.2.R35x_v20100119-9SA0FxwFnoCU5XxWItFdXXb27BA6"/>
+   </requires>
+
+   <plugin
+         id="de.babtec.net"
+         download-size="0"
+         install-size="0"
+         version="0.0.9"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.9"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.config"
+         download-size="0"
+         install-size="0"
+         version="0.1.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.dom4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.6"/>
+
+   <plugin
+         id="com.jcraft.jsch"
+         download-size="0"
+         install-size="0"
+         version="0.1.41.v200903070017"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet"
+         download-size="0"
+         install-size="0"
+         version="2.5.0.v200806031605"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         download-size="0"
+         install-size="0"
+         version="1.0.4.v200904062259"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene"
+         download-size="0"
+         install-size="0"
+         version="1.9.1.v20080530-1600"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene.analysis"
+         download-size="0"
+         install-size="0"
+         version="1.9.1.v20080530-1600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ant.core"
+         download-size="0"
+         install-size="0"
+         version="3.2.101.v20091110_r352"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.compatibility.registry"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20090429-1800"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.core.variables"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20090521"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.http.jetty"
+         download-size="0"
+         install-size="0"
+         version="2.0.0.v20090520-1800"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.http.servlet"
+         download-size="0"
+         install-size="0"
+         version="1.0.200.v20090520-1800"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help.base"
+         download-size="0"
+         install-size="0"
+         version="3.4.0.v201002111343"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi.services"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v20090520-1800"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.forms"
+         download-size="0"
+         install-size="0"
+         version="3.4.1.v20090714_35x"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.intro"
+         download-size="0"
+         install-size="0"
+         version="3.3.2.v20100111_35x"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.navigator"
+         download-size="0"
+         install-size="0"
+         version="3.4.2.M20100120-0800"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.core"
+         download-size="0"
+         install-size="0"
+         version="3.2.300.v20090525"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.scheduler"
+         download-size="0"
+         install-size="0"
+         version="3.2.200.v20081127"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.update.ui"
+         download-size="0"
+         install-size="0"
+         version="3.2.201.R35x_v20090813"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.net"
+         download-size="0"
+         install-size="0"
+         version="1.2.1.r35x_20090812-1200"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.log4j"
+         download-size="0"
+         install-size="0"
+         version="1.2.13.v200903072027"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.dbutils"
+         download-size="0"
+         install-size="0"
+         version="0.0.9"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.manager"
+         download-size="0"
+         install-size="0"
+         version="0.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.babtec.manager.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.9"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.security"
+         download-size="0"
+         install-size="0"
+         version="1.0.100.v20090520-1800"
+         unpack="false"/>
+
+</feature>

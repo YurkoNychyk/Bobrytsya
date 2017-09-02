@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.babtec.feature.device"
+      label="bab-tec Manager: Device Feature"
+      version="0.0.10">
+
+   <description>
+      Discovery Tool and additional Device Information Tools
+   </description>
+
+   <copyright>
+      (c) Copyright b.a.b-technologie gmbh 2007.
+   </copyright>
+
+   <license>
+      Lizenzbedingungen
+
+1. Gegenstand 
+Das Softwarepaket, das der Lizenznehmer von der Firma b.a.b-technologie gmbh (&apos;Lizenzgeber&apos;) erhalten hat, bestehend aus den Programm Manager und den zusätzlichen Plug-Ins sowie dazugehörigem Hilfetext und, falls vom Lizenznehmer gewünscht, einer Beschreibung.
+
+2. Urheberrechts-Vermerk
+Alle Rechte an Original und Kopie bleiben bei der Firma b.a.b-technologie gmbh.
+
+3. Änderungen   
+Änderungen des Programmes in Rahmen der Weiterentwicklung bleiben dem Lizenzgeber vorbehalten.
+
+4. Gewährleistung   
+Das Programm und die Beschreibung sind nach bestem Wissen erstellt worden. Dem Lizenznehmer ist bekannt, dass nach dem Stand der Technik Fehler in Programmen und dem dazugehörigen Material nicht ausgeschlossen werden können. Es wird keine Gewähr für bestimmte Eigenschaften des Softwareprodukts, oder dass es bestimmten Anforderungen des Lizenznehmers entspricht, übernommen. Der Lizenznehmer ist ausschließlich für die Auswahl des Programmes, dessen Einsatz und Nutzung verantwortlich. Der Lizenzgeber ist nicht verantwortlich für den Verlust oder die Ungenauigkeit von Daten. Die Firma b.a.b-technologie gmbh haftet nicht für entgangenen Gewinn, für Schäden aus Ansprüchen gegenüber dem Lizenznehmer und für sonstige Folgeschäden.
+   </license>
+
+   <requires>
+      <import feature="de.babtec.feature.core" version="0.0.9"/>
+   </requires>
+
+   <plugin
+         id="de.babtec.device"
+         download-size="0"
+         install-size="0"
+         version="0.0.9"
+         unpack="false"/>
+
+</feature>

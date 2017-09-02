@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esfx>
+  <groups>
+    <maingroup index="1" name="Beckhoff">
+      <middlegroup index="1" name="" />
+      <middlegroup index="2" name="Middlegroup 2" />
+      <middlegroup index="3" name="Middlegroup 3" />
+      <middlegroup index="4" name="Middlegroup 4" />
+      <middlegroup index="5" name="Middlegroup 5" />
+      <middlegroup index="6" name="Middlegroup 6" />
+    </maingroup>
+  </groups>
+  <addresses>
+    <address address="2304">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>256</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>VITALNYA_T</name>
+      <datatype>200050003</datatype>
+    </address>
+    <address address="2314">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>266</subgrp2>
+      <subgrp3>10</subgrp3>
+      <name>komora_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2315">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>267</subgrp2>
+      <subgrp3>11</subgrp3>
+      <name>su1_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2316">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>268</subgrp2>
+      <subgrp3>12</subgrp3>
+      <name>topochna_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2317">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>269</subgrp2>
+      <subgrp3>13</subgrp3>
+      <name>su2_bra</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2318">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>270</subgrp2>
+      <subgrp3>14</subgrp3>
+      <name>topochna2_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2319">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>271</subgrp2>
+      <subgrp3>15</subgrp3>
+      <name>su2_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2320">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>272</subgrp2>
+      <subgrp3>16</subgrp3>
+      <name>su1_rakovyna</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2321">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>273</subgrp2>
+      <subgrp3>17</subgrp3>
+      <name>su2_dush</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2322">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>274</subgrp2>
+      <subgrp3>18</subgrp3>
+      <name>dush</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2323">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>275</subgrp2>
+      <subgrp3>19</subgrp3>
+      <name>vitalnya_smugy2</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2324">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>276</subgrp2>
+      <subgrp3>20</subgrp3>
+      <name>su2_polytsi</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2325">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>277</subgrp2>
+      <subgrp3>21</subgrp3>
+      <name>kuhnya1</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2326">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>278</subgrp2>
+      <subgrp3>22</subgrp3>
+      <name>kuhnya2</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2327">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>279</subgrp2>
+      <subgrp3>23</subgrp3>
+      <name>vitalnya_smugy1</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2328">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>280</subgrp2>
+      <subgrp3>24</subgrp3>
+      <name>vitalnya_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2329">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>281</subgrp2>
+      <subgrp3>25</subgrp3>
+      <name>vitalnya_prokladka</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2330">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>282</subgrp2>
+      <subgrp3>26</subgrp3>
+      <name>terassa_stina</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2331">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>283</subgrp2>
+      <subgrp3>27</subgrp3>
+      <name>pidval_shody</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2332">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>284</subgrp2>
+      <subgrp3>28</subgrp3>
+      <name>terassa</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2333">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>285</subgrp2>
+      <subgrp3>29</subgrp3>
+      <name>skhody2pov</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2334">
+      <maingroup>1</maingroup>
+      <middlegroup>1</middlegroup>
+      <subgrp2>286</subgrp2>
+      <subgrp3>30</subgrp3>
+      <name>tambur_l</name>
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2560">
+      <maingroup>1</maingroup>
+      <middlegroup>2</middlegroup>
+      <subgrp2>512</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>KINO_T</name>
+      <datatype>200050003</datatype>
+    </address>
+    <address address="2570">
+      <maingroup>1</maingroup>
+      <middlegroup>2</middlegroup>
+      <subgrp2>522</subgrp2>
+      <subgrp3>10</subgrp3>
+      <name />
+      <datatype>10000010</datatype>
+    </address>
+    <address address="2816">
+      <maingroup>1</maingroup>
+      <middlegroup>3</middlegroup>
+      <subgrp2>768</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>STUDIO T</name>
+      <datatype>200050003</datatype>
+    </address>
+    <address address="3072">
+      <maingroup>1</maingroup>
+      <middlegroup>4</middlegroup>
+      <subgrp2>1024</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>KABINET T</name>
+      <datatype>200050003</datatype>
+    </address>
+    <address address="3328">
+      <maingroup>1</maingroup>
+      <middlegroup>5</middlegroup>
+      <subgrp2>1280</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>DYTJACHA T</name>
+      <datatype>200050003</datatype>
+    </address>
+    <address address="3584">
+      <maingroup>1</maingroup>
+      <middlegroup>6</middlegroup>
+      <subgrp2>1536</subgrp2>
+      <subgrp3>0</subgrp3>
+      <name>SPALNYA T</name>
+      <datatype>200050003</datatype>
+    </address>
+  </addresses>
+</esfx>
+

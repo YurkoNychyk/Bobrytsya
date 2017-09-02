@@ -1,0 +1,119 @@
+Interface of POU 'C_TO_F'
+Error 3610: C_TO_F (1): 'LREAL' not supported
+Interface of POU 'C_TO_K'
+Error 3610: C_TO_K (1): 'LREAL' not supported
+Interface of POU 'C_TO_R'
+Error 3610: C_TO_R (1): 'LREAL' not supported
+Interface of POU 'F_SCALE'
+Error 3610: F_Scale (1): 'LREAL' not supported
+Interface of POU 'F_TO_C'
+Error 3610: F_TO_C (1): 'LREAL' not supported
+Interface of POU 'F_TO_K'
+Error 3610: F_TO_K (1): 'LREAL' not supported
+Interface of POU 'F_TO_R'
+Error 3610: F_TO_R (1): 'LREAL' not supported
+Interface of POU 'FB_CALCSUNPOSITION'
+Error 3610: FB_CalcSunPosition (3): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (4): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (8): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (9): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (15): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (16): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (17): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (18): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (19): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (20): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (21): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (22): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (23): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (24): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (25): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (26): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (27): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (28): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (29): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (30): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (31): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (32): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (34): 'LREAL' not supported
+Error 3610: FB_CalcSunPosition (37): 'LREAL' not supported
+Interface of POU 'FB_DIMMER1SWITCH'
+Error 3610: FB_Dimmer1Switch (40): 'LREAL' not supported
+Error 3610: FB_Dimmer1Switch (44): 'LREAL' not supported
+Error 3610: FB_Dimmer1Switch (47): 'LREAL' not supported
+Interface of POU 'FB_DIMMER2SWITCH'
+Error 3610: FB_Dimmer2Switch (41): 'LREAL' not supported
+Error 3610: FB_Dimmer2Switch (45): 'LREAL' not supported
+Error 3610: FB_Dimmer2Switch (48): 'LREAL' not supported
+Interface of POU 'FB_DIMMER3SWITCH'
+Error 3610: FB_Dimmer3Switch (47): 'LREAL' not supported
+Error 3610: FB_Dimmer3Switch (51): 'LREAL' not supported
+Error 3610: FB_Dimmer3Switch (54): 'LREAL' not supported
+Interface of POU 'FB_MAXIMUMDEMANDCONTROLLER'
+Error 3610: FB_MaximumDemandController (4): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (5): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (11): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (12): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (13): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (15): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (28): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (29): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (32): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (48): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (49): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (50): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (51): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (52): 'LREAL' not supported
+Error 3610: FB_MaximumDemandController (59): 'LREAL' not supported
+Interface of POU 'FB_PT1'
+Error 3610: FB_PT1 (3): 'LREAL' not supported
+Error 3610: FB_PT1 (4): 'LREAL' not supported
+Error 3610: FB_PT1 (10): 'LREAL' not supported
+Error 3610: FB_PT1 (14): 'LREAL' not supported
+Error 3610: FB_PT1 (15): 'LREAL' not supported
+Interface of POU 'FB_PT2'
+Error 3610: FB_PT2 (3): 'LREAL' not supported
+Error 3610: FB_PT2 (4): 'LREAL' not supported
+Error 3610: FB_PT2 (11): 'LREAL' not supported
+Error 3610: FB_PT2 (15): 'LREAL' not supported
+Error 3610: FB_PT2 (16): 'LREAL' not supported
+Error 3610: FB_PT2 (17): 'LREAL' not supported
+Error 3610: FB_PT2 (18): 'LREAL' not supported
+Interface of POU 'FB_RAMP'
+Error 3610: FB_Ramp (30): 'LREAL' not supported
+Error 3610: FB_Ramp (31): 'LREAL' not supported
+Error 3610: FB_Ramp (32): 'LREAL' not supported
+Interface of POU 'FB_STAIRWELLDIMMER'
+Error 3610: FB_StairwellDimmer (23): 'LREAL' not supported
+Interface of POU 'FB_THRESHOLDSWITCH'
+Error 3610: FB_ThresholdSwitch (3): 'LREAL' not supported
+Error 3610: FB_ThresholdSwitch (4): 'LREAL' not supported
+Error 3610: FB_ThresholdSwitch (5): 'LREAL' not supported
+Interface of POU 'FB_VENETIANBLINDEX'
+Error 3610: FB_VenetianBlindEx (63): 'LREAL' not supported
+Error 3610: FB_VenetianBlindEx (64): 'LREAL' not supported
+Interface of POU 'FB_VENETIANBLINDEX1SWITCH'
+Error 3610: FB_VenetianBlindEx1Switch (56): 'LREAL' not supported
+Error 3610: FB_VenetianBlindEx1Switch (57): 'LREAL' not supported
+Interface of POU 'K_TO_C'
+Error 3610: K_TO_C (1): 'LREAL' not supported
+Interface of POU 'K_TO_F'
+Error 3610: K_TO_F (1): 'LREAL' not supported
+Interface of POU 'K_TO_R'
+Error 3610: K_TO_R (1): 'LREAL' not supported
+Interface of POU 'R_TO_C'
+Error 3610: R_TO_C (1): 'LREAL' not supported
+Interface of POU 'R_TO_F'
+Error 3610: R_TO_F (1): 'LREAL' not supported
+Interface of POU 'R_TO_K'
+Error 3610: R_TO_K (1): 'LREAL' not supported
+Declarations of the global variables
+Error 3728: M_Var_2 (25): Invalid address: '%MX5'
+Error 3722: M_Var_2 (25): Only 'BOOL' variables allowed on bit addresses
+Error 3728: M_Var_2 (26): Invalid address: '%MX6'
+Error 3722: M_Var_2 (26): Only 'BOOL' variables allowed on bit addresses
+Error 3728: M_Var_2 (27): Invalid address: '%MX7'
+Error 3722: M_Var_2 (27): Only 'BOOL' variables allowed on bit addresses
+Error 3728: M_Var_2 (28): Invalid address: '%MX8'
+Error 3722: M_Var_2 (28): Only 'BOOL' variables allowed on bit addresses
+92 Error(s), 0 Warning(s).

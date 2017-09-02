@@ -1,0 +1,10 @@
+Interface of POU 'LIGHT'
+Data allocation
+Check task configuration
+Library 'TcAdsBC.lb6 5.7.02 11:03:02'
+Library 'standard.lb6 5.6.98 11:03:02'
+Library 'PlcSystemBC.lb6 21.3.01 11:03:02'
+Generating prolog
+Implementation of POU 'Light'
+Implementation of POU 'MAIN'
+Error 4001: MAIN (1): Identifier 'DELAY' not defined

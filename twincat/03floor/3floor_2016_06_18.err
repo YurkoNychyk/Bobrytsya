@@ -1,0 +1,10 @@
+Data allocation
+Check task configuration
+Library 'TcBaseBX.lbx 10.5.06 08:50:20'
+Library 'standard.lbx 5.12.03 08:02:30'
+Generating prolog
+Implementation of POU 'EIB'
+Implementation of POU 'EIB.derevo'
+Implementation of POU 'EIB.derevo_read'
+Error 4001: EIB.derevo_read (15): Identifier 'FB_DEREVO_BASSEIN2_READ' not defined
+Implementation of the task configuration

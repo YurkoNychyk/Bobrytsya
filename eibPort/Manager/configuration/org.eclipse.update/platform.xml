@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1423315134940" transient="false" version="3.0">
+<site enabled="true" policy="USER-EXCLUDE" updateable="true" url="platform:/base/">
+<feature id="de.babtec.feature.hit" url="features/de.babtec.feature.hit_0.2.0/" version="0.2.0">
+</feature>
+<feature id="de.babtec.feature.knxeasy" url="features/de.babtec.feature.knxeasy_0.0.10/" version="0.0.10">
+</feature>
+<feature id="de.babtec.feature.core" plugin-identifier="de.babtec.manager" url="features/de.babtec.feature.core_0.0.10/" version="0.0.10">
+</feature>
+<feature id="de.babtec.feature.sam" url="features/de.babtec.feature.sam_0.0.11/" version="0.0.11">
+</feature>
+<feature id="org.eclipse.rcp" url="features/org.eclipse.rcp_3.5.2.R35x_v20100119-9SA0FxwFnoCU5XxWItFdXXb27BA6/" version="3.5.2.R35x_v20100119-9SA0FxwFnoCU5XxWItFdXXb27BA6">
+</feature>
+<feature id="de.babtec.feature.device" url="features/de.babtec.feature.device_0.0.10/" version="0.0.10">
+</feature>
+</site>
+</config>

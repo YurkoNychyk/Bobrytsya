@@ -1,0 +1,46 @@
+
+
+	Term_6_KL1408_1_Input	AT %IX0.0:	BOOL;
+	sw_01_1_2	AT %IX0.1:	BOOL;
+	Term_6_KL1408_3_Input	AT %IX0.2:	BOOL;
+	Term_6_KL1408_4_Input	AT %IX0.3:	BOOL;
+	Term_6_KL1408_5_Input	AT %IX0.4:	BOOL;
+	sw_01_1_1	AT %IX0.5:	BOOL;
+	sw_01_2_1	AT %IX0.6:	BOOL;
+
+	sw_07_1_1			AT %IX0.7:	BOOL;
+
+	sw_07_2_1			AT %IX1.0:	BOOL;
+	sw_14_1_1			AT %IX1.1:	BOOL;
+	Term_7_KL1408_3_Input	AT %IX1.2:	BOOL;
+	sw_14_1_2			AT %IX1.3:	BOOL;
+	Term_7_KL1408_5_Input	AT %IX1.4:	BOOL;
+	sw_14_2_2			AT %IX1.5:	BOOL;
+	Term_7_KL1408_7_Input	AT %IX1.6:	BOOL;
+	sw_14_2_1			AT %IX1.7:	BOOL;
+
+	sw_14_3_1			AT %IX2.0:	BOOL;
+	sw_09_2_2			AT %IX2.1:	BOOL;
+	sw_14_3_2			AT %IX2.2:	BOOL;
+	sw_09_3_1			AT %IX2.3:	BOOL;
+	sw_09_1_1			AT %IX2.4:	BOOL;
+	sw_09_3_2			AT %IX2.5:	BOOL;
+	sw_09_2_1			AT %IX2.6:	BOOL;
+	sw_09_1_2			AT %IX2.7:	BOOL;
+
+	sw_04_1				AT %IX3.0:	BOOL;
+	Term_9_KL1408_2_Input	AT %IX3.1:	BOOL;
+	sw_04_2				AT %IX3.2:	BOOL;
+	Term_9_KL1408_4_Input	AT %IX3.3:	BOOL;
+	sw_06_1				AT %IX3.4:	BOOL;
+	Term_9_KL1408_6_Input	AT %IX3.5:	BOOL;
+	sw_06_2				AT %IX3.6:	BOOL;
+	Term_9_KL1408_8_Input	AT %IX3.7:	BOOL;
+	Term_10_KL1408_1_Input	AT %IX4.0:	BOOL;
+	Term_10_KL1408_2_Input	AT %IX4.1:	BOOL;
+	Term_10_KL1408_3_Input	AT %IX4.2:	BOOL;
+	Term_10_KL1408_4_Input	AT %IX4.3:	BOOL;
+	Term_10_KL1408_5_Input	AT %IX4.4:	BOOL;
+	Term_10_KL1408_6_Input	AT %IX4.5:	BOOL;
+	Term_10_KL1408_7_Input	AT %IX4.6:	BOOL;
+	Term_10_KL1408_8_Input	AT %IX4.7:	BOOL;

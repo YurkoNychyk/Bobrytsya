@@ -1,0 +1,74 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM light
+VAR
+	kino_balkon, kino1, kino2, studio1,studio2, kabinet1, kabinet2, kabinet_balkon, korydor, tambur1, tambur2, tambur3: SWITCH;
+	switch_delay: TIME;
+	off_delay: TIME;
+	SKHODY2_3R: R_TRIG;
+	SKHODY2_3F: F_TRIG;
+
+	SKHODY_F:F_TRIG;
+	SKHODY_R:R_TRIG;
+
+	svitlo_skhody2_1: BOOL;
+	svitlo_skhody2_3: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+switch_delay:=t#500ms; (*затримка довгого натискання*)
+off_delay:=t#3m; (*затримка для відкладеного вимкнення*)
+
+kino_balkon(MODE:='short&long', IN:=sw_kino_balkon,SWITCH_DELAY:=switch_delay, Q_SHORT=>balkon, Q_LONG=>balkon_bra);
+balkon_peryla:=kino_balkon.Q_LONG;
+
+kino1(MODE:='short&long',IN:=sw_kino1, SWITCH_DELAY:=switch_delay, Q_SHORT=>kino_l);
+kino2(MODE:='short&long', IN:=sw_kino2, SWITCH_DELAY:=switch_delay, Q_SHORT=>kino_bra);
+studio1(MODE:='short&long', IN:=sw_studio1, SWITCH_DELAY:=switch_delay, Q_SHORT=>studio_l);
+studio2(MODE:='short&long', IN:=sw_studio2, SWITCH_DELAY:=switch_delay, Q_SHORT=>studio_pidsvitka);
+
+korydor(MODE:='short&long', IN:=sw_korydor, SWITCH_DELAY:=switch_delay);
+korydor1:=korydor.Q_SHORT;
+korydor2:=korydor.Q_SHORT;
+
+kabinet1(MODE:='short&long', IN:=sw_kabinet1 XOR sw_kabinet2_1, SWITCH_DELAY:=switch_delay, Q_SHORT=>kabinet_svitlo);
+
+kabinet2(MODE:='short&long', IN:=sw_kabinet2 XOR sw_kabinet2_2, SWITCH_DELAY:=switch_delay);
+kabinet_kobra:=kabinet2.Q_SHORT;
+kabinet_pidsvitka_kolo:=kabinet2.Q_SHORT;
+
+kabinet_balkon(MODE:='short&long', IN:=sw_kabinet_balkon, SWITCH_DELAY:=switch_delay, Q_SHORT=>kabinet_balkon_l);
+
+tambur2(MODE:='short&long', IN:=sw_tambur2, SWITCH_DELAY:=switch_delay, Q_SHORT=>svitlo_skhody2_1);
+tambur3(MODE:='short&long', IN:=sw_tambur3, SWITCH_DELAY:=switch_delay, Q_SHORT=>stend);
+
+tambur1(MODE:='short&long', IN:=sw_tambur1, SWITCH_DELAY:=switch_delay, Q_SHORT=>svitlo_skhody2_3);
+
+
+
+data1floor[0].0:=svitlo_skhody2_1;
+
+(*відстежую натискання вимикачів на обох поверхах і перемикаю лампочку по кожному натисненні*)
+SKHODY2_3R(CLK:=svitlo_skhody3_2 XOR svitlo_skhody2_3);
+SKHODY2_3F(CLK:=svitlo_skhody3_2 XOR svitlo_skhody2_3);
+
+SKHODY_R(CLK:=skhody3 XOR skhody1);
+SKHODY_F(CLK:=skhody3 XOR skhody1);
+
+IF SKHODY_F.Q OR SKHODY_R.Q  THEN
+	skhody2_3:=FALSE;
+	tambur_l:=FALSE;
+	skhody_peryla:=FALSE;
+ELSE (*якщо не було команди гасити обидва прольоти*)
+	IF SKHODY2_3R.Q OR SKHODY2_3F.Q THEN
+		skhody2_3:=NOT skhody2_3;
+		tambur_l:= NOT tambur_l;
+	END_IF
+
+	IF skhody2_3 OR svitlo_skhody1_2 THEN skhody_peryla:=TRUE;
+		ELSE skhody_peryla:=FALSE;
+	END_IF
+
+END_IF
+END_PROGRAM

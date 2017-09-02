@@ -1,0 +1,5045 @@
+
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM ADS_Communication
+VAR
+	fb_DerevoADSwrite: ADSWRITE;
+	fb_floor1ADSwrite: ADSWRITE;
+
+	counter_error,counter_busy: CTU;
+END_VAR
+
+(* @END_DECLARATION := '0' *)
+_CFC_BODY
+_ELEMENT
+_ID: 16
+_MACROID: -1
+_POS: 28, 17
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_DerevoADSwrite
+_TYPENAME: ADSWRITE
+_ENENO: 0
+_INPUTS: 8
+_IN
+_INPUTID: 17
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 18
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 19
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 20
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 21
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 23
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 42
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 27
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 3
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 17
+_MACROID: -1
+_POS: 28, 19
+_TYPE: _INPUT
+_TEXT: ads_adr_derevo
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 18
+_MACROID: -1
+_POS: 28, 20
+_TYPE: _INPUT
+_TEXT: 800
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 19
+_MACROID: -1
+_POS: 28, 21
+_TYPE: _INPUT
+_TEXT: 16#4020
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 20
+_MACROID: -1
+_POS: 28, 22
+_TYPE: _INPUT
+_TEXT: 300
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 21
+_MACROID: -1
+_POS: 11, 20
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: SIZEOF
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 22
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 22
+_MACROID: -1
+_POS: 10, 22
+_TYPE: _INPUT
+_TEXT: dataDerevo
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 23
+_MACROID: -1
+_POS: 12, 23
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: ADR
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 22
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 30
+_MACROID: -1
+_POS: 18, 26
+_TYPE: _INPUT
+_TEXT: MAIN.write
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 27
+_MACROID: -1
+_POS: 28, 26
+_TYPE: _INPUT
+_TEXT: t#1s
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 43
+_MACROID: -1
+_POS: 20, 27
+_TYPE: _INPUT
+_TEXT: NOT MAIN.heartBeat.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 42
+_MACROID: -1
+_POS: 20, 24
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 30
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 43
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 45
+_MACROID: -1
+_POS: 28, 29
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_floor1ADSwrite
+_TYPENAME: ADSWRITE
+_ENENO: 0
+_INPUTS: 8
+_IN
+_INPUTID: 46
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 47
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 48
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 49
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 50
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 52
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 56
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 54
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 3
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 46
+_MACROID: -1
+_POS: 28, 31
+_TYPE: _INPUT
+_TEXT: ads_adr_1floor
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 47
+_MACROID: -1
+_POS: 28, 32
+_TYPE: _INPUT
+_TEXT: 800
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 48
+_MACROID: -1
+_POS: 28, 33
+_TYPE: _INPUT
+_TEXT: 16#4020
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 49
+_MACROID: -1
+_POS: 28, 34
+_TYPE: _INPUT
+_TEXT: 600
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 50
+_MACROID: -1
+_POS: 11, 32
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: SIZEOF
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 51
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 51
+_MACROID: -1
+_POS: 10, 34
+_TYPE: _INPUT
+_TEXT: datafloor1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 52
+_MACROID: -1
+_POS: 12, 35
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: ADR
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 51
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 53
+_MACROID: -1
+_POS: 18, 38
+_TYPE: _INPUT
+_TEXT: MAIN.write1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 54
+_MACROID: -1
+_POS: 28, 38
+_TYPE: _INPUT
+_TEXT: t#1s
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 55
+_MACROID: -1
+_POS: 20, 39
+_TYPE: _INPUT
+_TEXT: NOT MAIN.heartBeat.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 56
+_MACROID: -1
+_POS: 20, 36
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 53
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 55
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+
+END_PROGRAM
+
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '8, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Counters
+VAR
+
+	counter_6_KL1408_1_Input : CTU;
+
+	counter_6_KL1408_3_Input	:	CTU;
+	counter_6_KL1408_4_Input	:	CTU;
+	counter_6_KL1408_5_Input	:	CTU;
+	counter_6_KL1408_6_Input	:	CTU;
+
+	counter_6_KL1408_8_Input	:	CTU;
+	counter_7_KL1408_1_Input	:	CTU;
+	counter_7_KL1408_2_Input	:	CTU;
+	counter_7_KL1408_3_Input	:	CTU;
+	counter_7_KL1408_4_Input	:	CTU;
+	counter_7_KL1408_5_Input	:	CTU;
+	counter_7_KL1408_6_Input	:	CTU;
+	counter_7_KL1408_7_Input	:	CTU;
+	counter_7_KL1408_8_Input	:	CTU;
+	counter_8_KL1408_1_Input	:	CTU;
+	counter_8_KL1408_2_Input	:	CTU;
+	counter_8_KL1408_3_Input	:	CTU;
+	counter_8_KL1408_4_Input	:	CTU;
+	counter_8_KL1408_5_Input	:	CTU;
+	counter_8_KL1408_6_Input	:	CTU;
+	counter_8_KL1408_7_Input	:	CTU;
+	counter_8_KL1408_8_Input	:	CTU;
+	counter_9_KL1408_1_Input	:	CTU;
+	counter_9_KL1408_2_Input	:	CTU;
+	counter_9_KL1408_3_Input	:	CTU;
+	counter_9_KL1408_4_Input	:	CTU;
+	counter_9_KL1408_5_Input	:	CTU;
+	counter_9_KL1408_6_Input	:	CTU;
+	counter_9_KL1408_7_Input	:	CTU;
+	counter_9_KL1408_8_Input	:	CTU;
+	counter_10_KL1408_1_Input	:	CTU;
+	counter_10_KL1408_2_Input	:	CTU;
+	counter_10_KL1408_3_Input	:	CTU;
+	counter_10_KL1408_4_Input	:	CTU;
+	counter_10_KL1408_5_Input	:	CTU;
+	counter_10_KL1408_6_Input	:	CTU;
+	counter_10_KL1408_7_Input	:	CTU;
+	counter_10_KL1408_8_Input	:	CTU;
+
+	sw01 : INT;
+	sw02 : INT;
+	sw03 : INT;
+	sw04 : INT;
+	sw05 : INT;
+	sw06 : INT;
+	sw07 : INT;
+	sw08 : INT;
+	sw09 : INT;
+	sw10 : INT;
+	sw11 : INT;
+	sw12 : INT;
+	sw13 : INT;
+	sw14 : INT;
+	sw15 : INT;
+	sw16 : INT;
+	sw17 : INT;
+	sw18 : INT;
+	sw19 : INT;
+	sw20 : INT;
+	sw21 : INT;
+	sw22 : INT;
+	sw23 : INT;
+	sw24 : INT;
+	sw25 : INT;
+	sw26 : INT;
+	sw27 : INT;
+	sw28 : INT;
+	sw29 : INT;
+	sw30 : INT;
+	sw31 : INT;
+	sw32 : INT;
+	sw33 : INT;
+	sw34 : INT;
+	sw35 : INT;
+	sw36 : INT;
+	sw37 : INT;
+	sw38 : INT;
+	sw39 : INT;
+
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+	counter_6_KL1408_1_Input(CU:= Term_6_KL1408_1_Input, CV=>sw01);
+
+	counter_6_KL1408_3_Input(CU:= Term_6_KL1408_3_Input, CV=>sw02);
+	counter_6_KL1408_4_Input(CU:= Term_6_KL1408_4_Input, CV=>sw03);
+	counter_6_KL1408_5_Input(CU:= Term_6_KL1408_5_Input, CV=>sw04);
+
+
+
+
+
+	counter_7_KL1408_3_Input(CU:= Term_7_KL1408_3_Input, CV=>sw09);
+
+	counter_7_KL1408_5_Input(CU:= Term_7_KL1408_5_Input, CV=>sw11);
+
+	counter_7_KL1408_7_Input(CU:= Term_7_KL1408_7_Input, CV=>sw13);
+
+
+
+
+
+
+
+
+
+
+
+
+	counter_9_KL1408_2_Input(CU:= Term_9_KL1408_2_Input, CV=>sw24);
+
+	counter_9_KL1408_4_Input(CU:= Term_9_KL1408_4_Input, CV=>sw26);
+
+	counter_9_KL1408_6_Input(CU:= Term_9_KL1408_6_Input, CV=>sw28);
+
+	counter_9_KL1408_8_Input(CU:= Term_9_KL1408_8_Input, CV=>sw30);
+
+	counter_10_KL1408_1_Input(CU:= Term_10_KL1408_1_Input, CV=>sw31);
+	counter_10_KL1408_2_Input(CU:= Term_10_KL1408_2_Input, CV=>sw32);
+	counter_10_KL1408_3_Input(CU:= Term_10_KL1408_3_Input, CV=>sw33);
+	counter_10_KL1408_4_Input(CU:= Term_10_KL1408_4_Input, CV=>sw34);
+	counter_10_KL1408_5_Input(CU:= Term_10_KL1408_5_Input, CV=>sw35);
+	counter_10_KL1408_6_Input(CU:= Term_10_KL1408_6_Input, CV=>sw36);
+	counter_10_KL1408_7_Input(CU:= Term_10_KL1408_7_Input, CV=>sw37);
+	counter_10_KL1408_8_Input(CU:= Term_10_KL1408_8_Input, CV=>sw38);
+
+END_PROGRAM
+
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Light
+VAR
+	(*switches*)
+
+	fb_sw_01_1_2	:	FB_ShortLongClick;
+	fb_sw_01_1_1	:	FB_ShortLongClick;
+	fb_sw_01_2_1	:	FB_ShortLongClick;
+	fb_sw_07_1_1	:	FB_ShortLongClick;
+	fb_sw_07_2_1	:	FB_ShortLongClick;
+	fb_sw_14_1_1	:	FB_ShortLongClick;
+	fb_sw_14_1_2	:	FB_ShortLongClick;
+	fb_sw_14_2_2	:	FB_ShortLongClick;
+	fb_sw_14_2_1	:	FB_ShortLongClick;
+	fb_sw_14_3_1	:	FB_ShortLongClick;
+	fb_sw_09_2_2	:	FB_ShortLongClick;
+	fb_sw_14_3_2	:	FB_ShortLongClick;
+	fb_sw_09_3_1	:	FB_ShortLongClick;
+	fb_sw_09_1_1	:	FB_ShortLongClick;
+	fb_sw_09_3_2	:	FB_ShortLongClick;
+	fb_sw_09_2_1	:	FB_ShortLongClick;
+	fb_sw_09_1_2	:	FB_ShortLongClick;
+	fb_sw_04_1	:	FB_ShortLongClick;
+	fb_sw_04_2	:	FB_ShortLongClick;
+	fb_sw_06_1	:	FB_ShortLongClick;
+	fb_sw_06_2	:	FB_ShortLongClick;
+
+	longPressTimeout	:	TIME := t#500ms;
+
+	(*Lights*)
+	fb_gym01_light			: FB_Light;
+	fb_gym02_light			: FB_Light;
+	fb_training01_light			: FB_Light;
+	fb_training02_light			: FB_Light;
+	fb_training03_light			: FB_Light;
+	fb_gym_stairs_bra			: FB_Light;
+	fb_pool_hall_spotlight		: FB_Light;
+	fb_pool_hall_LED			: FB_Light;
+	fb_pool_light				: FB_Light;
+	fb_sphere_ceiling_light		: FB_Light;
+	fb_sphere_light			: FB_Light;
+	fb_gym_cinema_bra		: FB_Light;
+	fb_gym_shower01_light		: FB_Light;
+	fb_gym_shower02_light		: FB_Light;
+	fb_gym_corridor_light		: FB_Light;
+	fb_gym_stairs_light		: FB_Light;
+	fb_gym_WC_light			: FB_Light;
+	fb_training_light			: FB_Light;
+	fb_gym_light				: FB_Light;
+
+
+	fb_cinema_temporary_light	:FB_Light;
+
+	traning_falling_edge :F_TRIG;
+	gym_falling_edge :F_TRIG;
+
+
+	fb_sw_05_1: FB_ShortLongClick;
+	fb_sw_05_2: FB_ShortLongClick;
+	fb_training01_2_light: FB_Light;
+	fb_gym_01_2_light: FB_Light;
+	fb_gym01_2_light: FB_Light;
+
+
+	rising_edge_eib_gym01 						:	 R_TRIG;
+	rising_edge_eib_gym02 						:	 R_trig;
+	rising_edge_eib_training01 					:	 R_trig;
+	rising_edge_eib_training02						:	 R_trig;
+	rising_edge_eib_training03						:	 R_trig;
+	rising_edge_eib_gym_stairs_bra				:	 R_trig;
+	rising_edge_eib_pool_hall_spotlight				:	 R_trig;
+	rising_edge_eib_pool_hall_LED				:	 R_trig;
+
+	rising_edge_eib_pool_light 					:	 R_trig;
+	rising_edge_eib_sphere_ceiling_light 			:	 R_trig;
+	rising_edge_eib_sphere_light 					:	 R_trig;
+	rising_edge_eib_gym_cinema_bra 				:	 R_trig;
+	rising_edge_eib_gym_shower01_light			:	 R_trig;
+	rising_edge_eib_gym_shower02_light			:	 R_trig;
+	rising_edge_eib_gym_corridor_light				:	 R_trig;
+	rising_edge_eib_gym_stairs_light 				:	 R_trig;
+
+	rising_edge_eib_gym_WC_light 				:	 R_trig;
+	rising_edge_eib_training	 					:	 R_trig;
+	rising_edge_eib_gym		 					:	 R_TRIG;
+
+	falling_edge_eib_gym01 						:	 F_TRIG;
+	falling_edge_eib_gym02 						:	 F_TRIG;
+	falling_edge_eib_training01 					:	 F_TRIG;
+	falling_edge_eib_training02						:	 F_TRIG;
+	falling_edge_eib_training03						:	 F_TRIG;
+	falling_edge_eib_gym_stairs_bra				:	 F_TRIG;
+	falling_edge_eib_pool_hall_spotlight				:	 F_TRIG;
+	falling_edge_eib_pool_hall_LED				:	 F_TRIG;
+
+	falling_edge_eib_pool_light 					:	 F_TRIG;
+	falling_edge_eib_sphere_ceiling_light 			:	 F_TRIG;
+	falling_edge_eib_sphere_light 					:	 F_TRIG;
+	falling_edge_eib_gym_cinema_bra 				:	 F_TRIG;
+	falling_edge_eib_gym_shower01_light			:	 F_TRIG;
+	falling_edge_eib_gym_shower02_light			:	 F_TRIG;
+	falling_edge_eib_gym_corridor_light				:	 F_TRIG;
+	falling_edge_eib_gym_stairs_light 				:	 F_TRIG;
+
+	falling_edge_eib_gym_WC_light 				:	 F_TRIG;
+	falling_edge_eib_training	 					:	 F_TRIG;
+	falling_edge_eib_gym		 					:	 F_TRIG;
+
+	(*timers*)
+	fb_OutsideLightTimer	:TP;
+
+	fb_pool_hall_all: FB_Light;
+	pool_all_falling_edge: F_TRIG;
+	pool_all_rising_edge: R_TRIG;
+	pool_hall_all_rising_edge: R_TRIG;
+	pool_hall_all_falling_edge: F_TRIG;
+	traning_reserved_falling_edge: F_TRIG;
+	fb_sw_07_1_2: FB_ShortLongClick;
+	fb_sw_07_2_2: FB_ShortLongClick;
+	fb_sw_02_1: FB_ShortLongClick;
+	fb_sw_02_2: FB_ShortLongClick;
+	fb_sw_03_1: FB_ShortLongClick;
+	darkOutside_rising_edge:R_TRIG;
+
+	darkness_correction_time_hour:INT := 20;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+_CFC_BODY
+_ELEMENT
+_ID: 274
+_MACROID: -1
+_POS: 8, 135
+_TYPE: _COMMENT
+_TEXT: GYM
+_END
+_ELEMENT
+_ID: 89
+_MACROID: -1
+_POS: 57, 134
+_TYPE: _COMMENT
+_TEXT: CINEMA
+_END
+_ELEMENT
+_ID: 72
+_MACROID: -1
+_POS: 29, 105
+_TYPE: _COMMENT
+_TEXT: SHOWER
+_END
+_ELEMENT
+_ID: 52
+_MACROID: -1
+_POS: 8, 88
+_TYPE: _COMMENT
+_TEXT: SPHERE
+_END
+_ELEMENT
+_ID: 38
+_MACROID: -1
+_POS: 68, 67
+_TYPE: _COMMENT
+_TEXT: POOL HALL
+_END
+_ELEMENT
+_ID: 14
+_MACROID: -1
+_POS: 45, 40
+_TYPE: _COMMENT
+_TEXT: TRAINING
+_END
+_ELEMENT
+_ID: 465
+_MACROID: -1
+_POS: 64, 105
+_TYPE: _COMMENT
+_TEXT: STAIRS
+_END
+_ELEMENT
+_ID: 167
+_MACROID: -1
+_POS: 9, 6
+_TYPE: _INPUT
+_TEXT: sw_01_1_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 142
+_MACROID: -1
+_POS: 12, 7
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 115
+_MACROID: -1
+_POS: 12, 4
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_01_1_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 167
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 142
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 170
+_MACROID: -1
+_POS: 37, 6
+_TYPE: _INPUT
+_TEXT: sw_04_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 144
+_MACROID: -1
+_POS: 37, 7
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 131
+_MACROID: -1
+_POS: 37, 4
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_04_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 170
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 144
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 176
+_MACROID: -1
+_POS: 61, 6
+_TYPE: _INPUT
+_TEXT: sw_07_1_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 151
+_MACROID: -1
+_POS: 61, 7
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 117
+_MACROID: -1
+_POS: 61, 4
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_07_1_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 176
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 151
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 179
+_MACROID: -1
+_POS: 86, 6
+_TYPE: _INPUT
+_TEXT: sw_09_1_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 155
+_MACROID: -1
+_POS: 86, 7
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 127
+_MACROID: -1
+_POS: 86, 4
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_1_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 179
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 155
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 182
+_MACROID: -1
+_POS: 114, 6
+_TYPE: _INPUT
+_TEXT: sw_14_1_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 159
+_MACROID: -1
+_POS: 114, 7
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 119
+_MACROID: -1
+_POS: 114, 4
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_1_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 182
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 159
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 139
+_MACROID: -1
+_POS: 9, 10
+_TYPE: _INPUT
+_TEXT: sw_01_1_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 141
+_MACROID: -1
+_POS: 12, 11
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 114
+_MACROID: -1
+_POS: 12, 8
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_01_1_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 139
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 141
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 188
+_MACROID: -1
+_POS: 37, 10
+_TYPE: _INPUT
+_TEXT: sw_04_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 150
+_MACROID: -1
+_POS: 37, 11
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 132
+_MACROID: -1
+_POS: 37, 8
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_04_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 188
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 150
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 457
+_MACROID: -1
+_POS: 61, 10
+_TYPE: _INPUT
+_TEXT: sw_07_1_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 456
+_MACROID: -1
+_POS: 61, 11
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 452
+_MACROID: -1
+_POS: 61, 8
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_07_1_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 457
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 456
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 190
+_MACROID: -1
+_POS: 86, 10
+_TYPE: _INPUT
+_TEXT: sw_09_1_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 158
+_MACROID: -1
+_POS: 86, 11
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 130
+_MACROID: -1
+_POS: 86, 8
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_1_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 190
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 158
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 191
+_MACROID: -1
+_POS: 114, 10
+_TYPE: _INPUT
+_TEXT: sw_14_1_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 162
+_MACROID: -1
+_POS: 114, 11
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 120
+_MACROID: -1
+_POS: 114, 8
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_1_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 191
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 162
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 353
+_MACROID: -1
+_POS: 37, 17
+_TYPE: _INPUT
+_TEXT: sw_05_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 145
+_MACROID: -1
+_POS: 37, 18
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 133
+_MACROID: -1
+_POS: 37, 15
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_05_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 353
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 145
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 177
+_MACROID: -1
+_POS: 61, 17
+_TYPE: _INPUT
+_TEXT: sw_07_2_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 152
+_MACROID: -1
+_POS: 61, 18
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 118
+_MACROID: -1
+_POS: 61, 15
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_07_2_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 177
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 152
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 180
+_MACROID: -1
+_POS: 86, 17
+_TYPE: _INPUT
+_TEXT: sw_09_2_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 156
+_MACROID: -1
+_POS: 86, 18
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 129
+_MACROID: -1
+_POS: 86, 15
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_2_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 180
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 156
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 183
+_MACROID: -1
+_POS: 114, 17
+_TYPE: _INPUT
+_TEXT: sw_14_2_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 160
+_MACROID: -1
+_POS: 114, 18
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 122
+_MACROID: -1
+_POS: 114, 15
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_2_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 183
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 160
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 168
+_MACROID: -1
+_POS: 9, 21
+_TYPE: _INPUT
+_TEXT: sw_01_2_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 143
+_MACROID: -1
+_POS: 12, 22
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 116
+_MACROID: -1
+_POS: 12, 19
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_01_2_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 168
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 143
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 354
+_MACROID: -1
+_POS: 37, 21
+_TYPE: _INPUT
+_TEXT: sw_05_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 146
+_MACROID: -1
+_POS: 37, 22
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 138
+_MACROID: -1
+_POS: 37, 19
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_05_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 354
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 146
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 454
+_MACROID: -1
+_POS: 61, 21
+_TYPE: _INPUT
+_TEXT: sw_07_2_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 455
+_MACROID: -1
+_POS: 61, 22
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 453
+_MACROID: -1
+_POS: 61, 19
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_07_2_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 454
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 455
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 181
+_MACROID: -1
+_POS: 86, 21
+_TYPE: _INPUT
+_TEXT: sw_09_2_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 157
+_MACROID: -1
+_POS: 86, 22
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 124
+_MACROID: -1
+_POS: 86, 19
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_2_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 181
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 157
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 184
+_MACROID: -1
+_POS: 114, 21
+_TYPE: _INPUT
+_TEXT: sw_14_2_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 161
+_MACROID: -1
+_POS: 114, 22
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 121
+_MACROID: -1
+_POS: 114, 19
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_2_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 184
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 161
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 282
+_MACROID: -1
+_POS: 37, 27
+_TYPE: _INPUT
+_TEXT: sw_06_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 283
+_MACROID: -1
+_POS: 37, 28
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 284
+_MACROID: -1
+_POS: 37, 25
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_06_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 282
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 283
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 478
+_MACROID: -1
+_POS: 9, 28
+_TYPE: _INPUT
+_TEXT: sw_02_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 479
+_MACROID: -1
+_POS: 12, 29
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 480
+_MACROID: -1
+_POS: 12, 26
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_02_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 478
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 479
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 178
+_MACROID: -1
+_POS: 86, 28
+_TYPE: _INPUT
+_TEXT: sw_09_3_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 163
+_MACROID: -1
+_POS: 86, 29
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 126
+_MACROID: -1
+_POS: 86, 26
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_3_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 178
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 163
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 186
+_MACROID: -1
+_POS: 114, 28
+_TYPE: _INPUT
+_TEXT: sw_14_3_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 165
+_MACROID: -1
+_POS: 114, 29
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 123
+_MACROID: -1
+_POS: 114, 26
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_3_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 186
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 165
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 285
+_MACROID: -1
+_POS: 37, 31
+_TYPE: _INPUT
+_TEXT: sw_06_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 286
+_MACROID: -1
+_POS: 37, 32
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 287
+_MACROID: -1
+_POS: 37, 29
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_06_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 285
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 286
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 185
+_MACROID: -1
+_POS: 86, 32
+_TYPE: _INPUT
+_TEXT: sw_09_3_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 164
+_MACROID: -1
+_POS: 86, 33
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 128
+_MACROID: -1
+_POS: 86, 30
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_09_3_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 185
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 164
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 187
+_MACROID: -1
+_POS: 114, 32
+_TYPE: _INPUT
+_TEXT: sw_14_3_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 166
+_MACROID: -1
+_POS: 114, 33
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 125
+_MACROID: -1
+_POS: 114, 30
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_14_3_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 187
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 166
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 481
+_MACROID: -1
+_POS: 9, 34
+_TYPE: _INPUT
+_TEXT: sw_02_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 482
+_MACROID: -1
+_POS: 12, 35
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 483
+_MACROID: -1
+_POS: 12, 32
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_02_2
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 481
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 482
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 484
+_MACROID: -1
+_POS: 9, 39
+_TYPE: _INPUT
+_TEXT: sw_03_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 485
+_MACROID: -1
+_POS: 12, 40
+_TYPE: _INPUT
+_TEXT: longPressTimeout
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 486
+_MACROID: -1
+_POS: 12, 37
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sw_03_1
+_TYPENAME: FB_ShortLongClick
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 484
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 485
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 312
+_MACROID: -1
+_POS: 88, 43
+_TYPE: _INPUT
+_TEXT: traning_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 309
+_MACROID: -1
+_POS: 89, 44
+_TYPE: _INPUT
+_TEXT: fb_sw_01_1_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 222
+_MACROID: -1
+_POS: 89, 49
+_TYPE: _INPUT
+_TEXT: fb_sw_01_1_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 281
+_MACROID: -1
+_POS: 88, 51
+_TYPE: _INPUT
+_TEXT: fb_sw_05_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 297
+_MACROID: -1
+_POS: 89, 52
+_TYPE: _INPUT
+_TEXT: fb_sw_09_3_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 305
+_MACROID: -1
+_POS: 96, 40
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_training01_2_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 312
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 309
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 295
+_MACROID: -1
+_POS: 89, 48
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 222
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 281
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 297
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 197
+_MACROID: -1
+_POS: 96, 45
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_training_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 295
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 201
+_MACROID: -1
+_POS: 112, 44
+_TYPE: _OUTPUT
+_TEXT: training02_2_light
+_INPUTID: 197
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 204
+_MACROID: -1
+_POS: 112, 45
+_TYPE: _OUTPUT
+_TEXT: training03_2_light
+_INPUTID: 197
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 306
+_MACROID: -1
+_POS: 106, 39
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 305
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 197
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 198
+_MACROID: -1
+_POS: 112, 43
+_TYPE: _OUTPUT
+_TEXT: training01_2_light
+_INPUTID: 306
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 241
+_MACROID: -1
+_POS: 108, 48
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: traning_falling_edge
+_TYPENAME: F_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 197
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 244
+_MACROID: -1
+_POS: 45, 46
+_TYPE: _INPUT
+_TEXT: traning_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 421
+_MACROID: -1
+_POS: 47, 47
+_TYPE: _INPUT
+_TEXT: traning_reserved_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 215
+_MACROID: -1
+_POS: 60, 48
+_TYPE: _INPUT
+_TEXT: training01_2_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 307
+_MACROID: -1
+_POS: 16, 49
+_TYPE: _INPUT
+_TEXT: fb_sw_01_1_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 417
+_MACROID: -1
+_POS: 60, 51
+_TYPE: _INPUT
+_TEXT: training02_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 420
+_MACROID: -1
+_POS: 47, 44
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 244
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 421
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 16
+_MACROID: -1
+_POS: 51, 43
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_training01_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 420
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 307
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 234
+_MACROID: -1
+_POS: 63, 43
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 16
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 215
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 417
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 17
+_MACROID: -1
+_POS: 67, 45
+_TYPE: _OUTPUT
+_TEXT: training01_light
+_INPUTID: 234
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 249
+_MACROID: -1
+_POS: 44, 55
+_TYPE: _INPUT
+_TEXT: traning_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 206
+_MACROID: -1
+_POS: 13, 56
+_TYPE: _INPUT
+_TEXT: fb_sw_01_1_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 269
+_MACROID: -1
+_POS: 13, 57
+_TYPE: _INPUT
+_TEXT: fb_sw_09_3_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 294
+_MACROID: -1
+_POS: 13, 58
+_TYPE: _INPUT
+_TEXT: fb_sw_05_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 217
+_MACROID: -1
+_POS: 60, 58
+_TYPE: _INPUT
+_TEXT: training02_2_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 252
+_MACROID: -1
+_POS: 44, 63
+_TYPE: _INPUT
+_TEXT: traning_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 220
+_MACROID: -1
+_POS: 60, 65
+_TYPE: _INPUT
+_TEXT: training03_2_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 270
+_MACROID: -1
+_POS: 13, 54
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 206
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 269
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 294
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 20
+_MACROID: -1
+_POS: 51, 53
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_training02_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 249
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 270
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 418
+_MACROID: -1
+_POS: 63, 50
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: traning_reserved_falling_edge
+_TYPENAME: F_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 20
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 238
+_MACROID: -1
+_POS: 63, 54
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 20
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 217
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 21
+_MACROID: -1
+_POS: 67, 55
+_TYPE: _OUTPUT
+_TEXT: training02_light
+_INPUTID: 238
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 24
+_MACROID: -1
+_POS: 51, 60
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_training03_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 252
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 270
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 239
+_MACROID: -1
+_POS: 63, 60
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 24
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 220
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 25
+_MACROID: -1
+_POS: 67, 62
+_TYPE: _OUTPUT
+_TEXT: training03_light
+_INPUTID: 239
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 410
+_MACROID: -1
+_POS: 74, 70
+_TYPE: _INPUT
+_TEXT: pool_hall_all_rising_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 362
+_MACROID: -1
+_POS: 69, 73
+_TYPE: _INPUT
+_TEXT: fb_sw_09_2_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 425
+_MACROID: -1
+_POS: 69, 74
+_TYPE: _INPUT
+_TEXT: fb_sw_14_2_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 414
+_MACROID: -1
+_POS: 50, 76
+_TYPE: _INPUT
+_TEXT: fb_pool_hall_LED.bLight
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 415
+_MACROID: -1
+_POS: 50, 77
+_TYPE: _INPUT
+_TEXT: fb_pool_hall_spotlight.bLight
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 407
+_MACROID: -1
+_POS: 50, 78
+_TYPE: _INPUT
+_TEXT: pool_hall_all_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 411
+_MACROID: -1
+_POS: 74, 88
+_TYPE: _INPUT
+_TEXT: pool_hall_all_rising_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 361
+_MACROID: -1
+_POS: 69, 91
+_TYPE: _INPUT
+_TEXT: fb_sw_09_2_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 429
+_MACROID: -1
+_POS: 69, 92
+_TYPE: _INPUT
+_TEXT: fb_sw_14_2_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 424
+_MACROID: -1
+_POS: 69, 71
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 362
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 425
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 413
+_MACROID: -1
+_POS: 51, 74
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: AND
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 414
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 415
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 407
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 40
+_MACROID: -1
+_POS: 74, 68
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_pool_hall_LED
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 410
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 413
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 424
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 41
+_MACROID: -1
+_POS: 108, 65
+_TYPE: _OUTPUT
+_TEXT: pool_hall_ceiling_LED
+_INPUTID: 40
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 51
+_MACROID: -1
+_POS: 108, 66
+_TYPE: _OUTPUT
+_TEXT: pool_hall_LED
+_INPUTID: 40
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 428
+_MACROID: -1
+_POS: 69, 89
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 361
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 429
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 48
+_MACROID: -1
+_POS: 74, 86
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_pool_hall_spotlight
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 411
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 413
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 428
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 49
+_MACROID: -1
+_POS: 109, 82
+_TYPE: _OUTPUT
+_TEXT: pool_hall_spotlight
+_INPUTID: 48
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 376
+_MACROID: -1
+_POS: 88, 68
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: AND
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 40
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 48
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 371
+_MACROID: -1
+_POS: 94, 66
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: pool_all_falling_edge
+_TYPENAME: F_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 376
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 372
+_MACROID: -1
+_POS: 94, 70
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: pool_all_rising_edge
+_TYPENAME: R_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 376
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 378
+_MACROID: -1
+_POS: 74, 78
+_TYPE: _INPUT
+_TEXT: pool_all_rising_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 379
+_MACROID: -1
+_POS: 74, 79
+_TYPE: _INPUT
+_TEXT: pool_all_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 369
+_MACROID: -1
+_POS: 69, 82
+_TYPE: _INPUT
+_TEXT: fb_sw_09_2_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 427
+_MACROID: -1
+_POS: 69, 83
+_TYPE: _INPUT
+_TEXT: fb_sw_14_2_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 426
+_MACROID: -1
+_POS: 69, 80
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 4
+_IN
+_INPUTID: 369
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 427
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 509
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 510
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 364
+_MACROID: -1
+_POS: 74, 76
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_pool_hall_all
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 378
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 379
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 426
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 396
+_MACROID: -1
+_POS: 94, 74
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: pool_hall_all_falling_edge
+_TYPENAME: F_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 364
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 395
+_MACROID: -1
+_POS: 94, 78
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: pool_hall_all_rising_edge
+_TYPENAME: R_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 364
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 358
+_MACROID: -1
+_POS: 85, 94
+_TYPE: _INPUT
+_TEXT: fb_sw_09_1_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 434
+_MACROID: -1
+_POS: 85, 95
+_TYPE: _INPUT
+_TEXT: fb_sw_14_3_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 433
+_MACROID: -1
+_POS: 85, 92
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 358
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 434
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 44
+_MACROID: -1
+_POS: 92, 90
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_pool_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 433
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 45
+_MACROID: -1
+_POS: 97, 98
+_TYPE: _OUTPUT
+_TEXT: pool_light
+_INPUTID: 547
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 438
+_MACROID: -1
+_POS: 12, 96
+_TYPE: _INPUT
+_TEXT: fb_sw_05_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 443
+_MACROID: -1
+_POS: 10, 99
+_TYPE: _INPUT
+_TEXT: fb_sphere_light.bLight
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 444
+_MACROID: -1
+_POS: 12, 100
+_TYPE: _INPUT
+_TEXT: fb_sphere_ceiling_light.bLight
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 437
+_MACROID: -1
+_POS: 13, 102
+_TYPE: _INPUT
+_TEXT: fb_sw_05_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 440
+_MACROID: -1
+_POS: 13, 96
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: AND
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 438
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 443
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 444
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 54
+_MACROID: -1
+_POS: 19, 92
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sphere_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 440
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 438
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 55
+_MACROID: -1
+_POS: 36, 94
+_TYPE: _OUTPUT
+_TEXT: sphere_light01
+_INPUTID: 54
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 57
+_MACROID: -1
+_POS: 36, 95
+_TYPE: _OUTPUT
+_TEXT: sphere_light02
+_INPUTID: 54
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 59
+_MACROID: -1
+_POS: 19, 98
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_sphere_ceiling_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 440
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 437
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 439
+_MACROID: -1
+_POS: 31, 98
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 54
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 59
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 60
+_MACROID: -1
+_POS: 36, 100
+_TYPE: _OUTPUT
+_TEXT: sphere_ceiling_light
+_INPUTID: 439
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 458
+_MACROID: -1
+_POS: 20, 112
+_TYPE: _INPUT
+_TEXT: fb_sw_07_1_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 74
+_MACROID: -1
+_POS: 20, 108
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_shower01_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 458
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 84
+_MACROID: -1
+_POS: 32, 110
+_TYPE: _OUTPUT
+_TEXT: gym_shower01_light
+_INPUTID: 74
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 466
+_MACROID: -1
+_POS: 62, 115
+_TYPE: _INPUT
+_TEXT: fb_sw_02_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 489
+_MACROID: -1
+_POS: 62, 116
+_TYPE: _INPUT
+_TEXT: fb_sw_02_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 490
+_MACROID: -1
+_POS: 62, 117
+_TYPE: _INPUT
+_TEXT: fb_sw_02_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 472
+_MACROID: -1
+_POS: 54, 120
+_TYPE: _INPUT
+_TEXT: floor1_tambur3_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 494
+_MACROID: -1
+_POS: 54, 121
+_TYPE: _INPUT
+_TEXT: gym_stairs_bra_left
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 496
+_MACROID: -1
+_POS: 53, 125
+_TYPE: _INPUT
+_TEXT: sw_floor1_tambur3_long
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 493
+_MACROID: -1
+_POS: 54, 118
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: XOR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 472
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 494
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 495
+_MACROID: -1
+_POS: 58, 119
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: AND
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 493
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 513
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 491
+_MACROID: -1
+_POS: 64, 113
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 6
+_IN
+_INPUTID: 466
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 489
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 490
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 495
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 501
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 502
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 467
+_MACROID: -1
+_POS: 69, 111
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_stairs_bra
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 491
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 468
+_MACROID: -1
+_POS: 81, 113
+_TYPE: _OUTPUT
+_TEXT: gym_stairs_bra_left
+_INPUTID: 467
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 469
+_MACROID: -1
+_POS: 81, 114
+_TYPE: _OUTPUT
+_TEXT: gym_stairs_bra_right
+_INPUTID: 467
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 459
+_MACROID: -1
+_POS: 20, 118
+_TYPE: _INPUT
+_TEXT: fb_sw_07_1_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 77
+_MACROID: -1
+_POS: 20, 114
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_shower02_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 459
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 78
+_MACROID: -1
+_POS: 32, 116
+_TYPE: _OUTPUT
+_TEXT: gym_shower02_light
+_INPUTID: 77
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 470
+_MACROID: -1
+_POS: 69, 117
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_stairs_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 471
+_MACROID: -1
+_POS: 81, 119
+_TYPE: _OUTPUT
+_TEXT: gym_stairs_light
+_INPUTID: 470
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 451
+_MACROID: -1
+_POS: 20, 124
+_TYPE: _INPUT
+_TEXT: fb_sw_07_2_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 81
+_MACROID: -1
+_POS: 20, 120
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_WC_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 451
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 82
+_MACROID: -1
+_POS: 32, 122
+_TYPE: _OUTPUT
+_TEXT: gym_WC_light
+_INPUTID: 81
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 449
+_MACROID: -1
+_POS: 20, 130
+_TYPE: _INPUT
+_TEXT: fb_sw_07_2_2.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 86
+_MACROID: -1
+_POS: 20, 126
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_corridor_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 449
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 87
+_MACROID: -1
+_POS: 32, 128
+_TYPE: _OUTPUT
+_TEXT: gym_WC_corridor
+_INPUTID: 86
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 338
+_MACROID: -1
+_POS: 13, 138
+_TYPE: _INPUT
+_TEXT: gym_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 334
+_MACROID: -1
+_POS: 14, 139
+_TYPE: _INPUT
+_TEXT: fb_sw_14_1_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 345
+_MACROID: -1
+_POS: 13, 144
+_TYPE: _INPUT
+_TEXT: gym02_2_light
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 340
+_MACROID: -1
+_POS: 14, 148
+_TYPE: _INPUT
+_TEXT: gym_falling_edge.Q
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 336
+_MACROID: -1
+_POS: 14, 149
+_TYPE: _INPUT
+_TEXT: fb_sw_14_1_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 276
+_MACROID: -1
+_POS: 15, 135
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym01_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 338
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 334
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 344
+_MACROID: -1
+_POS: 26, 136
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 276
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 345
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 277
+_MACROID: -1
+_POS: 31, 138
+_TYPE: _OUTPUT
+_TEXT: gym01_light
+_INPUTID: 344
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 279
+_MACROID: -1
+_POS: 14, 145
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym02_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 340
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 336
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 346
+_MACROID: -1
+_POS: 26, 143
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 345
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 279
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 280
+_MACROID: -1
+_POS: 32, 147
+_TYPE: _OUTPUT
+_TEXT: gym02_light
+_INPUTID: 346
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 91
+_MACROID: -1
+_POS: 63, 137
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_cinema_bra
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 97
+_MACROID: -1
+_POS: 74, 139
+_TYPE: _OUTPUT
+_TEXT: gym_cinema_bra
+_INPUTID: 91
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 263
+_MACROID: -1
+_POS: 13, 159
+_TYPE: _INPUT
+_TEXT: fb_sw_14_1_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 264
+_MACROID: -1
+_POS: 15, 155
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: fb_gym_01_2_light
+_TYPENAME: FB_Light
+_ENENO: 0
+_INPUTS: 3
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 0
+_INPUTIDX: 0
+_NEGATE: 1
+_END
+_IN
+_INPUTID: 263
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 265
+_MACROID: -1
+_POS: 31, 152
+_TYPE: _OUTPUT
+_TEXT: gym01_2_light
+_INPUTID: 264
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 327
+_MACROID: -1
+_POS: 31, 155
+_TYPE: _OUTPUT
+_TEXT: gym02_2_light
+_INPUTID: 264
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _NONE
+_END
+_ELEMENT
+_ID: 266
+_MACROID: -1
+_POS: 27, 158
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: gym_falling_edge
+_TYPENAME: F_TRIG
+_ENENO: 0
+_INPUTS: 1
+_IN
+_INPUTID: 264
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 513
+_MACROID: -1
+_POS: 54, 122
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 516
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 496
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 501
+_MACROID: -1
+_POS: 63, 126
+_TYPE: _INPUT
+_TEXT: fb_sw_01_2_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 502
+_MACROID: -1
+_POS: 63, 127
+_TYPE: _INPUT
+_TEXT: fb_sw_01_2_1.bShortClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 509
+_MACROID: -1
+_POS: 55, 85
+_TYPE: _INPUT
+_TEXT: fb_sw_09_2_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 510
+_MACROID: -1
+_POS: 55, 86
+_TYPE: _INPUT
+_TEXT: fb_sw_14_2_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 514
+_MACROID: -1
+_POS: 71, 84
+_TYPE: _INPUT
+_TEXT: fb_sw_09_2_1.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 515
+_MACROID: -1
+_POS: 71, 85
+_TYPE: _INPUT
+_TEXT: fb_sw_14_2_2.bLongClick
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 516
+_MACROID: -1
+_POS: 53, 124
+_TYPE: _INPUT
+_TEXT: sw_floor1_tambur3_short
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 545
+_MACROID: -1
+_POS: 90, 98
+_TYPE: _INPUT
+_TEXT: sw_09_1_2
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 546
+_MACROID: -1
+_POS: 90, 99
+_TYPE: _INPUT
+_TEXT: sw_14_3_1
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 547
+_MACROID: -1
+_POS: 91, 97
+_TYPE: _BOX
+_INSTANCE: 0
+_INSTANCENAME: 
+_TYPENAME: OR
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 545
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 546
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 1
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+
+END_PROGRAM
+ACTION	knx_triggers:
+	rising_edge_eib_gym01 						(CLK:= eib_gym01);
+	rising_edge_eib_gym02 						(CLK:= eib_gym02);
+	rising_edge_eib_training01 					(CLK:= eib_training01);
+	rising_edge_eib_training02						(CLK:=eib_training02 );
+	rising_edge_eib_training03						(CLK:= eib_training03);
+	rising_edge_eib_gym_stairs_bra				(CLK:= eib_gym_stairs_bra);
+	rising_edge_eib_pool_hall_spotlight				(CLK:=eib_pool_hall_spotlight );
+	rising_edge_eib_pool_hall_LED				(CLK:= eib_pool_hall_LED);
+
+	rising_edge_eib_pool_light 					(CLK:= eib_pool_light);
+	rising_edge_eib_sphere_ceiling_light 			(CLK:= eib_sphere_ceiling_light);
+	rising_edge_eib_sphere_light 					(CLK:= eib_sphere_light);
+	rising_edge_eib_gym_cinema_bra 				(CLK:= eib_gym_cinema_bra);
+	rising_edge_eib_gym_shower01_light			(CLK:= eib_gym_shower01_light);
+	rising_edge_eib_gym_shower02_light			(CLK:= eib_gym_shower02_light);
+	rising_edge_eib_gym_corridor_light				(CLK:= eib_gym_corridor_light);
+	rising_edge_eib_gym_stairs_light 				(CLK:= eib_gym_stairs_light);
+
+	rising_edge_eib_gym_WC_light 				(CLK:= eib_gym_WC_light);
+	rising_edge_eib_training	 					(CLK:= eib_training);
+	rising_edge_eib_gym		 					(CLK:= eib_gym);
+
+	falling_edge_eib_gym01 						(CLK:= eib_gym01);
+	falling_edge_eib_gym02 						(CLK:= eib_gym02);
+	falling_edge_eib_training01 					(CLK:= eib_training01);
+	falling_edge_eib_training02						(CLK:=eib_training02 );
+	falling_edge_eib_training03						(CLK:= eib_training03);
+	falling_edge_eib_gym_stairs_bra				(CLK:= eib_gym_stairs_bra);
+	falling_edge_eib_pool_hall_spotlight				(CLK:=eib_pool_hall_spotlight );
+	falling_edge_eib_pool_hall_LED				(CLK:= eib_pool_hall_LED);
+
+	falling_edge_eib_pool_light 					(CLK:= eib_pool_light);
+	falling_edge_eib_sphere_ceiling_light 			(CLK:= eib_sphere_ceiling_light);
+	falling_edge_eib_sphere_light 					(CLK:= eib_sphere_light);
+	falling_edge_eib_gym_cinema_bra 				(CLK:= eib_gym_cinema_bra);
+	falling_edge_eib_gym_shower01_light			(CLK:= eib_gym_shower01_light);
+	falling_edge_eib_gym_shower02_light			(CLK:= eib_gym_shower02_light);
+	falling_edge_eib_gym_corridor_light				(CLK:= eib_gym_corridor_light);
+	falling_edge_eib_gym_stairs_light 				(CLK:= eib_gym_stairs_light);
+
+	falling_edge_eib_gym_WC_light 				(CLK:= eib_gym_WC_light);
+	falling_edge_eib_training	 					(CLK:= eib_training);
+	falling_edge_eib_gym		 					(CLK:= eib_gym);
+
+END_ACTION
+
+ACTION	outsideLight:
+darkOutside_rising_edge(CLK:=bDarkOutside);
+IF  bdarkOutside AND (iHour <1 OR iHour>=20) AND iminute=59 THEN
+	outside_bigBulbs := TRUE;
+	eib_outside_bigBulbs:=TRUE;
+	outside_plantsLightning:=TRUE;
+	eib_outside_plantsLightning := TRUE;
+	outside_smallBulbs := TRUE;
+	eib_outside_smallBulbs:= TRUE;
+	outside_pingPongTable := FALSE;
+
+
+
+ELSE
+	outside_bigBulbs := eib_outside_bigBulbs;
+	outside_plantsLightning:= eib_outside_plantsLightning;
+	outside_smallBulbs := eib_outside_smallBulbs;
+	outside_pingPongTable:=eib_outside_pingPongTable;
+
+	IF iHour=2 AND iMinute>=1 AND iMinute<=2 THEN
+		outside_bigBulbs := FALSE;
+		outside_plantsLightning:=FALSE;
+		outside_smallBulbs := FALSE;
+		outside_pingPongTable := FALSE;
+	END_IF
+
+END_IF;
+END_ACTION
+
+
+
+
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM MAIN
+VAR
+	i,j:INT;
+	write:BOOL;
+	heartBeat: TP;
+	i1: INT;
+	j1: INT;
+	write1: BOOL;
+	sw_02_1_short_pulse:TP;
+	sw_02_1_long_pulse:TP;
+	sw_02_2_short_pulse:TP;
+	sw_02_2_long_pulse:TP;
+	sw_01_2_short_pulse:TP;
+	sw_01_2_long_pulse:TP;
+
+	sw_03_1_short_pulse: TP;
+	sw_03_1_long_pulse: TP;
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+heartBeat(IN:= NOT heartBeat.Q, PT:=t#5s);
+ADS_Communication;
+Light.knx_triggers;
+Light;
+Light.outsideLight;
+(*Counters;*)
+write_dataDerevo;
+
+END_PROGRAM
+ACTION	write_dataDerevo:
+	dataDerevo[0].0:= gym01_light ;
+	dataDerevo[0].1:= gym02_light;
+	dataDerevo[0].2:= training01_light;
+	dataDerevo[0].3:= training02_light;
+	dataDerevo[0].4:= training03_light;
+	dataDerevo[0].5:= gym_stairs_bra_left;
+	dataDerevo[0].6:= pool_hall_spotlight;
+	dataDerevo[0].7:= pool_hall_LED;
+
+	dataDerevo[1].0:= pool_light;
+	dataDerevo[1].1:= sphere_ceiling_light;
+	dataDerevo[1].2:= sphere_light01;
+	dataDerevo[1].3:= gym_cinema_bra;
+	dataDerevo[1].4:= gym_shower01_light;
+	dataDerevo[1].5:= gym_shower02_light;
+	dataDerevo[1].6:= gym_WC_corridor;
+	dataDerevo[1].7:= gym_stairs_light;
+
+	dataDerevo[2].0:= gym_WC_light;
+	dataDerevo[2].1:= training03_2_light;
+	dataDerevo[2].2:= gym02_2_light;
+	dataDerevo[2].3:= outside_bigBulbs;
+	dataDerevo[2].4:= outside_pingPongTable;
+	dataDerevo[2].5:= outside_plantsLightning;
+	dataDerevo[2].6:= outside_smallBulbs;
+
+	sw_02_1_short_pulse(IN:= Light.fb_sw_02_1.bShortClick, pt:=t#500ms);
+	sw_02_1_long_pulse(IN:= Light.fb_sw_02_1.bLongClick, pt:=t#500ms);
+	sw_02_2_short_pulse(IN:= Light.fb_sw_02_2.bShortClick, pt:=t#500ms);
+	sw_02_2_long_pulse(IN:= Light.fb_sw_02_2.bLongClick, pt:=t#500ms);
+	sw_01_2_short_pulse(IN:= Light.fb_sw_01_2_1.bShortClick, pt:=t#500ms);
+	sw_01_2_long_pulse(IN:= Light.fb_sw_01_2_1.bLongClick, pt:=t#500ms);
+
+	sw_03_1_short_pulse(IN:= Light.fb_sw_03_1.bShortClick, pt:=t#500ms);
+	sw_03_1_long_pulse(IN:= Light.fb_sw_03_1.bLongClick, pt:=t#500ms);
+
+
+	datafloor1[0].0 := sw_02_1_short_pulse.Q;
+	datafloor1[0].1 := sw_02_1_long_pulse.Q;
+	datafloor1[0].2 := sw_02_2_short_pulse.Q;
+	datafloor1[0].3 := sw_02_2_long_pulse.Q;
+	datafloor1[0].4 := gym_stairs_bra_left;
+	datafloor1[0].5 := sw_01_2_short_pulse.Q;
+	datafloor1[0].6 := sw_01_2_long_pulse.Q;
+	datafloor1[0].7 := sw_03_1_short_pulse.Q;
+	datafloor1[1].0 := sw_03_1_long_pulse.Q;
+
+FOR i:=0 TO (SIZEOF(dataDerevo))-1 DO
+	IF dataDerevo[i]<>dataDerevo_prev[i]  THEN
+		write:=TRUE;
+		EXIT;
+	ELSE
+		write:=FALSE;
+	END_IF
+END_FOR
+
+
+FOR j:=0 TO (SIZEOF(dataDerevo))-1 DO
+	dataDerevo_prev[j]:=dataDerevo[j];
+END_FOR
+
+FOR i1:=0 TO (SIZEOF(dataFloor1))-1 DO
+	IF dataFloor1[i1]<>dataFloor1_prev[i1]  THEN
+		write1:=TRUE;
+		EXIT;
+	ELSE
+		write1:=FALSE;
+	END_IF
+END_FOR
+
+
+FOR j1:=0 TO (SIZEOF(dataFloor1))-1 DO
+	dataFloor1_prev[j1]:=dataFloor1[j1];
+END_FOR
+END_ACTION
+
+
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'main' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_GLOBAL
+	dataDerevo: ARRAY[0..3] OF BYTE;
+	dataDerevo_prev :ARRAY[0..3] OF BYTE;
+
+	datafloor1: ARRAY[0..3] OF BYTE;
+	datafloor1_prev :ARRAY[0..3] OF BYTE;
+
+
+
+	ads_adr_derevo: STRING:='10.0.5.64.1.1';
+	ads_adr_3floor: STRING:='10.0.5.63.1.1';
+	ads_adr_1floor: STRING:='10.0.5.61.1.1';
+
+	write_ads: ADSWRITE;
+
+	bDarkOutside						AT%MX0.0:BOOL;
+
+
+	iHour							AT%MB1:	BYTE;
+	iMinute							AT%MB3:	BYTE;
+
+	t_out							AT%MB6 :	 REAL;
+
+	eib_gym01 						AT %MX10.0:	 BOOL;
+	eib_gym02 						AT %MX10.1:	 BOOL;
+	eib_training01 					AT %MX10.2:	 BOOL;
+	eib_training02						AT %MX10.3:	 BOOL;
+	eib_training03						AT %MX10.4:	 BOOL;
+	eib_gym_stairs_bra				AT %MX10.5:	 BOOL;
+	eib_pool_hall_spotlight				AT %MX10.6:	 BOOL;
+	eib_pool_hall_LED				AT %MX10.7:	 BOOL;
+
+	eib_pool_light 					AT %MX11.0:	 BOOL;
+	eib_sphere_ceiling_light 			AT %MX11.1:	 BOOL;
+	eib_sphere_light 					AT %MX11.2:	 BOOL;
+	eib_gym_cinema_bra 				AT %MX11.3:	 BOOL;
+	eib_gym_shower01_light			AT %MX11.4:	 BOOL;
+	eib_gym_shower02_light			AT %MX11.5:	 BOOL;
+	eib_gym_corridor_light				AT %MX11.6:	 BOOL;
+	eib_gym_stairs_light 				AT %MX11.7:	 BOOL;
+
+	eib_gym_WC_light 				AT %MX12.0:	 BOOL;
+	eib_training	 					AT %MX12.1:	 BOOL;
+	eib_gym		 					AT %MX12.2:	 BOOL;
+	eib_outside_bigBulbs		 		AT %MX12.3:	 BOOL;
+	eib_outside_pingPongTable		AT %MX12.4:	 BOOL;
+	eib_outside_plantsLightning		 	AT %MX12.5:	 BOOL;
+	eib_outside_smallBulbs		 	AT %MX12.6:	 BOOL;
+	floor1_tambur3_light				AT %MX100.0 :BOOL;
+	sw_floor1_tambur3_short			AT %MX100.1 :BOOL;
+	sw_floor1_tambur3_long			AT %MX100.2 :BOOL;
+
+END_VAR
+
+(* @OBJECT_END := 'main' *)
+(* @CONNECTIONS := main
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'physical' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+
+(* @GLOBAL_VARIABLE_LIST := TwinCAT_Import *)
+(* @PATH := '' *)
+VAR_GLOBAL (* DO NOT CHANGE THIS SHEET MANUALLY! *)
+	PlcInVar_0	AT %QB128:	USINT;
+	PlcInVar_1	AT %QB129:	USINT;
+	PlcInVar_2	AT %QB130:	USINT;
+	PlcInVar_3	AT %QB131:	USINT;
+	PlcInVar_4	AT %QB132:	USINT;
+	PlcInVar_5	AT %QB133:	USINT;
+	PlcInVar_6	AT %QB134:	USINT;
+	PlcInVar_7	AT %QB135:	USINT;
+	PlcInVar_8	AT %QB136:	USINT;
+	PlcInVar_9	AT %QB137:	USINT;
+	PlcInVar_10	AT %QB138:	USINT;
+	PlcInVar_11	AT %QB139:	USINT;
+	PlcInVar_12	AT %QB140:	USINT;
+	PlcInVar_13	AT %QB141:	USINT;
+	PlcInVar_14	AT %QB142:	USINT;
+	PlcInVar_15	AT %QB143:	USINT;
+	PlcOutVar_0	AT %IB128:	USINT;
+	PlcOutVar_1	AT %IB129:	USINT;
+	PlcOutVar_2	AT %IB130:	USINT;
+	PlcOutVar_3	AT %IB131:	USINT;
+	PlcOutVar_4	AT %IB132:	USINT;
+	PlcOutVar_5	AT %IB133:	USINT;
+	PlcOutVar_6	AT %IB134:	USINT;
+	PlcOutVar_7	AT %IB135:	USINT;
+	PlcOutVar_8	AT %IB136:	USINT;
+	PlcOutVar_9	AT %IB137:	USINT;
+	PlcOutVar_10	AT %IB138:	USINT;
+	PlcOutVar_11	AT %IB139:	USINT;
+	PlcOutVar_12	AT %IB140:	USINT;
+	PlcOutVar_13	AT %IB141:	USINT;
+	PlcOutVar_14	AT %IB142:	USINT;
+	PlcOutVar_15	AT %IB143:	USINT;
+	gym01_light				AT %QX0.0:	BOOL; (*K01*)
+	training03_light			AT %QX0.1:	BOOL; (*K05*)
+	gym02_light				AT %QX0.2:	BOOL; (*K02*)
+	gym_stairs_bra_right		AT %QX0.3:	BOOL; (*K06*)
+	training01_light			AT %QX0.4:	BOOL; (*K03*)
+	gym_stairs_bra_left		AT %QX0.5:	BOOL; (*K07*)
+	training02_light			AT %QX0.6:	BOOL; (*K04*)
+	pool_hall_spotlight		AT %QX0.7:	BOOL; (*K08*)
+
+	pool_hall_ceiling_LED		AT %QX1.0:	BOOL; (*K09*)
+	pool_light				AT %QX1.1:	BOOL; (*K13*)
+	sphere_ceiling_light		AT %QX1.2:	BOOL; (*K10*)
+	gym01_2_light			AT %QX1.3:	BOOL; (*K14*)
+	sphere_light01			AT %QX1.4:	BOOL; (*K11*)
+	gym02_2_light			AT %QX1.5:	BOOL; (*K15*)
+	gym_cinema_bra			AT %QX1.6:	BOOL; (*K12*)
+	training01_2_light			AT %QX1.7:	BOOL; (*K16*)
+
+	training02_2_light			AT %QX2.0:	BOOL; (*K17*)
+	gym_shower02_light		AT %QX2.1:	BOOL; (*K21*)
+	training03_2_light			AT %QX2.2:	BOOL; (*K18*)
+	gym_WC_light			AT %QX2.3:	BOOL; (*K22*)
+	gym_shower01_light		AT %QX2.4:	BOOL; (*K19*)
+	gym_stairs_light			AT %QX2.5:	BOOL; (*K23*)
+	gym_WC_corridor			AT %QX2.6:	BOOL; (*K20*)
+	sphere_light02			AT %QX2.7:	BOOL; (*K24*)
+
+	pool_hall_LED			AT %QX3.0:	BOOL; (*K25*)
+	outside_smallBulbs		AT %QX3.1:	BOOL;
+	gym_cinema_TEMPORARY_light	AT %QX3.2:	BOOL; (*K26*)
+	outside_bigBulbs			AT %QX3.3:	BOOL;
+	Term_5_KL2408_5_Output	AT %QX3.4:	BOOL;
+	outside_plantsLightning	AT %QX3.5:	BOOL;
+	Term_5_KL2408_7_Output	AT %QX3.6:	BOOL;
+	outside_pingPongTable	AT %QX3.7:	BOOL;
+
+	sw_02_1					AT %IX0.0:	BOOL;
+	sw_01_1_2				AT %IX0.1:	BOOL;
+	sw_02_2					AT %IX0.2:	BOOL;
+	Term_6_KL1408_4_Input	AT %IX0.3:	BOOL;
+	sw_03_1					AT %IX0.4:	BOOL;
+	sw_01_1_1				AT %IX0.5:	BOOL;
+	sw_01_2_1				AT %IX0.6:	BOOL;
+	sw_07_1_2				AT %IX0.7:	BOOL;
+
+	sw_07_2_2				AT %IX1.0:	BOOL;
+	sw_14_1_1				AT %IX1.1:	BOOL;
+	sw_07_2_1				AT %IX1.2:	BOOL;
+	sw_14_1_2				AT %IX1.3:	BOOL;
+	sw_07_1_1				AT %IX1.4:	BOOL;
+	sw_14_2_2				AT %IX1.5:	BOOL;
+	Term_7_KL1408_7_Input	AT %IX1.6:	BOOL;
+	sw_14_2_1				AT %IX1.7:	BOOL;
+
+	sw_14_3_1				AT %IX2.0:	BOOL;
+	sw_09_2_2				AT %IX2.1:	BOOL;
+	sw_14_3_2				AT %IX2.2:	BOOL;
+	sw_09_3_1				AT %IX2.3:	BOOL;
+	sw_09_1_1				AT %IX2.4:	BOOL;
+	sw_09_3_2				AT %IX2.5:	BOOL;
+	sw_09_2_1				AT %IX2.6:	BOOL;
+	sw_09_1_2				AT %IX2.7:	BOOL;
+
+	sw_04_1					AT %IX3.0:	BOOL;
+	sw_10_1					AT %IX3.1:	BOOL;
+	sw_04_2					AT %IX3.2:	BOOL;
+	sw_10_2					AT %IX3.3:	BOOL;
+	sw_06_1					AT %IX3.4:	BOOL;
+	sw_05_2					AT %IX3.5:	BOOL;
+	sw_06_2					AT %IX3.6:	BOOL;
+	sw_05_1					AT %IX3.7:	BOOL;
+
+	sw_12_1					AT %IX4.0:	BOOL;
+	Term_10_KL1408_2_Input	AT %IX4.1:	BOOL;
+	sw_12_2					AT %IX4.2:	BOOL;
+	Term_10_KL1408_4_Input	AT %IX4.3:	BOOL;
+	Term_10_KL1408_5_Input	AT %IX4.4:	BOOL;
+	Term_10_KL1408_6_Input	AT %IX4.5:	BOOL;
+	Term_10_KL1408_7_Input	AT %IX4.6:	BOOL;
+	Term_10_KL1408_8_Input	AT %IX4.7:	BOOL;
+END_VAR
+
+(* @OBJECT_END := TwinCAT_Import *)
+
+
+(* @OBJECT_END := 'physical' *)
+(* @CONNECTIONS := physical
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @GLOBAL_VARIABLE_LIST := 'Variable_Configuration' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+VAR_CONFIG
+END_VAR
+
+(* @OBJECT_END := 'Variable_Configuration' *)
+(* @CONNECTIONS := Variable_Configuration
+FILENAME : ''
+FILETIME : 0
+EXPORT : 0
+NUMOFCONNECTIONS : 0
+*)
+
+
+_ALARMCONFIG
+_ALARMCONFIGNEXTTEXTID : 10002
+_ALARMCONFIGFORMATS : 'HH$':$'mm$':$'ss','dd$'-$'MM$'-$'yyyy'
+_ALARMCLASSLIST : 1
+_ALARMCLASSID : 0
+_ALARMCLASSACKTYPE : 0
+_ALARMCLASSNAME : 'DEFAULT'
+_ALARMCLASSDESCRIPTION : ''
+_ALARMCLASSBGCOLORS : 16777215,16777215,16777215
+_ALARMCLASSTEXTCOLORS : 3394560,255,16711680
+_ALARMCLASSBITMAPS : '','',''
+_ALARMACTIONLIST : 0
+(* @ALARMCLASSRESETCOLORS := '_ALARMCLASSRESETCOLORS: 33023,16777215' *)
+(* @ALARMCLASSRESETBITMAP := '_ALARMCLASSRESETBITMAP: $'$'' *)
+_ALARMGROUPLISTNAME : 'System'
+_ALARMGROUPPATH : 'System'
+_ALARMGROUPLIST : 0
+_VISUALSETTINGSFLAGS : 0,0,0,0
+_VISUALSETTINGSFLAGS : '','',''
+_VISUALSETTINGSDYNTEXTFILECOUNT : 0
+
+(* @ALARMCONFIGFLAGS := '_ALARMCONFIGFLAGS: 4' *)
+(* @ALARMCONFIGGLOBALDB_STR := '_ALARMCONFIGGLOBALDB_STRINGS: $'$',$'$',$'$',$'$'' *)
+(* @ALARMCONFIGGLOBALDB_NUM := '_ALARMCONFIGGLOBALDB_NUMBERS: 0,0' *)
+_END_ALARMCONFIG
+
+
+LIBRARY
+PlcHelperBC.lb6 7.5.01 11:03:00
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 3
+MEMCMP: 0
+MEMCPY: 0
+MEMSET: 0
+NumOfGVLs: 1
+Global_Variables: 0
+END_LIBRARY
+
+LIBRARY
+PlcSystemBC.lb6 21.3.01 11:03:02
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 7
+GetFBusStatus: 0
+GetSysInfo: 0
+GetSysTick: 0
+GetTBusStatus: 0
+PresetSysTick: 0
+Reboot: 0
+TrigTBusCycle: 0
+NumOfGVLs: 1
+Global_Variables: 0
+END_LIBRARY
+
+LIBRARY
+standard.lib 5.6.98 11:03:02
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 20
+CONCAT: 0
+CTD: 0
+CTU: 0
+CTUD: 0
+DELETE: 0
+F_TRIG: 0
+FIND: 0
+INSERT: 0
+LEFT: 0
+LEN: 0
+MID: 0
+R_TRIG: 0
+REPLACE: 0
+RIGHT: 0
+RS: 0
+SEMA: 0
+SR: 0
+TOF: 0
+TON: 0
+TP: 0
+NumOfGVLs: 1
+'Global Variables 0': 0
+END_LIBRARY
+
+LIBRARY
+TcAdsBC.lb6 5.7.02 11:03:02
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 10
+ADSCLOSE: 0
+ADSRDWRTEX: 0
+ADSRDWRTIND: 0
+ADSRDWRTRESBC: 0
+ADSREADEX: 0
+ADSREADIND: 0
+ADSREADRESBC: 0
+ADSWRITE: 0
+ADSWRITEIND: 0
+ADSWRITERESBC: 0
+NumOfGVLs: 1
+Global_Variables: 0
+END_LIBRARY
+
+LIBRARY
+TcBABasic.lib 22.7.15 15:46:14
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 56
+C_TO_F: 0
+C_TO_K: 0
+C_TO_R: 0
+F_GetVersionTcBABasic: 0
+F_Scale: 0
+F_TO_C: 0
+F_TO_K: 0
+F_TO_R: 0
+FB_CalcFederalHolidaysUS: 2056
+FB_CalcPublicHolidaysDE: 2056
+FB_CalcPublicHolidaysUS: 2056
+FB_CalcSunPosition: 2056
+FB_CalcSunriseSunset: 2056
+FB_ConstantLightControlEco: 2048
+FB_DailyScheduler: 2056
+FB_Dimmer1Switch: 0
+FB_Dimmer1SwitchEco: 0
+FB_Dimmer2Switch: 0
+FB_Dimmer2SwitchEco: 0
+FB_Dimmer3Switch: 2048
+FB_Light: 0
+FB_LightControl: 2048
+FB_LightControl.TableCalculations: 2048
+FB_MaximumDemandController: 2048
+FB_MonthlyScheduler1: 2056
+FB_MonthlyScheduler2: 2056
+FB_PT1: 2048
+FB_PT2: 2048
+FB_Ramp: 2048
+FB_RoofWindow: 2048
+FB_RoomOperation: 2056
+FB_ScenesLighting: 2056
+FB_ScenesVenetianBlind: 2056
+FB_Sequencer: 2048
+FB_ShortLongClick: 0
+FB_SignallingContact: 0
+FB_SingleDoubleClick: 0
+FB_StairwellDimmer: 2048
+FB_StairwellLight: 0
+FB_StartEnd: 2056
+FB_ThresholdSwitch: 0
+FB_VenetianBlind: 0
+FB_VenetianBlindEx: 0
+FB_VenetianBlindEx1Switch: 2048
+FB_WeeklyScheduler: 2056
+FB_WeeklyTimeSwitch: 2056
+FB_YearlyScheduler: 2056
+FUN_DayOfYear: 2056
+FUN_ValidDayOfMonth: 2056
+FUN_WeekOfYear: 2056
+K_TO_C: 0
+K_TO_F: 0
+K_TO_R: 0
+R_TO_C: 0
+R_TO_F: 0
+R_TO_K: 0
+NumOfGVLs: 1
+Global_Variables_Constant: 2048
+END_LIBRARY
+
+LIBRARY
+TcPlcUtilitiesBC.lb6 13.5.05 11:19:40
+(* @LIBRARYSYMFILEINFO := '0' *)
+NumOfPOUs: 18
+CLEARBIT32: 0
+CSETBIT32: 0
+DCF77_TIME: 2048
+DRAND: 0
+DT_TO_SYSTEMTIME: 0
+F_GetVersionTcPlcUtilitiesBC: 2048
+F_REAL: 0
+F_SwapReal: 0
+FB_BasicPID: 0
+GETBIT32: 0
+IsFinite: 2048
+OTSTRUCT_TO_TIME: 0
+ReadWriteTerminalReg: 0
+RTC: 0
+RTC_EX: 0
+SETBIT32: 0
+SYSTEMTIME_TO_DT: 0
+TIME_TO_OTSTRUCT: 0
+NumOfGVLs: 0
+END_LIBRARY
+
+PLC_CONFIGURATION
+_ELEMENT 15700
+_ELEMENT_END
+PLC_END
+
+
+RESOURCE
+
+END_RESOURCE
+
+
+_WORKSPACE
+_GLOBALVISUALSETTINGS
+_VISUALSETTINGSFLAGS : 0,0,0,0
+_VISUALSETTINGSFLAGS : '','',''
+_VISUALSETTINGSDYNTEXTFILECOUNT : 0
+_VISUALBITMAPLISTCOUNT : 0
+_END_GLOBALVISUALSETTINGS
+_END_WORKSPACE

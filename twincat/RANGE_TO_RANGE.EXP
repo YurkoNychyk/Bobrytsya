@@ -1,0 +1,27 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION RANGE_TO_RANGE : INT
+VAR_INPUT
+	by_input:BYTE;
+	in_low_value: INT;
+	in_high_value:INT;
+	out_low_value: INT;
+	out_high_value:INT;
+END_VAR
+VAR
+	r_res: REAL;
+	r_input: REAL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+r_input:=BYTE_TO_REAL(by_input);
+IF out_high_value>out_low_value THEN
+	r_res:=r_input/(in_high_value - in_low_value)*(out_high_value - out_low_value);
+ELSE
+	r_res:=out_low_value - (r_input / (in_high_value - in_low_value)*(out_low_value - out_high_value));
+END_IF
+RANGE_TO_RANGE:=REAL_TO_INT(r_res);
+
+END_FUNCTION

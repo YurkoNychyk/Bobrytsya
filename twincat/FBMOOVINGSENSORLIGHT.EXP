@@ -1,0 +1,67 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/lights' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK fbMoovingSensorLight
+VAR_INPUT
+	button:BOOL;
+	duration:TIME;
+	sensor:BOOL;
+	knx:BOOL;
+END_VAR
+VAR_OUTPUT
+	out: BOOL;
+END_VAR
+VAR
+	fbStairwayLight_00			: FB_StairwellLight;
+	button_rising				: R_TRIG;
+	sensor_falling				: F_TRIG;
+	timer_falling					: F_TRIG;
+	knx_falling					: F_TRIG;
+	knx_rising					: R_TRIG;
+END_VAR
+
+VAR_IN_OUT
+END_VAR
+(* @END_DECLARATION := '0' *)
+knx_rising(CLK:=knx);
+knx_falling(CLK:=knx);
+button_rising(CLK:=button);
+sensor_falling(CLK:= sensor);
+timer_falling(clk:=fbStairwayLight_00.bStart);
+
+IF sensor_falling.Q AND NOT out THEN
+	fbStairwayLight_00.bOff:=FALSE;
+END_IF
+
+fbStairwayLight_00(
+	bSwitch:=NOT sensor AND NOT out,
+	tLightDuration:=duration,
+	tPreWarningStart:=t#100s,
+	tPreWarningDuration:=t#500ms);
+
+IF fbStairwayLight_00.bStart THEN
+	out := fbStairwayLight_00.bLight;
+END_IF
+
+IF timer_falling.Q THEN
+	out:=FALSE;
+END_IF
+
+
+
+
+IF knx_rising.Q OR knx_falling.Q THEN
+	out:= knx;
+	IF knx_falling.Q THEN
+		fbStairwayLight_00.bOff:=TRUE;
+	END_IF
+END_IF
+
+IF button_rising.Q THEN
+	out:= NOT out;
+	fbStairwayLight_00.bOff:=TRUE;
+END_IF
+
+END_FUNCTION_BLOCK

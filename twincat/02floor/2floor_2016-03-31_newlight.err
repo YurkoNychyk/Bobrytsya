@@ -1,0 +1,343 @@
+Declarations of the global constants
+Declarations of the global library constants
+Declarations of the global constants
+Declarations of the global library constants
+Interface of POU 'T_AMSNETID'
+Interface of POU 'ADSCLOSE'
+Interface of POU 'T_AMSPORT'
+Interface of POU 'ADSRDWRTEX'
+Interface of POU 'ADSRDWRTIND'
+Interface of POU 'ADSRDWRTRESBC'
+Interface of POU 'ADSREADEX'
+Interface of POU 'ADSREADIND'
+Interface of POU 'ADSREADRESBC'
+Interface of POU 'ADSWRITE'
+Interface of POU 'ADSWRITEIND'
+Interface of POU 'ADSWRITERESBC'
+Interface of POU 'CONCAT'
+Interface of POU 'CTD'
+Interface of POU 'CTU'
+Interface of POU 'CTUD'
+Interface of POU 'DELETE'
+Interface of POU 'F_TRIG'
+Interface of POU 'FIND'
+Interface of POU 'INSERT'
+Interface of POU 'LEFT'
+Interface of POU 'LEN'
+Interface of POU 'MID'
+Interface of POU 'R_TRIG'
+Interface of POU 'REPLACE'
+Interface of POU 'RIGHT'
+Interface of POU 'RS'
+Interface of POU 'SEMA'
+Interface of POU 'SR'
+Interface of POU 'TOF'
+Interface of POU 'TON'
+Interface of POU 'TP'
+Interface of POU 'GETFBUSSTATUS'
+Interface of POU 'GETSYSINFO'
+Interface of POU 'GETSYSTICK'
+Interface of POU 'GETTBUSSTATUS'
+Interface of POU 'PRESETSYSTICK'
+Interface of POU 'REBOOT'
+Interface of POU 'TRIGTBUSCYCLE'
+Interface of POU 'CLEARBIT32'
+Interface of POU 'CSETBIT32'
+Interface of POU 'DCF77_TIME'
+Interface of POU 'DRAND'
+Interface of POU 'TIMESTRUCT'
+Interface of POU 'DT_TO_SYSTEMTIME'
+Interface of POU 'F_GETVERSIONTCPLCUTILITIESBC'
+Interface of POU 'E_ARGTYPE'
+Interface of POU 'T_ARG'
+Interface of POU 'F_REAL'
+Interface of POU 'F_SWAPREAL'
+Interface of POU 'FB_BASICPID'
+Interface of POU 'GETBIT32'
+Interface of POU 'ISFINITE'
+Interface of POU 'OTSTRUCT'
+Interface of POU 'OTSTRUCT_TO_TIME'
+Interface of POU 'READWRITETERMINALREG'
+Interface of POU 'RTC'
+Interface of POU 'RTC_EX'
+Interface of POU 'SETBIT32'
+Interface of POU 'SYSTEMTIME_TO_DT'
+Interface of POU 'TIME_TO_OTSTRUCT'
+Interface of POU 'C_TO_F'
+Interface of POU 'C_TO_K'
+Interface of POU 'C_TO_R'
+Interface of POU 'F_GETVERSIONTCBABASIC'
+Interface of POU 'F_SCALE'
+Interface of POU 'F_TO_C'
+Interface of POU 'F_TO_K'
+Interface of POU 'F_TO_R'
+Interface of POU 'FB_CALCFEDERALHOLIDAYSUS'
+Interface of POU 'FB_CALCPUBLICHOLIDAYSDE'
+Interface of POU 'FB_CALCPUBLICHOLIDAYSUS'
+Interface of POU 'FB_CALCSUNPOSITION'
+Interface of POU 'FB_CONSTANTLIGHTCONTROLECO'
+Interface of POU 'ST_STARTEND'
+Interface of POU 'E_STARTEND'
+Interface of POU 'FB_STARTEND'
+Interface of POU 'FB_DAILYSCHEDULER'
+Interface of POU 'FB_DIMMER1SWITCH'
+Interface of POU 'FB_DIMMER1SWITCHECO'
+Interface of POU 'FB_DIMMER2SWITCH'
+Interface of POU 'FB_DIMMER2SWITCHECO'
+Interface of POU 'FB_DIMMER3SWITCH'
+Interface of POU 'FB_LIGHT'
+Interface of POU 'ST_CONTROLTABLE'
+Interface of POU 'FB_RAMP'
+Interface of POU 'FB_LIGHTCONTROL'
+Interface of POU 'ST_MDCLOADPARAMETERS'
+Interface of POU 'ST_MDCINDATAKL1501'
+Interface of POU 'ST_MDCOUTDATAKL1501'
+Interface of POU 'FB_MAXIMUMDEMANDCONTROLLER'
+Interface of POU 'FB_MONTHLYSCHEDULER1'
+Interface of POU 'FB_MONTHLYSCHEDULER2'
+Interface of POU 'FB_PT1'
+Interface of POU 'FB_PT2'
+Interface of POU 'FB_ROOFWINDOW'
+Interface of POU 'ST_SEQUENCETABLE'
+Interface of POU 'FB_SEQUENCER'
+Interface of POU 'FB_SHORTLONGCLICK'
+Interface of POU 'FB_SIGNALLINGCONTACT'
+Interface of POU 'FB_SINGLEDOUBLECLICK'
+Interface of POU 'FB_STAIRWELLDIMMER'
+Interface of POU 'FB_STAIRWELLLIGHT'
+Interface of POU 'FB_THRESHOLDSWITCH'
+Interface of POU 'FB_VENETIANBLIND'
+Interface of POU 'FB_VENETIANBLINDEX'
+Interface of POU 'FB_VENETIANBLINDEX1SWITCH'
+Interface of POU 'FB_WEEKLYSCHEDULER'
+Interface of POU 'FB_WEEKLYTIMESWITCH'
+Interface of POU 'FB_YEARLYSCHEDULER'
+Interface of POU 'FUN_DAYOFYEAR'
+Interface of POU 'FUN_VALIDDAYOFMONTH'
+Interface of POU 'FUN_WEEKOFYEAR'
+Interface of POU 'K_TO_C'
+Interface of POU 'K_TO_F'
+Interface of POU 'K_TO_R'
+Interface of POU 'R_TO_C'
+Interface of POU 'R_TO_F'
+Interface of POU 'R_TO_K'
+Interface of POU 'ADS1_WRITE'
+Interface of POU 'ADS3_WRITE'
+Interface of POU 'HEAT'
+Interface of POU 'LIGHT'
+Interface of POU 'SWITCH'
+Interface of POU 'LIGHT_OLD'
+Interface of POU 'MAIN'
+Interface of POU 'SHTORY_KABINET'
+Interface of POU 'SHTORY_KINO'
+Declarations of the global variables
+Data allocation
+Check task configuration
+Implementation of POU 'ADSCLOSE'
+Implementation of POU 'ADSRDWRTEX'
+Implementation of POU 'ADSRDWRTIND'
+Warning 1500: ADSRDWRTIND (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'ADSRDWRTRESBC'
+Warning 1500: ADSRDWRTRESBC (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'ADSREADEX'
+Implementation of POU 'ADSREADIND'
+Warning 1500: ADSREADIND (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'ADSREADRESBC'
+Warning 1500: ADSREADRESBC (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'ADSWRITE'
+Implementation of POU 'ADSWRITEIND'
+Warning 1500: ADSWRITEIND (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'ADSWRITERESBC'
+Warning 1500: ADSWRITERESBC (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'GetFBusStatus'
+Warning 1500: GetFBusStatus (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'GetSysInfo'
+Warning 1500: GetSysInfo (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'GetSysTick'
+Warning 1500: GetSysTick (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'GetTBusStatus'
+Warning 1500: GetTBusStatus (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'PresetSysTick'
+Warning 1500: PresetSysTick (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'Reboot'
+Warning 1500: Reboot (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'TrigTBusCycle'
+Warning 1500: TrigTBusCycle (1): This expression does not contain an assignment. No code generated.
+Implementation of POU 'CLEARBIT32'
+Implementation of POU 'CSETBIT32'
+Implementation of POU 'DCF77_TIME'
+Warning 1511: DCF77_TIME (125): Operand to be shifted has no explicit type. Please use a typed literal, like 'DWORD#1'.
+Warning 1511: DCF77_TIME (133): Operand to be shifted has no explicit type. Please use a typed literal, like 'DWORD#1'.
+Warning 1511: DCF77_TIME (141): Operand to be shifted has no explicit type. Please use a typed literal, like 'DWORD#1'.
+Warning 1511: DCF77_TIME (149): Operand to be shifted has no explicit type. Please use a typed literal, like 'DWORD#1'.
+Warning 1511: DCF77_TIME (157): Operand to be shifted has no explicit type. Please use a typed literal, like 'DWORD#1'.
+Implementation of POU 'DRAND'
+Implementation of POU 'DT_TO_SYSTEMTIME'
+Implementation of POU 'F_GetVersionTcPlcUtilitiesBC'
+Implementation of POU 'F_REAL'
+Implementation of POU 'F_SwapReal'
+Implementation of POU 'FB_BasicPID'
+Implementation of POU 'GETBIT32'
+Implementation of POU 'IsFinite'
+Implementation of POU 'OTSTRUCT_TO_TIME'
+Implementation of POU 'ReadWriteTerminalReg'
+Implementation of POU 'RTC'
+Implementation of POU 'RTC_EX'
+Implementation of POU 'SETBIT32'
+Implementation of POU 'SYSTEMTIME_TO_DT'
+Implementation of POU 'TIME_TO_OTSTRUCT'
+Implementation of POU 'C_TO_F'
+Implementation of POU 'C_TO_K'
+Implementation of POU 'C_TO_R'
+Implementation of POU 'F_GetVersionTcBABasic'
+Implementation of POU 'F_Scale'
+Implementation of POU 'F_TO_C'
+Implementation of POU 'F_TO_K'
+Implementation of POU 'F_TO_R'
+Implementation of POU 'FB_CalcFederalHolidaysUS'
+Implementation of POU 'FB_CalcPublicHolidaysDE'
+Implementation of POU 'FB_CalcPublicHolidaysUS'
+Implementation of POU 'FB_CalcSunPosition'
+Implementation of POU 'FB_ConstantLightControlEco'
+Implementation of POU 'FB_DailyScheduler'
+Implementation of POU 'FB_Dimmer1Switch'
+Implementation of POU 'FB_Dimmer1SwitchEco'
+Implementation of POU 'FB_Dimmer2Switch'
+Implementation of POU 'FB_Dimmer2SwitchEco'
+Implementation of POU 'FB_Dimmer3Switch'
+Implementation of POU 'FB_Light'
+Implementation of POU 'FB_LightControl'
+Implementation of POU 'FB_LightControl.TableCalculations'
+Implementation of POU 'FB_MaximumDemandController'
+Implementation of POU 'FB_MonthlyScheduler1'
+Implementation of POU 'FB_MonthlyScheduler2'
+Implementation of POU 'FB_PT1'
+Implementation of POU 'FB_PT2'
+Implementation of POU 'FB_Ramp'
+Implementation of POU 'FB_RoofWindow'
+Implementation of POU 'FB_Sequencer'
+Implementation of POU 'FB_ShortLongClick'
+Implementation of POU 'FB_SignallingContact'
+Implementation of POU 'FB_SingleDoubleClick'
+Implementation of POU 'FB_StairwellDimmer'
+Implementation of POU 'FB_StairwellLight'
+Implementation of POU 'FB_StartEnd'
+Implementation of POU 'FB_ThresholdSwitch'
+Implementation of POU 'FB_VenetianBlind'
+Implementation of POU 'FB_VenetianBlindEx'
+Implementation of POU 'FB_VenetianBlindEx1Switch'
+Implementation of POU 'FB_WeeklyScheduler'
+Implementation of POU 'FB_WeeklyTimeSwitch'
+Implementation of POU 'FB_YearlyScheduler'
+Implementation of POU 'FUN_DayOfYear'
+Implementation of POU 'FUN_ValidDayOfMonth'
+Implementation of POU 'FUN_WeekOfYear'
+Implementation of POU 'K_TO_C'
+Implementation of POU 'K_TO_F'
+Implementation of POU 'K_TO_R'
+Implementation of POU 'R_TO_C'
+Implementation of POU 'R_TO_F'
+Implementation of POU 'R_TO_K'
+Implementation of POU 'ADS1_write'
+Implementation of POU 'ADS3_write'
+Implementation of POU 'heat'
+Implementation of POU 'heat.init'
+Implementation of POU 'Light'
+Error 4001: Light (7): Identifier 'FBSU1_L' not defined
+Error 4001: Light (17): Identifier 'FBSU2_L' not defined
+Error 4331: Light (2): Expression expected at input 1 of the box 'XOR'
+Error 4001: Light (2): Identifier 'SW_TAMBUR_SU' not defined
+Error 4001: Light (9): Identifier 'SU1_L' not defined
+Error 4001: Light (19): Identifier 'SU2_L' not defined
+Error 4001: Light (13): Identifier 'FBSU1_RAKOVYNA' not defined
+Error 4001: Light (15): Identifier 'SU1_RAKOVYNA' not defined
+Error 4001: Light (24): Identifier 'FBSU2_DUSH' not defined
+Error 4001: Light (20): Identifier 'FBKUH_SU2_SW' not defined
+Error 4001: Light (21): Identifier 'FBSU2_L' not defined
+Error 4001: Light (22): Identifier 'SU2_L' not defined
+Error 4001: Light (23): Identifier 'SU2_BRA' not defined
+Error 4001: Light (25): Identifier 'SU2_DUSH' not defined
+Error 4001: Light (26): Identifier 'SU2_POLYTSI' not defined
+Error 4001: Light (30): Identifier 'FBDUSH' not defined
+Error 4001: Light (31): Identifier 'DUSH' not defined
+Error 4001: Light (27): Identifier 'FBDUSH_SW' not defined
+Error 4001: Light (34): Identifier 'FBDUSH_VENT' not defined
+Error 4001: Light (35): Identifier 'VENT_DUSH' not defined
+Error 4001: Light (46): Identifier 'FBSMUGY' not defined
+Error 4001: Light (47): Identifier 'VITALNYA_SMUGY1' not defined
+Error 4001: Light (48): Identifier 'VITALNYA_SMUGY2' not defined
+Error 4331: Light (45): Expression expected at input 1 of the box 'XOR'
+Error 4001: Light (45): Identifier 'SW_VITALNYA1' not defined
+Error 4001: Light (38): Identifier 'FBKUHNYA' not defined
+Error 4001: Light (39): Identifier 'KUHNYA1' not defined
+Error 4001: Light (41): Identifier 'KUHNYA2' not defined
+Error 4001: Light (50): Identifier 'SW_VITALNYA2' not defined
+Error 4331: Light (50): Expression expected at input 1 of the box 'XOR'
+Error 4001: Light (51): Identifier 'FBVITALNYA_L' not defined
+Error 4001: Light (52): Identifier 'VITALNYA_L' not defined
+Error 4001: Light (56): Identifier 'FBTERASSA' not defined
+Error 4001: Light (57): Identifier 'EIB_TERASSA' not defined
+Error 4001: Light (58): Identifier 'TERASSA' not defined
+Error 4001: Light (64): Identifier 'FBPIDVAL_SHODY' not defined
+Error 4001: Light (65): Identifier 'PIDVAL_SHODY' not defined
+Error 4001: Light (63): Identifier 'FBTAMBUR3_SW' not defined
+Error 4001: Light (74): Identifier 'SW_TAMBUR1' not defined
+Error 4001: Light (66): Identifier 'MOOVE_KORYDOR' not defined
+Error 4336: Light (68): Expression expected at the input of the output
+Error 4001: Light (60): Identifier 'FBSKHODY2POV' not defined
+Error 4001: Light (61): Identifier 'SKHODY2POV' not defined
+Error 4001: Light (42): Identifier 'FBKUHNYAVENT' not defined
+Error 4001: Light (37): Identifier 'FBKUH1_SW' not defined
+Error 4001: Light (53): Identifier 'FBPROKLADKA' not defined
+Error 4001: Light (54): Identifier 'VITALNYA_PROKLADKA' not defined
+Error 4001: Light (43): Identifier 'VENT_KUH_LOW' not defined
+Error 4001: Light (1): Identifier 'FBSU1_1SW' not defined
+Error 4001: Light (10): Identifier 'FBSU1VENT' not defined
+Error 4001: Light (12): Identifier 'VENT_SU1' not defined
+Error 4331: Light (66): Expression expected at input 2 of the box 'AND'
+Error 4336: Light (67): Expression expected at the input of the output
+Error 4001: Light (8): Identifier 'EIB_SU1_L' not defined
+Error 4001: Light (14): Identifier 'EIB_SU1_RAKOVYNA' not defined
+Error 4001: Light (11): Identifier 'EIB_VENT_SU1' not defined
+Error 4001: Light (18): Identifier 'EIB_SU2_L' not defined
+Error 4001: Light (69): Identifier 'FBSU2_BRA' not defined
+Error 4001: Light (33): Identifier 'EIB_SU2_DUSH' not defined
+Error 4001: Light (29): Identifier 'EIB_SU2_BRA' not defined
+Error 4001: Light (16): Identifier 'EIB_SU2_L' not defined
+Error 4001: Light (28): Identifier 'EIB_DUSH' not defined
+Error 4001: Light (32): Identifier 'EIB_VENT_DUSH' not defined
+Error 4001: Light (44): Identifier 'EIB_VITALNYA_SMUGY1' not defined
+Error 4001: Light (49): Identifier 'EIB_VITALNYA_L' not defined
+Error 4001: Light (70): Identifier 'FBTERASSA_STINA' not defined
+Error 4001: Light (71): Identifier 'TERASSA_STINA' not defined
+Error 4001: Light (72): Identifier 'EIB_TERASSA_STINA' not defined
+Error 4001: Light (62): Identifier 'EIB_SKHODY2POV' not defined
+Error 4001: Light (55): Identifier 'EIB_VITALNYA_PROKLADKA' not defined
+Error 4001: Light (40): Identifier 'EIB_KUHNYA1' not defined
+Error 4001: Light (36): Identifier 'EIB_VENT_KUH_LOW' not defined
+Error 4331: Light (74): Expression expected at input 1 of the box 'XOR'
+Error 4001: Light (67): Identifier 'FBTAMBURFIRSTFLOOR' not defined
+Error 4001: Light (68): Identifier 'FBTAMBURFIRSTFLOOR' not defined
+Error 4001: Light (59): Identifier 'EIB_PIDVAL_SHODY' not defined
+Implementation of POU 'light_old'
+Implementation of POU 'shtory_kabinet'
+Error 4121: shtory_kabinet (23): 'KABINET1' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (28): 'KABINET2' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (34): 'KABINET1' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (40): 'KABINET1' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (46): 'KABINET2' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (52): 'KABINET2' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (116): 'KABINET1' is not a component of 'LIGHT'
+Error 4121: shtory_kabinet (117): 'KABINET2' is not a component of 'LIGHT'
+Implementation of POU 'shtory_kino'
+Error 4121: shtory_kino (2): 'KINO1' is not a component of 'LIGHT'
+Error 4121: shtory_kino (7): 'KINO2' is not a component of 'LIGHT'
+Error 4121: shtory_kino (13): 'KINO1' is not a component of 'LIGHT'
+Error 4121: shtory_kino (19): 'KINO1' is not a component of 'LIGHT'
+Error 4121: shtory_kino (25): 'KINO2' is not a component of 'LIGHT'
+Error 4121: shtory_kino (31): 'KINO2' is not a component of 'LIGHT'
+Error 4121: shtory_kino (96): 'KINO1' is not a component of 'LIGHT'
+Error 4121: shtory_kino (97): 'KINO2' is not a component of 'LIGHT'
+Implementation of POU 'SWITCH'
+Initialisation code for POU 'SWITCH'
+Implementation of POU 'MAIN'
