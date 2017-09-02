@@ -1,0 +1,3059 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM EIB
+VAR
+	i:INT:=0;
+	fb_climateControlMode_read:EIB_8BIT_UNSIGN_REC;
+	fb_RTControlMode_send:EIB_8BIT_UNSIGN_SEND_EX;
+
+	fb_out_temp_send						: EIB_2OCTET_FLOAT_SEND_EX;
+	fb_filtered_out_temp_send				: EIB_2OCTET_FLOAT_SEND_EX;
+
+	fb_heating_setpoint_read				: EIB_2OCTET_FLOAT_REC;
+	fb_cooling_setpoint_read					: EIB_2OCTET_FLOAT_REC;
+
+	out_temp_send_mode					: INT 		:= 2; (* 0: Manuel, 1: Polling, 2: OnChange *)
+	out_temp_cycle_polling					: TIME		:= t#2m;
+	out_temp_cycle_min_send_time			: TIME 		:= t#2m;
+
+	fb_start_delay							:TP;
+
+	fb_vitalnya_FCU_cooling_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_kino_FCU_cooling_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_kabinet_FCU_cooling_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_dytjacha_FCU_cooling_ctrl_sig_rec	: EIB_8BIT_UNSIGN_REC;
+	fb_spalnya_FCU_cooling_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+
+	fb_vitalnya_FCU_heating_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_kino_FCU_heating_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_kabinet_FCU_heating_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+	fb_dytjacha_FCU_heating_ctrl_sig_rec	: EIB_8BIT_UNSIGN_REC;
+	fb_spalnya_FCU_heating_ctrl_sig_rec		: EIB_8BIT_UNSIGN_REC;
+
+	fb_vitalnya_FCU_fan_speed_send		: EIB_8BIT_UNSIGN_SEND;
+	fb_kino_FCU_fan_speed_send			: EIB_8BIT_UNSIGN_SEND;
+	fb_dytjacha_FCU_fan_speed_send		: EIB_8BIT_UNSIGN_SEND;
+	fb_spalnya_FCU_fan_speed_send		: EIB_8BIT_UNSIGN_SEND;
+	fb_kabinet_FCU_fan_speed_send		: EIB_8BIT_UNSIGN_SEND;
+
+	fb_vitalnya_damper_ctrl_rec				: EIB_BIT_REC;
+	fb_kino_damper_ctrl_rec					: EIB_BIT_REC;
+	fb_kabinet_damper_ctrl_rec				: EIB_BIT_REC;
+	fb_dytjacha_damper_ctrl_rec				: EIB_BIT_REC;
+	fb_spalnya_damper_ctrl_rec				: EIB_BIT_REC;
+
+	fb_eib_time_rec							: EIB_TIME_REC;
+	fb_eib_date_rec							: EIB_DATE_REC;
+	fb_eib_dark_outside_rec					: EIB_BIT_REC;
+	fb_beckhoff_twillight_send				: EIB_BIT_SEND;
+
+	(*eib_twillight_eib_addr: EIB_GROUP_ADDR := (MAIN:=1,SUB_MAIN:=3,NUMBER:=14);*)
+	b_eib_twillight: BOOL;
+	fb_eib_twillight_send						: EIB_BIT_SEND;
+	fb_eib_twillight_rec						: EIB_BIT_REC;
+
+
+	eib_send_mode_floor1: INT;
+	eib_send_cyclical_start_floor1: BOOL := TRUE;
+	eib_send_mode_floor2: INT;
+	eib_send_cyclical_start_floor2: BOOL := TRUE;
+	eib_send_mode_floor3: INT;
+	eib_send_cyclical_start_floor3: BOOL := TRUE;
+	eib_send_mode_floor4: INT;
+	eib_send_cyclical_start_floor4: BOOL := TRUE;
+
+	floors:INT;
+	fb_sending_floor_order:CTU;
+	fb_heartbeat_timer:TON;
+	fb_sending_time_frame:TOF;
+
+	fbNightLightTimer:		TP;
+
+	eib_byte_climate_control_mode			: BYTE;
+
+
+
+	F: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+fb_start_delay(IN:=  SYSTEMTASKINFOARR[1].firstCycle, PT:=t#60s);
+
+(*EIB*)
+fb_heartbeat_timer(in:=NOT  fb_heartbeat_timer.Q, pt:=heartBeatTime);
+fb_sending_time_frame(in:=fb_heartbeat_timer.Q, pt:=t#50ms);
+fb_sending_floor_order(cu:=fb_heartbeat_timer.Q, pv:=4,reset:=fb_sending_floor_order.CV >4, CV=>floors);
+
+
+eib_send_mode_floor1:=2;
+eib_send_mode_floor2:=2;
+eib_send_mode_floor3:=2;
+eib_send_mode_floor4:=2;
+
+CASE floors OF
+1:
+	eib_send_mode_floor1:=2*BOOL_TO_INT(NOT (fb_sending_time_frame.Q)); (*0-manual*)
+	IF fb_heartbeat_timer.Q THEN
+		eib_send_cyclical_start_floor1:=FALSE;
+	ELSE
+		eib_send_cyclical_start_floor1:=TRUE;
+	END_IF
+2:
+	eib_send_mode_floor2:=2*BOOL_TO_INT(NOT (fb_sending_time_frame.Q)); (*0-manual*)
+	IF fb_heartbeat_timer.Q THEN
+		eib_send_cyclical_start_floor2:=FALSE;
+	ELSE
+		eib_send_cyclical_start_floor2:=TRUE;
+	END_IF
+3:
+	eib_send_mode_floor3:=2*BOOL_TO_INT(NOT (fb_sending_time_frame.Q)); (*0-manual*)
+	IF fb_heartbeat_timer.Q THEN
+		eib_send_cyclical_start_floor3:=FALSE;
+	ELSE
+		eib_send_cyclical_start_floor3:=TRUE;
+	END_IF
+4:
+	eib_send_mode_floor4:=2*BOOL_TO_INT(NOT (fb_sending_time_frame.Q)); (*0-manual*)
+	IF fb_heartbeat_timer.Q THEN
+		eib_send_cyclical_start_floor4:=FALSE;
+	ELSE
+		eib_send_cyclical_start_floor4:=TRUE;
+	END_IF
+
+	heartBeatTime := t#10m;
+END_CASE
+
+
+fb_KL6301_0.iMode:=1;
+CASE i OF
+0:	(* EIB Address 2.3.4 *)
+	fb_KL6301_0.EIB_PHYS_ADDR.Area:=1;
+	fb_KL6301_0.EIB_PHYS_ADDR.Line:=1;
+	fb_KL6301_0.EIB_PHYS_ADDR.Device:=1;
+	(* Filter 1 *)
+	fb_KL6301_0.EIB_GROUP_FILTER[1].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[1].GROUP_ADDR.SUB_MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[1].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[1].GROUP_LEN:=31;
+	(* Filter 2*)
+	fb_KL6301_0.EIB_GROUP_FILTER[2].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[2].GROUP_ADDR.SUB_MAIN:=2;
+	fb_KL6301_0.EIB_GROUP_FILTER[2].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[2].GROUP_LEN:=31;
+	(* Filter 3*)
+	fb_KL6301_0.EIB_GROUP_FILTER[3].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[3].GROUP_ADDR.SUB_MAIN:=3;
+	fb_KL6301_0.EIB_GROUP_FILTER[3].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[3].GROUP_LEN:=31;
+	(* Filter 4 *)
+	fb_KL6301_0.EIB_GROUP_FILTER[4].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[4].GROUP_ADDR.SUB_MAIN:=4;
+	fb_KL6301_0.EIB_GROUP_FILTER[4].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[4].GROUP_LEN:=31;
+	(* Filter 5*)
+	fb_KL6301_0.EIB_GROUP_FILTER[5].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[5].GROUP_ADDR.SUB_MAIN:=5;
+	fb_KL6301_0.EIB_GROUP_FILTER[5].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[5].GROUP_LEN:=31;
+	(* Filter 6*)
+	fb_KL6301_0.EIB_GROUP_FILTER[6].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[6].GROUP_ADDR.SUB_MAIN:=6;
+	fb_KL6301_0.EIB_GROUP_FILTER[6].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[6].GROUP_LEN:=31;
+	(* Filter 7*)
+	fb_KL6301_0.EIB_GROUP_FILTER[7].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[7].GROUP_ADDR.SUB_MAIN:=7;
+	fb_KL6301_0.EIB_GROUP_FILTER[7].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[7].GROUP_LEN:=31;
+(*	(* Filter 8*)
+	fb_KL6301_0.EIB_GROUP_FILTER[8].GROUP_ADDR.MAIN:=1;
+	fb_KL6301_0.EIB_GROUP_FILTER[8].GROUP_ADDR.SUB_MAIN:=8;
+	fb_KL6301_0.EIB_GROUP_FILTER[8].GROUP_ADDR.NUMBER:=0;
+	fb_KL6301_0.EIB_GROUP_FILTER[8].GROUP_LEN:=31;*)
+
+	fb_KL6301_0.bActivate :=TRUE; 	(*Start EIB Functionblock*)
+	IF fb_KL6301_0.bReady THEN	(*Wait until the fb is ready *)
+		IF NOT fb_KL6301_0.bError THEN
+			i:=1;  (* EIB functionblock is now ready to send and receive *)
+		ELSE
+			i:=100; (* EIB ERROR*)
+		END_IF
+	END_IF
+1:	;
+100:	;(*ERROR EIB*)
+END_CASE
+
+fb_KL6301_0(
+	idx:=1,								(* for every KL6301 an other idx number
+										Example KL6301 terminal 1 - idx=1 , KL6301 termnal 2 -idx=3,... max. 64 *)
+	KL6301_IN:=KL6301_IN_0,				(* Terminal variable - address IN *)
+	KL6301_OUT:=KL6301_OUT_0 );			(* Terminal variable - address OUT *)
+
+
+
+eibPort_data;
+floor1;
+floor2;
+floor3;
+derevo;
+gym_and_outside;
+central_lights;
+timers;
+
+
+
+END_PROGRAM
+ACTION	central_lights:
+	IF data1floor[100] > 0 OR data1floor[101] > 0  THEN
+		floor1_lights :=TRUE;
+	ELSE
+		floor1_lights:=FALSE;
+	END_IF
+
+
+	IF data2floor[100] > 0 OR data2floor[101] > 0  OR data2floor[102] > 0 THEN
+		floor2_lights :=TRUE;
+	ELSE
+		floor2_lights:=FALSE;
+	END_IF
+
+
+	IF lights_terminal1 > 0 OR lights_terminal2 >0 OR bar OR korydor_skeli OR korydor_svitlo OR choven OR serverna THEN
+		floor3_lights := TRUE;
+	ELSE
+		floor3_lights:=FALSE;
+	END_IF
+
+
+	IF data_derevo[100] > 0 OR data_derevo[101] > 0 OR data_derevo[102] > 0 THEN
+		derevo_lights :=TRUE;
+	ELSE
+		derevo_lights:=FALSE;
+	END_IF
+
+
+	IF floor1_lights OR floor2_lights OR floor3_lights THEN
+		main_house_lights:=TRUE;
+	ELSE
+		main_house_lights:=FALSE;
+	END_IF
+
+
+	IF main_house_lights OR derevo_lights THEN
+		all_lights:=TRUE;
+	ELSE
+		all_lights:=FALSE;
+	END_IF
+
+
+fb_floor1_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=floor1_lights,  Group_Address:=lights_out_floor1_eib_addr);
+fb_floor2_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=floor2_lights,  Group_Address:=lights_out_floor2_eib_addr);
+fb_floor3_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=floor3_lights,  Group_Address:=lights_out_floor3_eib_addr);
+fb_derevo_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_lights,  Group_Address:=lights_out_derevo_eib_addr);
+fb_main_house_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=main_house_lights,  Group_Address:=lights_out_main_house_eib_addr);
+fb_all_lights_send_status_ex(imode:=2, bStart:=TRUE, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=all_lights,  Group_Address:=lights_out_all_eib_addr);
+
+END_ACTION
+
+ACTION	derevo:
+data_derevo[0].0:=bDarkOutside;
+
+data_derevo[4]:=WORD_TO_BYTE(system_time.wHour);
+data_derevo[5]:=WORD_TO_BYTE(system_time.wMinute);
+
+MEMCPY(ADR(data_derevo[10] ), ADR(OAT), SIZEOF(OAT));
+
+
+fb_derevo_vidpochynok1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_vidpochynok1_adr);
+IF NOT  fb_derevo_vidpochynok1_read.bDataReceive THEN
+	data_derevo[100].0:= fb_derevo_vidpochynok1_read.bdata;
+END_IF
+
+fb_derevo_vidpochynok2_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_vidpochynok2_adr);
+IF NOT  fb_derevo_vidpochynok2_read.bDataReceive THEN
+	data_derevo[100].1:= fb_derevo_vidpochynok2_read.bdata;
+END_IF
+
+fb_derevo_veranda_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_veranda_adr);
+IF NOT  fb_derevo_veranda_read.bDataReceive THEN
+	data_derevo[100].2:= fb_derevo_veranda_read.bdata;
+END_IF
+
+fb_derevo_veranda_zovn_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_veranda_zovn_adr);
+IF NOT  fb_derevo_veranda_zovn_read.bDataReceive THEN
+	data_derevo[100].3:=fb_derevo_veranda_zovn_read.bdata;
+END_IF
+
+fb_derevo_vhid_zovn_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_vhid_zovn_adr);
+IF NOT  fb_derevo_vhid_zovn_read.bDataReceive THEN
+	data_derevo[100].4:= fb_derevo_vhid_zovn_read.bdata;
+END_IF
+
+fb_derevo_sauna_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_sauna_adr);
+IF NOT  fb_derevo_sauna_read.bDataReceive THEN
+	data_derevo[100].5:= fb_derevo_sauna_read.bdata;
+END_IF
+
+fb_derevo_vhid_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_vhid_adr);
+IF NOT  fb_derevo_vhid_read.bDataReceive THEN
+	data_derevo[100].6:= fb_derevo_vhid_read.bdata;
+END_IF
+
+fb_derevo_kotel_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_kotel_adr);
+IF NOT  fb_derevo_kotel_read.bDataReceive THEN
+	data_derevo[100].7:= fb_derevo_kotel_read.bdata;
+END_IF
+
+fb_derevo_korydor_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_korydor_adr );
+IF NOT  fb_derevo_korydor_read.bDataReceive THEN
+	data_derevo[101].0:= fb_derevo_korydor_read.bdata;
+END_IF
+fb_derevo_sinna_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_sinna_adr );
+IF NOT  fb_derevo_sinna_read.bDataReceive THEN
+	data_derevo[101].1:= fb_derevo_sinna_read.bdata;
+END_IF
+fb_derevo_hamam_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_hamam_adr );
+IF NOT  fb_derevo_hamam_read.bDataReceive THEN
+	data_derevo[101].2:= fb_derevo_hamam_read.bdata;
+END_IF
+fb_derevo_kuhnya_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_kuhnya_adr );
+IF NOT  fb_derevo_kuhnya_read.bDataReceive THEN
+	data_derevo[101].3:= fb_derevo_kuhnya_read.bdata;
+END_IF
+fb_derevo_bassein1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_bassein1_adr );
+IF NOT  fb_derevo_bassein1_read.bDataReceive THEN
+	data_derevo[101].4:= fb_derevo_bassein1_read.bdata;
+END_IF
+fb_derevo_bassein_lampa_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_bassein_lampa_adr );
+IF NOT  fb_derevo_bassein_lampa_read.bDataReceive THEN
+	data_derevo[101].5:= fb_derevo_bassein_lampa_read.bdata;
+END_IF
+fb_derevo_spalnya2_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_spalnya2_adr);
+IF NOT  fb_derevo_spalnya2_read.bDataReceive THEN
+	data_derevo[101].6:= fb_derevo_spalnya2_read.bdata;
+END_IF
+fb_derevo_terassa_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_terassa_adr);
+IF NOT  fb_derevo_terassa_read.bDataReceive THEN
+	data_derevo[101].7:= fb_derevo_terassa_read.bdata;
+END_IF
+fb_derevo_dush_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_dush_adr );
+IF NOT  fb_derevo_dush_read.bDataReceive THEN
+	data_derevo[102].0:= fb_derevo_dush_read.bdata;
+END_IF
+fb_derevo_wc_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_wc_adr );
+IF NOT  fb_derevo_wc_read.bDataReceive THEN
+	data_derevo[102].1:= fb_derevo_wc_read.bdata;
+END_IF
+fb_derevo_spalnya_verh_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_spalnya_verh_adr );
+IF NOT  fb_derevo_spalnya_verh_read.bDataReceive THEN
+	data_derevo[102].2:= fb_derevo_spalnya_verh_read.bdata;
+END_IF
+fb_derevo_spalnya1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_spalnya1_adr );
+IF NOT  fb_derevo_spalnya1_read.bDataReceive THEN
+	data_derevo[102].3:= fb_derevo_spalnya1_read.bdata;
+END_IF
+fb_derevo_spalnya_su_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_spalnya_su_adr );
+IF NOT  fb_derevo_spalnya_su_read.bDataReceive THEN
+	data_derevo[102].4:= fb_derevo_spalnya_su_read.bdata;
+END_IF
+fb_derevo_garderob_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_garderob_adr );
+IF NOT  fb_derevo_garderob_read.bDataReceive THEN
+	data_derevo[102].5:= fb_derevo_garderob_read.bdata;
+END_IF
+
+fb_derevo_dush2_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_dush2_adr );
+IF NOT  fb_derevo_dush2_read.bDataReceive THEN
+	data_derevo[102].6:= fb_derevo_dush2_read.bdata;
+END_IF
+
+fb_derevo_okno_basseina_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=derevo_okno_basseina_adr );
+IF NOT  fb_derevo_okno_basseina_read.bDataReceive THEN
+	data_derevo[103].0:= fb_derevo_okno_basseina_read.bdata;
+END_IF
+(*sending*)
+
+fb_derevo_vidpochynok1_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_vidpochynok1,  Group_Address:=derevo_vidpochynok1_status_adr);
+fb_derevo_vidpochynok2_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_vidpochynok2,  Group_Address:=derevo_vidpochynok2_status_adr);
+fb_derevo_veranda_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_veranda,  Group_Address:=derevo_veranda_status_adr);
+fb_derevo_veranda_zovn_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_veranda_zovn,  Group_Address:=derevo_veranda_zovn_status_adr);
+fb_derevo_sauna_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_sauna,  Group_Address:=derevo_sauna_status_adr);
+fb_derevo_vhid_zovn_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_vhid_zovn,  Group_Address:=derevo_vhid_zovn_status_adr);
+fb_derevo_vhid_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_vhid,  Group_Address:=derevo_vhid_status_adr);
+fb_derevo_kotel_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_kotel,  Group_Address:=derevo_kotel_status_adr);
+fb_derevo_korydor_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_korydor,  Group_Address:=derevo_korydor_status_adr);
+fb_derevo_sinna_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_sinna,  Group_Address:=derevo_sinna_status_adr);
+fb_derevo_hamam_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_hamam,  Group_Address:=derevo_hamam_status_adr);
+fb_derevo_kuhnya_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_kuhnya,  Group_Address:=derevo_kuhnya_status_adr);
+fb_derevo_bassein1_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_bassein1,  Group_Address:=derevo_bassein1_status_adr);
+fb_derevo_bassein_lampa_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_bassein_lampa,  Group_Address:=derevo_bassein_lampa_status_adr);
+fb_derevo_spalnya2_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_spalnya2,  Group_Address:=derevo_spalnya2_status_adr);
+fb_derevo_terassa_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_terassa,  Group_Address:=derevo_terassa_status_adr);
+fb_derevo_dush_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_dush,  Group_Address:=derevo_dush_status_adr);
+fb_derevo_wc_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_wc,  Group_Address:=derevo_wc_status_adr);
+fb_derevo_spalnya_verh_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_spalnya_verh,  Group_Address:=derevo_spalnya_verh_status_adr);
+fb_derevo_spalnya1_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_spalnya1,  Group_Address:=derevo_spalnya1_status_adr);
+fb_derevo_spalnya_su_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_spalnya_su,  Group_Address:=derevo_spalnya_su_status_adr);
+fb_derevo_garderob_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_garderob,  Group_Address:=derevo_garderob_status_adr);
+fb_derevo_dush2_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_dush2,  Group_Address:=derevo_dush2_status_adr);
+fb_derevo_okno_basseina_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=derevo_okno_basseina,  Group_Address:=derevo_okno_basseina_status_adr);
+
+IF fb_derevo_vidpochynok1_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data_derevo[100].0:=derevo_vidpochynok1;
+END_IF
+
+IF fb_derevo_vidpochynok2_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].1:=derevo_vidpochynok2;
+END_IF
+
+IF fb_derevo_veranda_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].2:=derevo_veranda;
+END_IF
+
+IF fb_derevo_veranda_zovn_send_status_ex.bBusy OR fb_heartbeat_timer.Q    THEN
+	data_derevo[100].3:=derevo_veranda_zovn;
+END_IF
+
+IF fb_derevo_vhid_zovn_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].4:=derevo_vhid_zovn;
+END_IF
+
+IF fb_derevo_sauna_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].5:=derevo_sauna;
+END_IF
+
+IF fb_derevo_vhid_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].6:=derevo_vhid;
+END_IF
+
+IF fb_derevo_kotel_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[100].7:=derevo_kotel;
+END_IF
+
+IF fb_derevo_korydor_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].0:=derevo_korydor;
+END_IF
+
+IF fb_derevo_sinna_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].1:=derevo_sinna;
+END_IF
+
+IF fb_derevo_hamam_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].2:=derevo_hamam;
+END_IF
+
+IF fb_derevo_kuhnya_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].3:=derevo_kuhnya;
+END_IF
+
+IF fb_derevo_bassein1_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].4:=derevo_bassein1;
+END_IF
+
+IF fb_derevo_bassein_lampa_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].5:=derevo_bassein_lampa;
+END_IF
+
+IF fb_derevo_spalnya2_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].6:=derevo_spalnya2;
+END_IF
+
+IF fb_derevo_terassa_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[101].7:=derevo_terassa;
+END_IF
+
+IF fb_derevo_dush_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].0:=derevo_dush;
+END_IF
+
+IF fb_derevo_wc_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].1:=derevo_wc;
+END_IF
+
+IF fb_derevo_spalnya_verh_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].2:=derevo_spalnya_verh;
+END_IF
+
+IF fb_derevo_spalnya1_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].3:=derevo_spalnya1;
+END_IF
+
+IF fb_derevo_spalnya_su_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].4:=derevo_spalnya_su;
+END_IF
+
+IF fb_derevo_garderob_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].5:=derevo_garderob;
+END_IF
+
+IF fb_derevo_dush2_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[102].6:=derevo_dush2;
+END_IF
+
+IF fb_derevo_okno_basseina_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_derevo[103].0:=derevo_okno_basseina;
+END_IF
+
+
+
+
+END_ACTION
+
+ACTION	eibPort_data:
+_FBD_BODY
+_NETWORKS : 41
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_vitalnya_FCU_heating_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_FCU_heating_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_vitalnya_FCU_heating_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+vitalnya_HVAC.heating_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kino_FCU_heating_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_FCU_heating_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_kino_FCU_heating_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kino_HVAC.heating_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kabinet_FCU_heating_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_FCU_heating_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_kabinet_FCU_heating_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kabinet_HVAC.heating_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_dytjacha_FCU_heating_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_FCU_heating_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_dytjacha_FCU_heating_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+dytjacha_HVAC.heating_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_spalnya_FCU_heating_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_FCU_heating_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_spalnya_FCU_heating_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+spalnya_HVAC.heating_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_vitalnya_FCU_cooling_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_FCU_cooling_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_vitalnya_FCU_cooling_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+vitalnya_HVAC.cooling_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_FUNCTION
+_BOX_EXPR : 5
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_hvac.cooling_signal
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_hvac.heating_signal
+_EXPRESSION
+_POSITIV
+GREATEST_OF
+_EXPRESSION
+_POSITIV
+REAL_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+32767
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+vitalnya_HVAC.klapan
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kino_FCU_cooling_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_FCU_cooling_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_kino_FCU_cooling_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kino_HVAC.cooling_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_FUNCTION
+_BOX_EXPR : 5
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_hvac.cooling_signal
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_hvac.heating_signal
+_EXPRESSION
+_POSITIV
+GREATEST_OF
+_EXPRESSION
+_POSITIV
+REAL_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+32767
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kino_HVAC.klapan
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kabinet_FCU_cooling_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_FCU_cooling_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_kabinet_FCU_cooling_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kabinet_HVAC.cooling_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_FUNCTION
+_BOX_EXPR : 5
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_hvac.cooling_signal
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_hvac.heating_signal
+_EXPRESSION
+_POSITIV
+GREATEST_OF
+_EXPRESSION
+_POSITIV
+REAL_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+32767
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+kabinet_HVAC.klapan
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_dytjacha_FCU_cooling_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_FCU_cooling_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_dytjacha_FCU_cooling_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+dytjacha_HVAC.cooling_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_FUNCTION
+_BOX_EXPR : 5
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_hvac.cooling_signal
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_hvac.heating_signal
+_EXPRESSION
+_POSITIV
+GREATEST_OF
+_EXPRESSION
+_POSITIV
+REAL_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_OPERAND
+_EXPRESSION
+_POSITIV
+32767
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+dytjacha_HVAC.klapan
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_spalnya_FCU_cooling_ctrl_sig_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_FCU_cooling_ctrl_sig_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 5
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_spalnya_FCU_cooling_ctrl_sig_rec.byData
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+255
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+spalnya_HVAC.cooling_signal
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_ASSIGN
+_FUNCTION
+_BOX_EXPR : 5
+_OPERATOR
+_BOX_EXPR : 1
+_FUNCTION
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_hvac.cooling_signal
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_hvac.heating_signal
+_EXPRESSION
+_POSITIV
+GREATEST_OF
+_EXPRESSION
+_POSITIV
+REAL_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+100
+_OPERAND
+_EXPRESSION
+_POSITIV
+0
+_OPERAND
+_EXPRESSION
+_POSITIV
+32767
+_EXPRESSION
+_POSITIV
+RANGE_TO_RANGE
+_EXPRESSION
+_POSITIV
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+spalnya_HVAC.klapan
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_vitalnya_FCU_fan_speed_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_FCU_fan_speed_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_hvac.fancoil_speed
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kino_FCU_fan_speed_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_FCU_fan_speed_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_hvac.fancoil_speed
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kabinet_FCU_fan_speed_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_FCU_fan_speed_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_hvac.fancoil_speed
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_dytjacha_FCU_fan_speed_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_FCU_fan_speed_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_hvac.fancoil_speed
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_spalnya_FCU_fan_speed_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_FCU_fan_speed_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_hvac.fancoil_speed
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_vitalnya_damper_ctrl_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+vitalnya_damper_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_NEGATIV
+_NO_SET
+vitalnya_HVAC.zaslinka
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kino_damper_ctrl_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kino_damper_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_NEGATIV
+_NO_SET
+kino_HVAC.zaslinka
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_kabinet_damper_ctrl_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+kabinet_damper_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_NEGATIV
+_NO_SET
+kabinet_HVAC.zaslinka
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_dytjacha_damper_ctrl_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+dytjacha_damper_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_NEGATIV
+_NO_SET
+dytjacha_HVAC.zaslinka
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_spalnya_damper_ctrl_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+spalnya_damper_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_NEGATIV
+_NO_SET
+spalnya_HVAC.zaslinka
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_out_temp_send
+_BOX_EXPR : 7
+_OPERAND
+_EXPRESSION
+_POSITIV
+NOT fb_eib_time_rec.bDataReceive
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_send_mode
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_cycle_polling
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_cycle_min_send_time
+_OPERAND
+_EXPRESSION
+_POSITIV
+OAT_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+t_out
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_2OCTET_FLOAT_SEND_EX
+_OUTPUTS : 2
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_filtered_out_temp_send
+_BOX_EXPR : 7
+_OPERAND
+_EXPRESSION
+_POSITIV
+NOT fb_eib_time_rec.bDataReceive
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_send_mode
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_cycle_polling
+_OPERAND
+_EXPRESSION
+_POSITIV
+out_temp_cycle_min_send_time
+_OPERAND
+_EXPRESSION
+_POSITIV
+filteredOAT_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+filteredOAT
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_2OCTET_FLOAT_SEND_EX
+_OUTPUTS : 2
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_heating_setpoint_read
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+heatingOnOATSp_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_2OCTET_FLOAT_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_cooling_setpoint_read
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+coolingOnOATSp_EIB_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_2OCTET_FLOAT_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_climateControlMode_read
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+climateControlMode_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+eib_byte_climate_control_mode
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_RTControlMode_send
+_BOX_EXPR : 7
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_send_cyclical_start_floor2
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_send_mode_floor2
+_OPERAND
+_EXPRESSION
+_POSITIV
+RTControlMode_addr
+_OPERATOR
+_BOX_EXPR : 1
+_OPERAND
+_EXPRESSION
+_POSITIV
+RTControlMode
+_EXPRESSION
+_POSITIV
+INT_TO_BYTE
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_OPERAND
+_EXPRESSION
+_POSITIV
+t#500ms
+_OPERAND
+_EXPRESSION
+_POSITIV
+t#1s
+_EXPRESSION
+_POSITIV
+EIB_8BIT_UNSIGN_SEND_EX
+_OUTPUTS : 2
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+
+END_ACTION
+
+ACTION	floor1:
+data1floor[0].5:=bDarkOutside;
+data1floor[0].6:=Light.tambur3_2_short_click;
+data1floor[0].7:=Light.tambur3_2_long_click;
+
+data1floor[4]:=WORD_TO_BYTE(system_time.wHour);
+data1floor[5]:=WORD_TO_BYTE(system_time.wMinute);
+
+MEMCPY(ADR(data1floor[10] ), ADR(OAT), SIZEOF(OAT));
+
+data1floor[102].5 := heatingPumpOn;
+data1floor[102].6 := freeCoolingValveOn;
+
+fb_eib_tamburFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := tamburFloorHeatingPowerSp_adr
+	);
+IF NOT fb_eib_tamburFloorHeatingPowerSpRec.bDataReceive THEN
+	tamburFloorHeatingSp := fb_eib_tamburFloorHeatingPowerSpRec.iData;
+END_IF;
+
+
+data1floor[103] := INT_TO_BYTE(tamburFloorHeatingSp);
+
+fb_eib_vitalnyaFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := vitalnyaFloorHeatingPowerSp_adr
+	);
+
+IF NOT fb_eib_vitalnyaFloorHeatingPowerSpRec.bDataReceive THEN
+	vitalnyaFloorHeatingSp := fb_eib_vitalnyaFloorHeatingPowerSpRec.iData;
+END_IF;
+
+
+data1floor[104] := INT_TO_BYTE(vitalnyaFloorHeatingSp);
+
+fb_eib_dushFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dushFloorHeatingPowerSp_adr
+	);
+
+IF NOT fb_eib_dushFloorHeatingPowerSpRec.bDataReceive THEN
+	dushFloorHeatingSp := fb_eib_dushFloorHeatingPowerSpRec.iData;
+END_IF;
+
+
+data1floor[105] := INT_TO_BYTE(dushFloorHeatingSp);
+
+
+fb_komora_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=komora_l_adr);
+IF NOT  fb_komora_l_read.bDataReceive THEN
+	data1floor[100].0:= fb_komora_l_read.bdata;
+END_IF
+
+fb_su1_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=su1_l_adr);
+IF NOT  fb_su1_l_read.bDataReceive THEN
+	data1floor[100].1:= fb_su1_l_read.bdata;
+END_IF
+
+fb_topochna_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,  Group_Address:=topochna_l_adr);
+IF NOT  fb_topochna_l_read.bDataReceive THEN
+	data1floor[100].2:= fb_topochna_l_read.bdata;
+END_IF
+
+fb_su2_bra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=su2_bra_adr);
+IF NOT  fb_su2_bra_read.bDataReceive THEN
+	data1floor[100].3:= fb_su2_bra_read.bdata;
+END_IF
+
+fb_su2_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=su2_l_adr);
+IF NOT  fb_su2_l_read.bDataReceive THEN
+	data1floor[100].4:= fb_su2_l_read.bdata;
+END_IF
+
+fb_su1_rakovyna_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=su1_rakovyna_adr);
+IF NOT  fb_su1_rakovyna_read.bDataReceive THEN
+	data1floor[100].5:= fb_su1_rakovyna_read.bdata;
+END_IF
+
+fb_su2_dush_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=su2_dush_adr);
+IF NOT  fb_su2_dush_read.bDataReceive THEN
+	data1floor[100].6:= fb_su2_dush_read.bdata;
+END_IF
+
+fb_dush_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=dush_adr);
+IF NOT  fb_dush_read.bDataReceive THEN
+	data1floor[100].7:= fb_dush_read.bdata;
+END_IF
+
+fb_kuhnya1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=kuhnya1_adr);
+IF NOT  fb_kuhnya1_read.bDataReceive THEN
+	data1floor[101].0:= fb_kuhnya1_read.bdata;
+END_IF
+
+fb_vitalnya_smugy1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vitalnya_smugy1_adr);
+IF NOT  fb_vitalnya_smugy1_read.bDataReceive THEN
+	data1floor[101].1:= fb_vitalnya_smugy1_read.bdata;
+END_IF
+
+fb_vitalnya_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vitalnya_l_adr);
+IF NOT  fb_vitalnya_l_read.bDataReceive THEN
+	data1floor[101].2:= fb_vitalnya_l_read.bdata;
+END_IF
+
+fb_vitalnya_prokladka_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vitalnya_prokladka_adr);
+IF NOT  fb_vitalnya_prokladka_read.bDataReceive THEN
+	data1floor[101].3:= fb_vitalnya_prokladka_read.bdata;
+END_IF
+
+fb_terassa_stina_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=terassa_stina_adr);
+IF NOT  fb_terassa_stina_read.bDataReceive THEN
+	data1floor[101].4:= fb_terassa_stina_read.bdata;
+END_IF
+
+fb_pidval_shody_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=pidval_shody_adr);
+IF NOT  fb_pidval_shody_read.bDataReceive THEN
+	data1floor[101].5:= fb_pidval_shody_read.bdata;
+END_IF
+
+fb_skhody2pov_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=skhody2pov_adr);
+IF NOT  fb_skhody2pov_read.bDataReceive THEN
+	data1floor[101].6:= fb_skhody2pov_read.bdata;
+END_IF
+
+fb_tambur_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=tambur_l_adr);
+IF NOT  fb_tambur_l_read.bDataReceive THEN
+	data1floor[101].7:= fb_tambur_l_read.bdata;
+END_IF
+
+fb_vent_su1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vent_su1_adr);
+IF NOT  fb_vent_su1_read.bDataReceive THEN
+	data1floor[102].0:= fb_vent_su1_read.bdata;
+END_IF
+
+fb_vent_kuh_low_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vent_kuh_low_adr);
+IF NOT  fb_vent_kuh_low_read.bDataReceive THEN
+	data1floor[102].1:= fb_vent_kuh_low_read.bdata;
+END_IF
+
+fb_vent_dush_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vent_dush_adr);
+IF NOT  fb_vent_dush_read.bDataReceive THEN
+	data1floor[102].2:= fb_vent_dush_read.bdata;
+END_IF
+
+fb_vent_komora_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vent_komora_adr);
+IF NOT  fb_vent_komora_read.bDataReceive THEN
+	data1floor[102].3:= fb_vent_komora_read.bdata;
+END_IF
+
+fb_vent_kuh_high_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=vent_kuh_high_adr);
+IF NOT  fb_vent_kuh_high_read.bDataReceive THEN
+	data1floor[102].4:= fb_vent_kuh_high_read.bdata;
+END_IF
+
+fb_su2_polytsi_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=su2_polytsi_adr);
+IF NOT  fb_su2_polytsi_read.bDataReceive THEN
+	data1floor[102].7:= fb_su2_polytsi_read.bdata;
+END_IF
+
+
+
+(*sending*)
+fb_komora_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=komora_l,  Group_Address:=komora_l_status_adr);
+fb_su1_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su1_l,  Group_Address:=su1_l_status_adr);
+fb_topochna_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=topochna_l,  Group_Address:=topochna_l_status_adr);
+fb_su2_bra_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su2_bra,  Group_Address:=su2_bra_status_adr);
+fb_su2_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su2_l,  Group_Address:=su2_l_status_adr);
+fb_su1_rakovyna_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su1_rakovyna,  Group_Address:=su1_rakovyna_status_adr);
+fb_su2_dush_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su2_dush,  Group_Address:=su2_dush_status_adr);
+fb_dush_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=dush,  Group_Address:=dush_status_adr);
+fb_kuhnya1_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kuhnya1,  Group_Address:=kuhnya1_status_adr);
+fb_vitalnya_smugy1_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vitalnya_smugy1,  Group_Address:=vitalnya_smugy1_status_adr);
+fb_vitalnya_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vitalnya_l,  Group_Address:=vitalnya_l_status_adr);
+fb_vitalnya_prokladka_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vitalnya_prokladka,  Group_Address:=vitalnya_prokladka_status_adr);
+fb_terassa_stina_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=terassa_stina,  Group_Address:=terassa_stina_status_adr);
+fb_pidval_shody_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=pidval_shody,  Group_Address:=pidval_shody_status_adr);
+fb_skhody2pov_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=skhody2pov,  Group_Address:=skhody2pov_status_adr);
+fb_tambur_l_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=tambur_l,  Group_Address:=tambur_l_status_adr);
+fb_vent_su1_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vent_su1,  Group_Address:=vent_su1_status_adr);
+fb_vent_kuh_low_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vent_kuh_low,  Group_Address:=vent_kuh_low_status_adr);
+fb_vent_dush_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vent_dush,  Group_Address:=vent_dush_status_adr);
+fb_vent_komora_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vent_komora,  Group_Address:=vent_komora_status_adr);
+fb_vent_kuh_high_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=vent_kuh_high,  Group_Address:=vent_kuh_high_status_adr);
+fb_su2_polytsi_send_status_ex(imode:=eib_send_mode_floor1, bStart:=eib_send_cyclical_start_floor1, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=su2_polytsi,  Group_Address:=su2_polytsi_status_adr);
+
+IF fb_komora_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].0:=komora_l;
+END_IF
+
+IF fb_su1_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].1:=su1_l;
+END_IF
+
+IF fb_topochna_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].2:=topochna_l;
+END_IF
+
+IF fb_su2_bra_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].3:=su2_bra;
+END_IF
+
+IF fb_su2_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].4:=su2_l;
+END_IF
+
+IF fb_su1_rakovyna_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].5:=su1_rakovyna;
+END_IF
+
+IF fb_su2_dush_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].6:=su2_dush;
+END_IF
+
+IF fb_dush_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[100].7:=dush;
+END_IF
+
+IF fb_kuhnya1_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data1floor[101].0:=kuhnya1;
+END_IF
+
+IF fb_vitalnya_smugy1_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].1:=vitalnya_smugy1;
+END_IF
+
+IF fb_vitalnya_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].2:=vitalnya_l;
+END_IF
+
+IF fb_vitalnya_prokladka_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].3:=vitalnya_prokladka;
+END_IF
+
+IF fb_terassa_stina_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].4:=terassa_stina;
+END_IF
+
+IF fb_pidval_shody_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].5:=pidval_shody;
+END_IF
+
+IF fb_skhody2pov_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].6:=skhody2pov;
+END_IF
+
+IF fb_tambur_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[101].7:=tambur_l;
+END_IF
+
+IF fb_vent_su1_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].0:=vent_su1;
+END_IF
+
+IF fb_vent_kuh_low_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].1:=vent_kuh_low;
+END_IF
+
+IF fb_vent_dush_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].2:=vent_dush;
+END_IF
+
+IF fb_vent_komora_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].3:=vent_komora;
+END_IF
+
+IF fb_vent_kuh_high_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].4:=vent_kuh_high;
+END_IF
+
+IF fb_su2_polytsi_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data1floor[102].7:=su2_polytsi;
+END_IF
+
+
+END_ACTION
+
+ACTION	floor2:
+data2floor[6].0:=Light.tambur3_2_short_click;
+data2floor[6].1:=bDarkOutside;
+data2floor[6].2:=Light.tambur3_2_long_click;
+
+
+data2floor[9]:=WORD_TO_BYTE(system_time.wHour);
+data2floor[10]:=WORD_TO_BYTE(system_time.wMinute);
+
+MEMCPY(ADR(data2floor[22] ), ADR(OAT), SIZEOF(OAT));
+
+MEMCPY(ADR(KABINET_HVAC.floor_T), ADR(kabinet_floor_T_byte0), 4);
+MEMCPY(ADR(STUDIO_HVAC.floor_T), ADR(studio_floor_T_byte0),  4);
+
+fb_eib_kabinetFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := kabinetFloorHeatingPowerSp_adr,
+	iData => kabinetFloorHeatingSp
+	);
+data2floor[103] := INT_TO_BYTE(kabinetFloorHeatingSp);
+
+fb_eib_studioFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := studioFloorHeatingPowerSp_adr,
+	iData => studioFloorHeatingSp
+	);
+data2floor[104] := INT_TO_BYTE(studioFloorHeatingSp);
+
+fb_balkon_peryla_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=balkon_peryla_adr);
+IF NOT  fb_balkon_peryla_read.bDataReceive OR NOT fb_eib_twillight_rec.bDataReceive  THEN
+	data2floor[100].0:= fb_balkon_peryla_read.bdata OR  fb_eib_twillight_rec.bData ;
+END_IF
+fb_kino_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kino_l_adr);
+IF NOT  fb_kino_l_read.bDataReceive THEN
+	data2floor[100].1:= fb_kino_l_read.bdata;
+END_IF
+fb_balkon_bra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=balkon_bra_adr);
+IF NOT  fb_balkon_bra_read.bDataReceive OR NOT fb_eib_twillight_rec.bDataReceive THEN
+	data2floor[100].2:= fb_balkon_bra_read.bdata OR fb_eib_twillight_rec.bData;
+END_IF
+fb_kabinet_balkon_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kabinet_balkon_l_adr);
+IF NOT  fb_kabinet_balkon_l_read.bDataReceive THEN
+	data2floor[100].3:= fb_kabinet_balkon_l_read.bdata;
+END_IF
+fb_balkon_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=balkon_adr);
+IF NOT  fb_balkon_read.bDataReceive THEN
+	data2floor[100].4:= fb_balkon_read.bdata;
+END_IF
+fb_korydor1_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=korydor1_adr);
+IF NOT  fb_korydor1_read.bDataReceive THEN
+	data2floor[100].5:= fb_korydor1_read.bdata;
+END_IF
+fb_kino_bra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kino_bra_adr);
+IF NOT  fb_kino_bra_read.bDataReceive THEN
+	data2floor[100].6:= fb_kino_bra_read.bdata;
+END_IF
+fb_studio_pidsvitka_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=studio_pidsvitka_adr);
+IF NOT  fb_studio_pidsvitka_read.bDataReceive THEN
+	data2floor[100].7:= fb_studio_pidsvitka_read.bdata;
+END_IF
+fb_skhody2_3_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=skhody2_3_adr);
+IF NOT  fb_skhody2_3_read.bDataReceive THEN
+	data2floor[101].0:= fb_skhody2_3_read.bdata;
+END_IF
+fb_studio_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=studio_l_adr);
+IF NOT  fb_studio_l_read.bDataReceive THEN
+	data2floor[101].1:= fb_studio_l_read.bdata;
+END_IF
+fb_kabinet_svitlo_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kabinet_svitlo_adr);
+IF NOT  fb_kabinet_svitlo_read.bDataReceive THEN
+	data2floor[101].2:= fb_kabinet_svitlo_read.bdata;
+END_IF
+fb_kabinet_kobra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kabinet_kobra_adr);
+IF NOT  fb_kabinet_kobra_read.bDataReceive THEN
+	data2floor[101].3:= fb_kabinet_kobra_read.bdata;
+END_IF
+fb_tambur2_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=tambur2_adr);
+IF NOT  fb_tambur2_read.bDataReceive THEN
+	data2floor[101].4:= fb_tambur2_read.bdata;
+END_IF
+fb_stend_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=stend_adr);
+IF NOT  fb_stend_read.bDataReceive THEN
+	data2floor[101].5:= fb_stend_read.bdata;
+END_IF
+fb_skhody_peryla_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=skhody_peryla_adr);
+IF NOT  fb_skhody_peryla_read.bDataReceive OR NOT  fb_eib_twillight_rec.bDataReceive THEN
+	data2floor[101].6:= fb_skhody_peryla_read.bdata OR  fb_eib_twillight_rec.bData;
+END_IF
+
+fb_kino_bra_dim_read(strData_Rec:=fb_KL6301_0.str_Data_Rec,   Group_Address:=kino_bra_dimming_adr);
+IF NOT  fb_kino_bra_dim_read.bDataReceive THEN
+	data2floor[102]:= INT_TO_BYTE(fb_kino_bra_dim_read.iData);
+END_IF
+
+
+(*sending*)
+fb_balkon_peryla_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=balkon_peryla,  Group_Address:=balkon_peryla_status_adr);
+fb_kino_l_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kino_l,  Group_Address:=kino_l_status_adr);
+fb_balkon_bra_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=balkon_bra,  Group_Address:=balkon_bra_status_adr);
+fb_kabinet_balkon_l_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kabinet_balkon_l,  Group_Address:=kabinet_balkon_l_status_adr);
+fb_balkon_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=balkon,  Group_Address:=balkon_status_adr);
+fb_korydor1_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=korydor1,  Group_Address:=korydor1_status_adr);
+fb_kino_bra_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kino_bra,  Group_Address:=kino_bra_status_adr);
+fb_studio_pidsvitka_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=studio_pidsvitka,  Group_Address:=studio_pidsvitka_status_adr);
+fb_skhody2_3_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=skhody2_3,  Group_Address:=skhody2_3_status_adr);
+fb_studio_l_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=studio_l,  Group_Address:=studio_l_status_adr);
+fb_kabinet_svitlo_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kabinet_svitlo,  Group_Address:=kabinet_svitlo_status_adr);
+fb_kabinet_kobra_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=kabinet_kobra,  Group_Address:=kabinet_kobra_status_adr);
+fb_tambur2_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=tambur2,  Group_Address:=tambur2_status_adr);
+fb_stend_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=stend,  Group_Address:=stend_status_adr);
+fb_skhody_peryla_send_status_ex(imode:=eib_send_mode_floor2, bStart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=skhody_peryla,  Group_Address:=skhody_peryla_status_adr);
+fb_kino_bra_send_dim_status_ex(imode:=eib_send_mode_floor2, bstart:=eib_send_cyclical_start_floor2, str_Rec:=fb_KL6301_0.str_Data_Rec, idata:=BYTE_TO_INT(kino_bra_dim_value) );
+
+
+IF fb_balkon_peryla_send_status_ex.bBusy THEN
+	data2floor[100].0:=balkon_peryla;
+END_IF
+IF fb_kino_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].1:=kino_l;
+END_IF
+IF fb_balkon_bra_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].2:=balkon_bra;
+END_IF
+IF fb_kabinet_balkon_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].3:=kabinet_balkon_l;
+END_IF
+IF fb_balkon_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].4:=balkon;
+END_IF
+IF fb_korydor1_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].5:=korydor1;
+END_IF
+IF fb_kino_bra_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].6:=kino_bra;
+END_IF
+IF fb_studio_pidsvitka_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[100].7:=studio_pidsvitka;
+END_IF
+IF fb_skhody2_3_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].0:=skhody2_3;
+END_IF
+IF fb_studio_l_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].1:=studio_l;
+END_IF
+IF fb_kabinet_svitlo_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].2:=kabinet_svitlo;
+END_IF
+IF fb_kabinet_kobra_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].3:=kabinet_kobra;
+END_IF
+IF fb_tambur2_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].4:=tambur2;
+END_IF
+IF fb_stend_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].5:=stend;
+END_IF
+IF fb_skhody_peryla_send_status_ex.bBusy OR fb_heartbeat_timer.Q THEN
+	data2floor[101].6:=skhody_peryla;
+END_IF
+IF fb_kino_bra_send_dim_status_ex.bBusy THEN
+	data2floor[102]:=INT_TO_BYTE(kino_bra_dim_value);
+END_IF
+
+
+END_ACTION
+
+ACTION	floor3:
+
+(*read*)
+fb_spalnya_kontrazhury_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_kontrazhury_adr,
+	bData => eib_spalnya_kontrazhury
+	);
+
+fb_spalnya_balkon_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_balkon_adr,
+	bData => eib_spalnya_balkon
+	);
+
+fb_spalnya_kulbaba_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_kulbaba_adr,
+	bData => eib_spalnya_kulbaba
+	);
+
+fb_eib_su3FloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3FloorHeatingPowerSp_adr,
+	iData => su3FloorHeatingSp
+	);
+
+fb_eib_freshbarFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := freshbarFloorHeatingPowerSp_adr,
+	iData => freshbarFloorHeatingSp
+	);
+
+fb_eib_servernaFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := servernaFloorHeatingPowerSp_adr,
+	iData => servernaFloorHeatingSp
+	);
+
+fb_eib_spalnyaFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnyaFloorHeatingPowerSp_adr,
+	iData => spalnyaFloorHeatingSp
+	);
+
+fb_eib_dytjachaFloorHeatingPowerSpRec(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dytjachaFloorHeatingPowerSp_adr,
+	iData => dytjachaFloorHeatingSp
+	);
+
+(*
+fb_spalnya_kontrazhur_b_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=spalnya_kontrazhur_b_adr);
+fb_spalnya_kontrazhur_l_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=spalnya_kontrazhur_l_adr);
+*)
+fb_su3_stina_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_stina_adr,
+	bData => eib_su3_stina
+	);
+
+fb_su3_pidsvitka_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_pidsvitka_adr,
+	bData => eib_su3_pidsvitka
+	);
+
+fb_su3_bra_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_bra_adr,
+	bData => eib_su3_bra
+	);
+
+fb_su3_kontrazhur_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_kontrazhury_adr,
+	bData => eib_su3_kontrazhury
+	);
+
+fb_su3_vent_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_vent_adr,
+	bData => eib_su3_vent
+	);
+
+fb_su3_lampa_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_lampa_adr,
+	bData => eib_su3_lampa
+	);
+
+fb_dytjacha_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dytjacha_adr,
+	bData => eib_dytjacha
+	);
+
+fb_dytjacha_bra_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dytjacha_bra_adr,
+	bData => eib_dytjacha_bra
+	);
+
+fb_garderob_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := garderob_adr,
+	bData => eib_garderob
+	);
+
+fb_bar_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := bar_adr,
+	bData => eib_bar
+	);
+
+fb_korydor_skeli_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_skeli_adr,
+	bData => eib_korydor_skeli
+	);
+
+fb_choven_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := choven_adr,
+	bData => eib_choven
+	);
+
+fb_korydor_lampa_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_lampa_adr,
+	bData => eib_korydor_lampa
+	);
+
+fb_serverna_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := serverna_adr,
+	bData => eib_serverna
+	);
+
+fb_korydor_svitlo_read(
+	strData_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_svitlo_adr,
+	bData => eib_korydor_svitlo
+	);
+
+(*sending*)
+(*
+fb_spalnya_kontrazhur_b_send_status_ex(imode:=eib_send_mode_floor3, bStart:=eib_send_cyclical_start_floor3, str_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=spalnya_kontrazhur_b_status_adr, bData:=spalnya_kontrazhur_b);
+fb_spalnya_kontrazhur_l_send_status_ex(imode:=eib_send_mode_floor3, bStart:=eib_send_cyclical_start_floor3, str_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=spalnya_kontrazhur_l_status_adr, bData:=spalnya_kontrazhur_l);
+
+*)
+fb_su3_stina_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_stina_status_adr,
+	bData := su3_stina
+	);
+
+fb_su3_pidsvitka_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_pidsvitka_status_adr,
+	bData := su3_pidsvitka
+	);
+
+fb_su3_bra_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_bra_status_adr,
+	bData := su3_bra
+	);
+
+fb_su3_kontrazhur_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_kontrazhury_status_adr,
+	bData := su3_kontrazhur
+	);
+
+fb_su3_vent_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_vent_status_adr,
+	bData := su3_vent
+	);
+
+fb_su3_lampa_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := su3_lampa_status_adr,
+	bData := su3_lampa
+	);
+
+fb_dytjacha_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dytjacha_status_adr,
+	bData := dytjacha
+	);
+
+fb_dytjacha_bra_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := dytjacha_bra_status_adr,
+	bData := dytjacha_bra
+	);
+
+fb_garderob_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := garderob_status_adr,
+	bData := garderob
+	);
+
+fb_bar_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := bar_status_adr,
+	bData := bar
+	);
+
+fb_korydor_skeli_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_skeli_status_adr,
+	bData := korydor_skeli
+	);
+
+fb_choven_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := choven_status_adr,
+	bData := choven
+	);
+
+fb_korydor_lampa_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_lampa_status_adr,
+	bData := korydor_lampa
+	);
+
+fb_serverna_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := serverna_status_adr,
+	bData := serverna
+	);
+
+fb_korydor_svitlo_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := korydor_svitlo_status_adr,
+	bData := korydor_svitlo
+	);
+
+fb_spalnya_balkon_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_balkon_status_adr,
+	bData := spalnya_balkon
+	);
+
+fb_spalnya_kulbaba_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_kulbaba_status_adr,
+	bData := spalnya_kulbaba
+	);
+
+fb_spalnya_kontrazhury_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := spalnya_kontrazhury_status_adr,
+	bData :=spalnya_kontrazhur
+	);
+
+fb_spalnya_lift_send_status_ex(
+	imode := eib_send_mode_floor3,
+	bStart := eib_send_cyclical_start_floor3,
+	str_Rec := fb_KL6301_0.str_Data_Rec,
+	Group_Address := lift_spalnya_status_EIB_addr,
+	bData := eib_lift_spalnya_move
+	);
+END_ACTION
+
+ACTION	gym_and_outside:
+data_gym[0].0:=bDarkOutside;
+data_gym[0].1:=1;
+
+data_gym[1]:=WORD_TO_BYTE(system_time.wHour);
+data_gym[3]:=WORD_TO_BYTE(system_time.wMinute);
+
+MEMCPY(ADR(data_gym[6] ), ADR(OAT), SIZEOF(OAT));
+
+
+fb_gym01_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym01_adr);
+IF NOT  fb_gym01_read.bDataReceive THEN
+	data_gym[10].0:= fb_gym01_read.bdata;
+END_IF
+
+fb_gym02_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym02_adr);
+IF NOT  fb_gym02_read.bDataReceive THEN
+	data_gym[10].1:= fb_gym02_read.bdata;
+END_IF
+
+fb_training01_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=training01_adr);
+IF NOT  fb_training01_read.bDataReceive THEN
+	data_gym[10].2:= fb_training01_read.bdata;
+END_IF
+
+fb_training02_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=training02_adr);
+IF NOT  fb_training02_read.bDataReceive THEN
+	data_gym[10].3:=fb_training02_read.bdata;
+END_IF
+
+fb_training03_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=training03_adr);
+IF NOT  fb_training03_read.bDataReceive THEN
+	data_gym[10].4:= fb_training03_read.bdata;
+END_IF
+
+fb_gym_stairs_bra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_stairs_bra_adr);
+IF NOT  fb_gym_stairs_bra_read.bDataReceive THEN
+	data_gym[10].5:= fb_gym_stairs_bra_read.bdata;
+END_IF
+
+fb_pool_hall_spotlight_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=pool_hall_spotlight_adr);
+IF NOT  fb_pool_hall_spotlight_read.bDataReceive THEN
+	data_gym[10].6:= fb_pool_hall_spotlight_read.bdata;
+END_IF
+
+fb_pool_hall_LED_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=pool_hall_LED_adr);
+IF NOT  fb_pool_hall_LED_read.bDataReceive THEN
+	data_gym[10].7:= fb_pool_hall_LED_read.bdata;
+END_IF
+
+fb_pool_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=pool_light_adr );
+IF NOT  fb_pool_light_read.bDataReceive THEN
+	data_gym[11].0:= fb_pool_light_read.bdata;
+END_IF
+fb_sphere_ceiling_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=sphere_ceiling_light_adr );
+IF NOT  fb_sphere_ceiling_light_read.bDataReceive THEN
+	data_gym[11].1:= fb_sphere_ceiling_light_read.bdata;
+END_IF
+fb_sphere_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=sphere_light_adr );
+IF NOT  fb_sphere_light_read.bDataReceive THEN
+	data_gym[11].2:= fb_sphere_light_read.bdata;
+END_IF
+fb_gym_cinema_bra_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_cinema_bra_adr );
+IF NOT  fb_gym_cinema_bra_read.bDataReceive THEN
+	data_gym[11].3:= fb_gym_cinema_bra_read.bdata;
+END_IF
+fb_gym_shower01_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_shower01_light_adr );
+IF NOT  fb_gym_shower01_light_read.bDataReceive THEN
+	data_gym[11].4:= fb_gym_shower01_light_read.bdata;
+END_IF
+fb_gym_shower02_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_shower02_light_adr );
+IF NOT  fb_gym_shower02_light_read.bDataReceive THEN
+	data_gym[11].5:= fb_gym_shower02_light_read.bdata;
+END_IF
+fb_gym_corridor_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_corridor_light_adr);
+IF NOT  fb_gym_corridor_light_read.bDataReceive THEN
+	data_gym[11].6:= fb_gym_corridor_light_read.bdata;
+END_IF
+fb_gym_stairs_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_stairs_light_adr);
+IF NOT  fb_gym_stairs_light_read.bDataReceive THEN
+	data_gym[11].7:= fb_gym_stairs_light_read.bdata;
+END_IF
+fb_gym_WC_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_WC_light_adr );
+IF NOT  fb_gym_WC_light_read.bDataReceive THEN
+	data_gym[12].0:= fb_gym_WC_light_read.bdata;
+END_IF
+
+fb_gym_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=gym_light_adr );
+IF NOT  fb_gym_light_read.bDataReceive THEN
+	data_gym[12].1:= fb_gym_light_read.bdata;
+END_IF
+
+fb_training_light_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=training_light_adr );
+IF NOT  fb_training_light_read.bDataReceive THEN
+	data_gym[12].2:= fb_training_light_read.bdata;
+END_IF
+
+fb_outside_bigBulbs_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=outside_bigBulbs_adr );
+IF NOT  fb_outside_Bigbulbs_read.bDataReceive THEN
+	data_gym[12].3:= fb_outside_bigBulbs_read.bdata;
+END_IF
+
+fb_outside_pingPongTable_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=outside_pingPongTable_adr );
+IF NOT  fb_outside_pingPongTable_read.bDataReceive THEN
+	data_gym[12].4:= fb_outside_pingPongTable_read.bdata;
+END_IF
+fb_outside_plantsLightning_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=outside_plantsLightning_adr );
+IF NOT  fb_outside_plantsLightning_read.bDataReceive THEN
+	data_gym[12].5:= fb_outside_plantsLightning_read.bdata;
+END_IF
+
+fb_outside_smallBulbs_read(strData_Rec:=fb_KL6301_0.str_Data_Rec, Group_Address:=outside_smallBulbs_adr );
+IF NOT  fb_outside_smallBulbs_read.bDataReceive THEN
+	data_gym[12].6:= fb_outside_smallBulbs_read.bdata;
+END_IF
+
+
+(*sending*)
+
+fb_gym01_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym01,  Group_Address:=gym01_status_adr);
+fb_gym02_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym02,  Group_Address:=gym02_status_adr);
+fb_training01_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=training01,  Group_Address:=training01_status_adr);
+fb_training02_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=training02,  Group_Address:=training02_status_adr);
+fb_gym_stairs_bra_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_stairs_bra,  Group_Address:=gym_stairs_bra_status_adr);
+fb_training03_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=training03,  Group_Address:=training03_status_adr);
+fb_pool_hall_spotlight_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=pool_hall_spotlight,  Group_Address:=pool_hall_spotlight_status_adr);
+fb_pool_hall_LED_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=pool_hall_LED,  Group_Address:=pool_hall_LED_status_adr);
+fb_pool_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=pool_light,  Group_Address:=pool_light_status_adr);
+fb_sphere_ceiling_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=sphere_ceiling_light,  Group_Address:=sphere_ceiling_light_status_adr);
+fb_sphere_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=sphere_light,  Group_Address:=sphere_light_status_adr);
+fb_gym_cinema_bra_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_cinema_bra,  Group_Address:=gym_cinema_bra_status_adr);
+fb_gym_shower01_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_shower01_light,  Group_Address:=gym_shower01_light_status_adr);
+fb_gym_shower02_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_shower02_light,  Group_Address:=gym_shower02_light_status_adr);
+fb_gym_corridor_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_corridor_light,  Group_Address:=gym_corridor_light_status_adr);
+fb_gym_stairs_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_stairs_light,  Group_Address:=gym_stairs_light_status_adr);
+fb_gym_WC_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_WC_light,  Group_Address:=gym_WC_light_status_adr);
+fb_gym_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=gym_light,  Group_Address:=gym_light_status_adr);
+fb_training_light_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=training_light,  Group_Address:=training_light_status_adr);
+
+fb_outside_bigBulbs_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=outside_bigBulbs,  Group_Address:=outside_bigBulbs_status_adr);
+fb_outside_pingPongTable_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=outside_pingPongTable,  Group_Address:=outside_pingPongTable_status_adr);
+fb_outside_plantsLightning_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=outside_plantsLightning,  Group_Address:=outside_plantsLightning_status_adr);
+fb_outside_smallBulbs_send_status_ex(imode:=eib_send_mode_floor4, bStart:=eib_send_cyclical_start_floor4, str_Rec:=fb_KL6301_0.str_Data_Rec, bData:=outside_smallBulbs,  Group_Address:=outside_smallBulbs_status_adr);
+
+
+
+IF fb_gym01_send_status_ex.bBusy OR fb_heartbeat_timer.Q   THEN
+	data_gym[10].0:=gym01;
+END_IF
+
+IF fb_gym02_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].1:=gym02;
+END_IF
+
+IF fb_training01_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].2:=training01;
+END_IF
+
+IF fb_training02_send_status_ex.bBusy OR fb_heartbeat_timer.Q    THEN
+	data_gym[10].3:=training02;
+END_IF
+
+IF fb_training03_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].4:=training03;
+END_IF
+
+IF fb_gym_stairs_bra_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].5:=gym_stairs_bra;
+END_IF
+
+IF fb_pool_hall_spotlight_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].6:=pool_hall_spotlight;
+END_IF
+
+IF fb_pool_hall_LED_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[10].7:=pool_hall_LED;
+END_IF
+
+IF fb_pool_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].0:=pool_light;
+END_IF
+
+IF fb_sphere_ceiling_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].1:=sphere_ceiling_light;
+END_IF
+
+IF fb_sphere_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].2:=sphere_light;
+END_IF
+
+IF fb_gym_cinema_bra_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].3:=gym_cinema_bra;
+END_IF
+
+IF fb_gym_shower01_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].4:=gym_shower01_light;
+END_IF
+
+IF fb_gym_shower02_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].5:=gym_shower02_light;
+END_IF
+
+IF fb_gym_corridor_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].6:=gym_corridor_light;
+END_IF
+
+IF fb_gym_stairs_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[11].7:=gym_stairs_light;
+END_IF
+
+IF fb_gym_WC_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].0:=gym_WC_light;
+END_IF
+
+IF fb_training_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].1:=training_light;
+END_IF
+
+IF fb_gym_light_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].2:=gym_light;
+END_IF
+
+
+IF fb_outside_bigBulbs_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].3:=outside_bigBulbs;
+END_IF
+
+IF fb_outside_pingPongTable_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].4:=outside_pingPongTable;
+END_IF
+
+IF fb_outside_plantsLightning_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].5:=outside_plantsLightning;
+END_IF
+
+IF fb_outside_smallBulbs_send_status_ex.bBusy OR fb_heartbeat_timer.Q  THEN
+	data_gym[12].6:=outside_smallBulbs;
+END_IF
+
+
+
+
+END_ACTION
+
+ACTION	timers:
+_FBD_BODY
+_NETWORKS : 5
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_eib_time_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_time_eib_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_TIME_REC
+_OUTPUTS : 3
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wHour
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wMinute
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wSecond
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_eib_date_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_date_eib_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_DATE_REC
+_OUTPUTS : 3
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wDay
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wMonth
+_OUTPUT
+_POSITIV
+_NO_SET
+system_time.wYear
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_eib_twillight_rec
+_BOX_EXPR : 2
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_twillight_eib_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_REC
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+b_eib_twillight
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_beckhoff_twillight_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+beckhoff_twillight_eib_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+bDarkOutside
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+_NETWORK
+
+_COMMENT
+''
+_END_COMMENT
+_FUNCTIONBLOCK
+fb_eib_twillight_send
+_BOX_EXPR : 3
+_OPERAND
+_EXPRESSION
+_POSITIV
+eib_twillight_eib_addr
+_OPERAND
+_EXPRESSION
+_POSITIV
+b_eib_twillight
+_OPERAND
+_EXPRESSION
+_POSITIV
+fb_KL6301_0.str_Data_Rec
+_EXPRESSION
+_POSITIV
+EIB_BIT_SEND
+_OUTPUTS : 1
+_OUTPUT
+_POSITIV
+_NO_SET
+_EMPTY
+
+END_ACTION
+
