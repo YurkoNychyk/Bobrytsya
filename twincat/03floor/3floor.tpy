@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\03floor\3floor.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-10-14T18:40:58</ChangeDate>
+		<ChangeDate>2017-10-15T00:12:56</ChangeDate>
 		<Library>
 			<Name>TcEIB.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcEIB.lbx</Path>
@@ -9239,7 +9239,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="103532DF" Crc32="1050597027" LastChange="2017-10-14T18:28:46">EIB</Name>
+			<Name Decoration="103532DF" Crc32="3696578438" LastChange="2017-10-15T00:12:56">EIB</Name>
 			<PrgInfo>
 				<CodeIndex>381</CodeIndex>
 				<ActionInfo>
@@ -9436,7 +9436,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="1024A812" Crc32="2717307815" LastChange="2017-10-14T18:28:46">Light</Name>
+			<Name Decoration="1024A812" Crc32="4206379020" LastChange="2017-10-14T18:52:25">Light</Name>
 			<PrgInfo>
 				<CodeIndex>392</CodeIndex>
 				<Symbol>

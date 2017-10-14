@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\01floor\1floor.pr6</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-09-02T16:54:40</ChangeDate>
+		<ChangeDate>2017-10-15T00:14:40</ChangeDate>
 		<Library>
 			<Name>TcBABasicBC.lb6</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBABasicBC.lb6</Path>
@@ -3764,7 +3764,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="100A5661" Crc32="2659966952" LastChange="2017-09-02T16:54:40">MAIN</Name>
+			<Name Decoration="100A5661" Crc32="0842795311" LastChange="2017-10-15T00:14:40">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>225</CodeIndex>
 				<ActionInfo>
