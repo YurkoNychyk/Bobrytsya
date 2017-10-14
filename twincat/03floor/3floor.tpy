@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\03floor\3floor.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-09-06T21:25:47</ChangeDate>
+		<ChangeDate>2017-10-14T18:40:58</ChangeDate>
 		<Library>
 			<Name>TcEIB.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcEIB.lbx</Path>
@@ -82,7 +82,7 @@
 	</DirectoryInfos>
 	<DataTypes>
 		<DataType>
-			<Name Decoration="100852A5" Crc32="1636938221" LastChange="2017-09-02T21:16:56">fbPWM</Name>
+			<Name Decoration="100852A5" Crc32="1636938221" LastChange="2017-10-14T18:28:46">fbPWM</Name>
 			<BitSize>400</BitSize>
 			<SubItem>
 				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\standard.lbx">pulseTimer</Name>
@@ -141,7 +141,7 @@
 			</FbInfo>
 		</DataType>
 		<DataType>
-			<Name Decoration="100B72C5" Crc32="0615419149" LastChange="2017-09-02T21:16:56">fbMoovingSensorLight</Name>
+			<Name Decoration="100B72C5" Crc32="0615419149" LastChange="2017-10-14T18:28:46">fbMoovingSensorLight</Name>
 			<BitSize>880</BitSize>
 			<SubItem>
 				<Name IsDefinedInLibrary="1" Library="C:\TWINCAT\PLC\LIB\TcBABasicBX.lbx">fbStairwayLight_00</Name>
@@ -215,7 +215,7 @@
 			</FbInfo>
 		</DataType>
 		<DataType>
-			<Name Decoration="30000384" Crc32="2827283927" LastChange="2017-09-02T21:16:56">Heating_Mode</Name>
+			<Name Decoration="30000384" Crc32="2827283927" LastChange="2017-10-14T18:28:46">Heating_Mode</Name>
 			<Type>INT</Type>
 			<BitSize>16</BitSize>
 			<EnumInfo>
@@ -260,7 +260,7 @@
 			</EnumInfo>
 		</DataType>
 		<DataType>
-			<Name Decoration="10114C1D" Crc32="1584623906" LastChange="2017-09-02T21:16:56">ROOM_HVAC</Name>
+			<Name Decoration="10114C1D" Crc32="1584623906" LastChange="2017-10-14T18:28:46">ROOM_HVAC</Name>
 			<BitSize>352</BitSize>
 			<SubItem>
 				<Name>manual_mode</Name>
@@ -369,7 +369,7 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name Decoration="3000026D" Crc32="3967581462" LastChange="2017-09-02T21:16:56">RTC_Mode</Name>
+			<Name Decoration="3000026D" Crc32="3967581462" LastChange="2017-10-14T18:28:46">RTC_Mode</Name>
 			<Type>INT</Type>
 			<BitSize>16</BitSize>
 			<EnumInfo>
@@ -6681,7 +6681,7 @@
 	</DataTypes>
 	<Functions>
 		<Function>
-			<Name Decoration="100309BB" Crc32="4140522484" LastChange="2017-09-02T21:16:56">GREATEST_OF</Name>
+			<Name Decoration="100309BB" Crc32="4140522484" LastChange="2017-10-14T18:28:46">GREATEST_OF</Name>
 			<FunInfo>
 				<CodeIndex>389</CodeIndex>
 				<ReturnValue>
@@ -6702,7 +6702,7 @@
 			</FunInfo>
 		</Function>
 		<Function>
-			<Name Decoration="100822FD" Crc32="2742677473" LastChange="2017-09-02T21:16:56">RANGE_TO_RANGE</Name>
+			<Name Decoration="100822FD" Crc32="2742677473" LastChange="2017-10-14T18:28:46">RANGE_TO_RANGE</Name>
 			<FunInfo>
 				<CodeIndex>396</CodeIndex>
 				<ReturnValue>
@@ -9133,7 +9133,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="100E67B1" Crc32="1786343470" LastChange="2017-09-02T21:16:56">ADS_Communication</Name>
+			<Name Decoration="100E67B1" Crc32="1786343470" LastChange="2017-10-14T18:28:46">ADS_Communication</Name>
 			<PrgInfo>
 				<CodeIndex>380</CodeIndex>
 				<Symbol>
@@ -9181,7 +9181,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10105718" Crc32="3137514777" LastChange="2017-09-02T21:16:56">climate</Name>
+			<Name Decoration="10105718" Crc32="3137514777" LastChange="2017-10-14T18:28:46">climate</Name>
 			<PrgInfo>
 				<CodeIndex>497</CodeIndex>
 				<ActionInfo>
@@ -9239,7 +9239,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="103532DF" Crc32="1050597027" LastChange="2017-09-06T21:25:47">EIB</Name>
+			<Name Decoration="103532DF" Crc32="1050597027" LastChange="2017-10-14T18:28:46">EIB</Name>
 			<PrgInfo>
 				<CodeIndex>381</CodeIndex>
 				<ActionInfo>
@@ -9436,7 +9436,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="1024A812" Crc32="2717307815" LastChange="2017-09-02T21:16:56">Light</Name>
+			<Name Decoration="1024A812" Crc32="2717307815" LastChange="2017-10-14T18:28:46">Light</Name>
 			<PrgInfo>
 				<CodeIndex>392</CodeIndex>
 				<Symbol>
@@ -9550,7 +9550,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="1012CEDD" Crc32="3946530899" LastChange="2017-09-02T21:16:56">MAIN</Name>
+			<Name Decoration="1012CEDD" Crc32="3946530899" LastChange="2017-10-14T18:28:46">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>393</CodeIndex>
 				<ActionInfo>
@@ -9614,7 +9614,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10034260" Crc32="3492670726" LastChange="2017-09-02T21:16:56">seasonChange</Name>
+			<Name Decoration="10034260" Crc32="3492670726" LastChange="2017-10-14T18:28:46">seasonChange</Name>
 			<PrgInfo>
 				<CodeIndex>495</CodeIndex>
 				<Symbol>
@@ -9629,7 +9629,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="1006205C" Crc32="2085727196" LastChange="2017-09-02T21:16:56">Shtory</Name>
+			<Name Decoration="1006205C" Crc32="2085727196" LastChange="2017-10-14T18:28:46">Shtory</Name>
 			<PrgInfo>
 				<CodeIndex>397</CodeIndex>
 				<Symbol>
@@ -16694,17 +16694,6 @@
 		<Symbol>
 			<Name TaskPrio="1">.all_lights</Name>
 			<Type>BOOL</Type>
-			<Comment>
-				<![CDATA[видалити пысля того, як перероблю штори на функцыональних блоках
-	tLongPress: TIME;
-	tOffDelay: TIME;
-
-
-	ads_adr3: STRING;
-
-
-	moove_sensors:BOOL;]]>
-			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>25022</IOffset>
 			<BitSize>8</BitSize>

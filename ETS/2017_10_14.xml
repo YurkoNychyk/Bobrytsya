@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<GroupAddress-Export xmlns="http://knx.org/xml/ga-export/01">
+  <GroupRange Name="Новая средняя группа" RangeStart="4352" RangeEnd="4607">
+    <GroupAddress Name="gym01" Address="2/1/1" />
+    <GroupAddress Name="gym02" Address="2/1/2" />
+    <GroupAddress Name="training01" Address="2/1/3" />
+    <GroupAddress Name="training02" Address="2/1/4" />
+    <GroupAddress Name="training03" Address="2/1/5" />
+    <GroupAddress Name="gym_stairs_bra" Address="2/1/6" />
+    <GroupAddress Name="pool_hall_spotlight" Address="2/1/7" />
+    <GroupAddress Name="pool_hall_LED" Address="2/1/8" />
+    <GroupAddress Name="pool_light" Address="2/1/9" />
+    <GroupAddress Name="sphere_ceiling" Address="2/1/10" />
+    <GroupAddress Name="sphere_light" Address="2/1/11" />
+    <GroupAddress Name="gym_cinema_bra" Address="2/1/12" />
+    <GroupAddress Name="gym_shower_01" Address="2/1/13" />
+    <GroupAddress Name="gym_shower_02" Address="2/1/14" />
+    <GroupAddress Name="gym_corridor" Address="2/1/15" />
+    <GroupAddress Name="gym_stairs" Address="2/1/16" />
+    <GroupAddress Name="gym_WC" Address="2/1/17" />
+    <GroupAddress Name="training_all" Address="2/1/18" />
+    <GroupAddress Name="FB_gym01" Address="2/1/101" />
+    <GroupAddress Name="FB_gym02" Address="2/1/102" />
+    <GroupAddress Name="FB_training01" Address="2/1/103" />
+    <GroupAddress Name="FB_training02" Address="2/1/104" />
+    <GroupAddress Name="FB_training03" Address="2/1/105" />
+    <GroupAddress Name="FB_gym_stairs_bra" Address="2/1/106" />
+    <GroupAddress Name="FB_pool_hall_spotlight" Address="2/1/107" />
+    <GroupAddress Name="FB_pool_hall_LED" Address="2/1/108" />
+    <GroupAddress Name="FB_pool_light" Address="2/1/109" />
+    <GroupAddress Name="FB_sphere_ceiling" Address="2/1/110" />
+    <GroupAddress Name="FB_sphere_light" Address="2/1/111" />
+    <GroupAddress Name="FB_gym_cinema_bra" Address="2/1/112" />
+    <GroupAddress Name="FB_gym_shower_01" Address="2/1/113" />
+    <GroupAddress Name="FB_gym_shower_02" Address="2/1/114" />
+    <GroupAddress Name="FB_gym_corridor" Address="2/1/115" />
+    <GroupAddress Name="FB_gym_stairs" Address="2/1/116" />
+    <GroupAddress Name="FB_gym_WC" Address="2/1/117" />
+    <GroupAddress Name="FB_training_all" Address="2/1/118" />
+  </GroupRange>
+</GroupAddress-Export>

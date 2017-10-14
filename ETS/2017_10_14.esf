@@ -1,0 +1,79 @@
+Alpaka
+BX9000_3rdFloor.Vitalnya.1/1/0	VITALNYA_T	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/1	Vitalnya_T_control_actual_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/2	Vitalnya_T_control_heating_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/3	Vitalnya_T_control_ cooling_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/4	Vitalnya_T_control_ MODE	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/5	Vitalnya_T_control_base_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Vitalnya.1/1/8	Vitalnya_fan_speed	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/0	KINO_T	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/1	Kino_T_control_actual_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/2	Kino_T_control_heating_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/3	Kino_T_control_ cooling_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/4	Kino_T_control_ MODE	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/5	Kino_T_control_base_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kino+climate.1/2/8	Kino_fan_speed	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Global and Gym.1/3/10	time	Uncertain (3 Byte)	Low	
+BX9000_3rdFloor.Global and Gym.1/3/11	date	Uncertain (3 Byte)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/0	KABINET T	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/1	Kabinet_T_control_actual_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/2	Kabinet_T_control_heating_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/3	Kabinet_T_control_ cooling_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/4	Kabinet_T_control_ MODE	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/5	Kabinet_T_control_base_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Kabinet and Gym.1/4/8	Kabinet_fan_speed	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/0	DYTJACHA T	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/1	Dytjacha_T_control_actual_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/2	Dytjacha_T_control_heating_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/3	Dytjacha_T_control_ cooling_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/4	Dytjacha_T_control_ MODE	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/5	Dytjacha_T_control_base_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/8	Dytjacha_fan_speed	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/24	spalnya_lift_move	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/26	spalnya_shtory_move	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Dytjacha.1/5/29	spalnya_tul_move	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Spalnya.1/6/0	SPALNYA T	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Spalnya.1/6/1	Spalnya_T_control_actual_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Spalnya.1/6/2	Spalnya_T_control_heating_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Spalnya.1/6/3	Spalnya_T_control_ cooling_ON	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_3rdFloor.Spalnya.1/6/4	Spalnya_T_control_ MODE	Uncertain (1 Byte)	Low	
+BX9000_3rdFloor.Spalnya.1/6/5	Spalnya_T_control_base_Sp	Uncertain (2 Byte)	Low	
+BX9000_3rdFloor.Spalnya.1/6/8	Spalnya_fan_speed	Uncertain (1 Byte)	Low	
+BX9000_Gym.Новая средняя группа.2/1/1	gym01	EIS 1 'Switching' (1 Bit)	Low	2/1/2 2/1/3 2/1/4 2/1/5 2/1/6 2/1/7 2/1/8 2/1/9 2/1/10 2/1/11 2/1/12 2/1/13 2/1/14 2/1/15 2/1/16 2/1/17 2/1/18 2/1/19
+BX9000_Gym.Новая средняя группа.2/1/2	gym02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/3	training01	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/4	training02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/5	training03	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/6	gym_stairs_bra	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/7	pool_hall_spotlight	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/8	pool_hall_LED	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/9	pool_light	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/10	sphere_ceiling	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/11	sphere_light	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/12	gym_cinema_bra	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/13	gym_shower_01	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/14	gym_shower_02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/15	gym_corridor	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/16	gym_stairs	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/17	gym_WC	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/18	training_all	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/101	FB_gym01	EIS 1 'Switching' (1 Bit)	Low	2/1/102 2/1/103 2/1/104 2/1/105 2/1/106 2/1/107 2/1/108 2/1/109 2/1/110 2/1/111 2/1/112 2/1/113 2/1/114 2/1/115 2/1/116 2/1/117 2/1/118 2/1/119
+BX9000_Gym.Новая средняя группа.2/1/102	FB_gym02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/103	FB_training01	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/104	FB_training02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/105	FB_training03	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/106	FB_gym_stairs_bra	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/107	FB_pool_hall_spotlight	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/108	FB_pool_hall_LED	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/109	FB_pool_light	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/110	FB_sphere_ceiling	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/111	FB_sphere_light	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/112	FB_gym_cinema_bra	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/113	FB_gym_shower_01	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/114	FB_gym_shower_02	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/115	FB_gym_corridor	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/116	FB_gym_stairs	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/117	FB_gym_WC	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/118	FB_training_all	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/19	gym_all	EIS 1 'Switching' (1 Bit)	Low	
+BX9000_Gym.Новая средняя группа.2/1/119	FB_gym_all	EIS 1 'Switching' (1 Bit)	Low	
