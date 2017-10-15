@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\05gym\gym.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-10-15T00:20:41</ChangeDate>
+		<ChangeDate>2017-10-15T12:08:09</ChangeDate>
 		<Library>
 			<Name>TcBaseBX.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBaseBX.lbx</Path>
@@ -6770,13 +6770,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10000000" Crc32="1291590537" LastChange="2017-10-15T00:20:41">engineering</Name>
-			<PrgInfo>
-				<CodeIndex>480</CodeIndex>
-			</PrgInfo>
-		</Program>
-		<Program>
-			<Name Decoration="1009A6A6" Crc32="2539108941" LastChange="2017-10-15T00:08:56">EIB</Name>
+			<Name Decoration="10089ECB" Crc32="1418567663" LastChange="2017-10-15T11:35:19">EIB</Name>
 			<PrgInfo>
 				<CodeIndex>478</CodeIndex>
 				<ActionInfo>
@@ -6807,71 +6801,16 @@
 				<Symbol>
 					<Name>EIB.fb_start_delay</Name>
 				</Symbol>
-				<Symbol>
-					<Name>EIB.fb_gym_send_status_ex</Name>
-				</Symbol>
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10103B5C" Crc32="2797278571" LastChange="2017-10-14T22:31:22">MAIN</Name>
+			<Name Decoration="10000000" Crc32="1291590537" LastChange="2017-10-15T00:20:41">engineering</Name>
 			<PrgInfo>
-				<CodeIndex>476</CodeIndex>
-				<ActionInfo>
-					<Name>write_dataDerevo</Name>
-					<CodeIndex>477</CodeIndex>
-				</ActionInfo>
-				<Symbol>
-					<Name>MAIN.i</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.j</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.write</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.heartBeat</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.i1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.j1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.write1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_02_1_short_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_02_1_long_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_02_2_short_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_02_2_long_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_01_2_short_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_01_2_long_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_03_1_short_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.sw_03_1_long_pulse</Name>
-				</Symbol>
-				<Symbol>
-					<Name>MAIN.init</Name>
-				</Symbol>
+				<CodeIndex>480</CodeIndex>
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10898E77" Crc32="2372112901" LastChange="2017-10-14T23:26:42">Light</Name>
+			<Name Decoration="10898E77" Crc32="0695456227" LastChange="2017-10-15T11:59:15">Light</Name>
 			<PrgInfo>
 				<CodeIndex>473</CodeIndex>
 				<ActionInfo>
@@ -7295,6 +7234,64 @@
 				</Symbol>
 			</PrgInfo>
 		</Program>
+		<Program>
+			<Name Decoration="10103B5C" Crc32="3950915136" LastChange="2017-10-15T10:44:30">MAIN</Name>
+			<PrgInfo>
+				<CodeIndex>476</CodeIndex>
+				<ActionInfo>
+					<Name>write_ADSdata</Name>
+					<CodeIndex>481</CodeIndex>
+				</ActionInfo>
+				<Symbol>
+					<Name>MAIN.i</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.j</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.write</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.heartBeat</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.i1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.j1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.write1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_02_1_short_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_02_1_long_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_02_2_short_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_02_2_long_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_01_2_short_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_01_2_long_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_03_1_short_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.sw_03_1_long_pulse</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.init</Name>
+				</Symbol>
+			</PrgInfo>
+		</Program>
 	</Programs>
 	<Symbols>
 		<Symbol>
@@ -7380,125 +7377,6 @@
 			<IGroup>16448</IGroup>
 			<IOffset>8080</IOffset>
 			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>EIB.fb_gym_send_status_ex</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14118</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.i</Name>
-			<Type>INT</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7084</IOffset>
-			<BitSize>16</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.j</Name>
-			<Type>INT</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7086</IOffset>
-			<BitSize>16</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">MAIN.write</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7088</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">MAIN.heartBeat</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7090</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.i1</Name>
-			<Type>INT</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7106</IOffset>
-			<BitSize>16</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.j1</Name>
-			<Type>INT</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7108</IOffset>
-			<BitSize>16</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">MAIN.write1</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7089</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_02_1_short_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7110</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_02_1_long_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7126</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_02_2_short_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7142</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_02_2_long_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7158</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_01_2_short_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7174</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_01_2_long_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7190</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_03_1_short_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7206</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.sw_03_1_long_pulse</Name>
-			<Type Decoration="10050B9B">TP</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7222</IOffset>
-			<BitSize>128</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>MAIN.init</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14046</IOffset>
-			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sw_01_1_2</Name>
@@ -8233,6 +8111,118 @@
 			<IGroup>16448</IGroup>
 			<IOffset>14054</IOffset>
 			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.i</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7084</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.j</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7086</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.write</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7088</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.heartBeat</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7090</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.i1</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7106</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.j1</Name>
+			<Type>INT</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7108</IOffset>
+			<BitSize>16</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.write1</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7089</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_02_1_short_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7110</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_02_1_long_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7126</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_02_2_short_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7142</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_02_2_long_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7158</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_01_2_short_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7174</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_01_2_long_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7190</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_03_1_short_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7206</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.sw_03_1_long_pulse</Name>
+			<Type Decoration="10050B9B">TP</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>7222</IOffset>
+			<BitSize>128</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>MAIN.init</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>14046</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Constant="1" IsDefinedInLibrary="1">.IOADS_IOF_CX1100_WRITE1LINE</Name>
@@ -9634,28 +9624,28 @@
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_bigBulbs_send_status_ex</Name>
+			<Name TaskPrio="1">.fb_outside_bigBulbs_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>12118</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_smallBulbs_send_status_ex</Name>
+			<Name TaskPrio="1">.fb_outside_smallBulbs_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>12314</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_pingPongTable_send_status_ex</Name>
+			<Name TaskPrio="1">.fb_outside_pingPongTable_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>12510</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_plantsLightning_send_status_ex</Name>
+			<Name TaskPrio="1">.fb_outside_plantsLightning_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>12706</IOffset>
@@ -9851,28 +9841,28 @@
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_bigBulbs_read</Name>
+			<Name TaskPrio="1">.fb_outside_bigBulbs_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>13700</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_smallBulbs_read</Name>
+			<Name TaskPrio="1">.fb_outside_smallBulbs_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>13742</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_pingPongTable_read</Name>
+			<Name TaskPrio="1">.fb_outside_pingPongTable_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>13784</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.fb_outside_plantsLightning_read</Name>
+			<Name TaskPrio="1">.fb_outside_plantsLightning_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>13826</IOffset>
@@ -9909,6 +9899,9 @@
 		<Symbol>
 			<Name>.gym_lights</Name>
 			<Type>BOOL</Type>
+			<Comment>
+				<![CDATA[2/0/x]]>
+			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>8027</IOffset>
 			<BitSize>8</BitSize>
@@ -9965,6 +9958,9 @@
 		<Symbol>
 			<Name TaskPrio="1">.heating_pump_staus_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<Comment>
+				<![CDATA[2/1/x]]>
+			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>16036</IOffset>
 			<BitSize>32</BitSize>
@@ -10117,6 +10113,34 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name TaskPrio="1">.outside_bigBulbs_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16040</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_smallBulbs_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16044</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_pingpongTable_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16048</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_plantsLightning_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16052</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">.gym01_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
@@ -10264,6 +10288,34 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name TaskPrio="1">.outside_bigBulbs_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16056</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_smallBulbs_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16060</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_pingPongTable_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16064</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">.outside_plantsLightning_status_adr</Name>
+			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>16068</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">.dataDerevo</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
@@ -10271,7 +10323,7 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.dataDerevo_prev</Name>
+			<Name TaskPrio="1">.dataDerevo_prev</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>7292</IOffset>
@@ -10285,7 +10337,7 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name>.datafloor1_prev</Name>
+			<Name TaskPrio="1">.datafloor1_prev</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>7300</IOffset>
@@ -10530,32 +10582,32 @@
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_outside_bigBulbs</Name>
+			<Name TaskPrio="1">.eib_outside_bigBulbs</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>99</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14087</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_outside_pingPongTable</Name>
+			<Name TaskPrio="1">.eib_outside_pingPongTable</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>100</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14118</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_outside_plantsLightning</Name>
+			<Name TaskPrio="1">.eib_outside_plantsLightning</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>101</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>14119</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="MArea" TaskPrio="1">.eib_outside_smallBulbs</Name>
+			<Name TaskPrio="1">.eib_outside_smallBulbs</Name>
 			<Type>BOOL</Type>
-			<IGroup>16417</IGroup>
-			<IOffset>102</IOffset>
-			<BitSize>1</BitSize>
+			<IGroup>16448</IGroup>
+			<IOffset>16072</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Static="MArea" TaskPrio="1">.floor1_tambur3_light</Name>
