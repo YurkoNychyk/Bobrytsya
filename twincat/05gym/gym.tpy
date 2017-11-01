@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\05gym\gym.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-11-01T20:41:36</ChangeDate>
+		<ChangeDate>2017-11-01T20:54:54</ChangeDate>
 		<Library>
 			<Name>TcBaseBX.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBaseBX.lbx</Path>
@@ -6770,7 +6770,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10089ECB" Crc32="0319320901" LastChange="2017-11-01T20:41:36">EIB</Name>
+			<Name Decoration="10089ECB" Crc32="1962067057" LastChange="2017-11-01T20:54:54">EIB</Name>
 			<PrgInfo>
 				<CodeIndex>478</CodeIndex>
 				<ActionInfo>
