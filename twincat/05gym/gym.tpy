@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\05gym\gym.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2017-10-15T12:08:09</ChangeDate>
+		<ChangeDate>2017-11-01T20:41:36</ChangeDate>
 		<Library>
 			<Name>TcBaseBX.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBaseBX.lbx</Path>
@@ -6770,7 +6770,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10089ECB" Crc32="1418567663" LastChange="2017-10-15T11:35:19">EIB</Name>
+			<Name Decoration="10089ECB" Crc32="0319320901" LastChange="2017-11-01T20:41:36">EIB</Name>
 			<PrgInfo>
 				<CodeIndex>478</CodeIndex>
 				<ActionInfo>
@@ -6810,7 +6810,7 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10898E77" Crc32="0695456227" LastChange="2017-10-15T11:59:15">Light</Name>
+			<Name Decoration="10898E77" Crc32="3894574154" LastChange="2017-10-25T21:57:25">Light</Name>
 			<PrgInfo>
 				<CodeIndex>473</CodeIndex>
 				<ActionInfo>
@@ -9456,6 +9456,209 @@
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym01</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>0</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym02</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>1</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_training01</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>2</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_training02</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>3</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_training03</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>4</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_stairs_bra</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>5</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_pool_hall_spotlight</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>6</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_pool_hall_LED</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>7</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_pool_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>8</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_sphere_ceiling_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>9</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_sphere_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>10</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_cinema_bra</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>11</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_shower01_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>12</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_shower02_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>13</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_WC_corridor</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>14</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1">.eib_gym_stairs_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>15</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_WC_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>16</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_training</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>17</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>18</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_training_1column_light</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>19</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_pool_inwater</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>20</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_pool_floor_heating_pump</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>21</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_gym_floor_heating_pump</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>22</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_vent_heating_pump</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>23</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_heating_pump</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>24</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_outside_bigBulbs</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>25</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_outside_pingPongTable</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>26</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_outside_plantsLightning</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>27</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">.eib_outside_smallBulbs</Name>
+			<Type>BOOL</Type>
+			<IGroup>16432</IGroup>
+			<IOffset>28</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">.fb_KL6301_0</Name>
 			<Type Decoration="103038B4">KL6301</Type>
 			<IGroup>16448</IGroup>
@@ -10405,209 +10608,6 @@
 			<IGroup>16448</IGroup>
 			<IOffset>14020</IOffset>
 			<BitSize>32</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym01</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14024</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym02</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14025</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_training01</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14026</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_training02</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14027</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_training03</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14028</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_stairs_bra</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14029</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_pool_hall_spotlight</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14030</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_pool_hall_LED</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14031</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_pool_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14032</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_sphere_ceiling_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14033</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_sphere_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14034</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_cinema_bra</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14035</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_shower01_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14036</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_shower02_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14037</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_WC_corridor</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14038</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name>.eib_gym_stairs_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14039</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_WC_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14040</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_training</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14041</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14042</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_training_1column_light</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14116</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_pool_inwater</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14117</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_pool_floor_heating_pump</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>7083</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_gym_floor_heating_pump</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14047</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_vent_heating_pump</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14053</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_heating_pump</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14086</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_outside_bigBulbs</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14087</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_outside_pingPongTable</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14118</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_outside_plantsLightning</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>14119</IOffset>
-			<BitSize>8</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">.eib_outside_smallBulbs</Name>
-			<Type>BOOL</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>16072</IOffset>
-			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Static="MArea" TaskPrio="1">.floor1_tambur3_light</Name>
