@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>E:\Dropbox\Альпако\twincat\05gym\gym.prx</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2018-07-24T21:07:11</ChangeDate>
+		<ChangeDate>2018-07-27T00:10:28</ChangeDate>
 		<Library>
 			<Name>TcBaseBX.lbx</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBaseBX.lbx</Path>
@@ -56,7 +56,7 @@
 			<MAreaSize>4096</MAreaSize>
 			<InputSize>2048</InputSize>
 			<OutputSize>2048</OutputSize>
-			<MaxNumOfPOUs>512</MaxNumOfPOUs>
+			<MaxNumOfPOUs>1024</MaxNumOfPOUs>
 		</DataAreaInfo>
 	</TargetInfo>
 	<TaskInfos>
@@ -6734,7 +6734,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="100A6CFC" Crc32="4261200264" LastChange="2017-10-14T18:02:58">ADS_Communication</Name>
+			<Name Decoration="100A6CFC" Crc32="4261200264" LastChange="2018-07-27T00:08:35">ADS_Communication</Name>
 			<PrgInfo>
 				<CodeIndex>472</CodeIndex>
 				<Symbol>
@@ -6770,12 +6770,12 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10089ECB" Crc32="1962067057" LastChange="2017-11-01T20:54:54">EIB</Name>
+			<Name Decoration="10089ECB" Crc32="1962067057" LastChange="2018-07-27T00:08:35">EIB</Name>
 			<PrgInfo>
-				<CodeIndex>478</CodeIndex>
+				<CodeIndex>473</CodeIndex>
 				<ActionInfo>
 					<Name>gym_and_outside</Name>
-					<CodeIndex>479</CodeIndex>
+					<CodeIndex>474</CodeIndex>
 				</ActionInfo>
 				<Symbol>
 					<Name>EIB.eib_send_mode_gym</Name>
@@ -6804,85 +6804,85 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10000000" Crc32="1291590537" LastChange="2017-10-15T00:20:41">engineering</Name>
+			<Name Decoration="10000000" Crc32="1291590537" LastChange="2018-07-27T00:08:35">engineering</Name>
 			<PrgInfo>
-				<CodeIndex>480</CodeIndex>
+				<CodeIndex>475</CodeIndex>
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10898E77" Crc32="3894574154" LastChange="2017-10-25T21:57:25">Light</Name>
+			<Name Decoration="10899222" Crc32="3515463394" LastChange="2018-07-27T00:08:35">Light</Name>
 			<PrgInfo>
-				<CodeIndex>473</CodeIndex>
+				<CodeIndex>476</CodeIndex>
 				<ActionInfo>
 					<Name>knx_triggers</Name>
-					<CodeIndex>474</CodeIndex>
+					<CodeIndex>477</CodeIndex>
 				</ActionInfo>
 				<ActionInfo>
 					<Name>outsideLight</Name>
-					<CodeIndex>475</CodeIndex>
+					<CodeIndex>478</CodeIndex>
 				</ActionInfo>
 				<Symbol>
-					<Name>Light.fb_sw_01_1_2</Name>
+					<Name>Light.fb_sw_08_1_2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fb_sw_08_1_1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fb_sw_08_2_1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fb_sw_13_1_1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fb_sw_13_2_1</Name>
 				</Symbol>
 				<Symbol>
 					<Name>Light.fb_sw_01_1_1</Name>
 				</Symbol>
 				<Symbol>
+					<Name>Light.fb_sw_01_1_2</Name>
+				</Symbol>
+				<Symbol>
+					<Name>Light.fb_sw_01_2_2</Name>
+				</Symbol>
+				<Symbol>
 					<Name>Light.fb_sw_01_2_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_07_1_1</Name>
+					<Name>Light.fb_sw_01_3_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_07_2_1</Name>
+					<Name>Light.fb_sw_05_2_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_1_1</Name>
+					<Name>Light.fb_sw_01_3_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_1_2</Name>
+					<Name>Light.fb_sw_05_3_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_2_2</Name>
+					<Name>Light.fb_sw_05_1_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_2_1</Name>
+					<Name>Light.fb_sw_05_3_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_3_1</Name>
+					<Name>Light.fb_sw_05_2_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_09_2_2</Name>
+					<Name>Light.fb_sw_05_1_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_14_3_2</Name>
+					<Name>Light.fb_sw_14_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_09_3_1</Name>
+					<Name>Light.fb_sw_14_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_09_1_1</Name>
+					<Name>Light.fb_sw_11_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_09_3_2</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_09_2_1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_09_1_2</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_04_1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_04_2</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_06_1</Name>
-				</Symbol>
-				<Symbol>
-					<Name>Light.fb_sw_06_2</Name>
+					<Name>Light.fb_sw_11_2</Name>
 				</Symbol>
 				<Symbol>
 					<Name>Light.longPressTimeout</Name>
@@ -6954,10 +6954,10 @@
 					<Name>Light.gym_falling_edge</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_05_1</Name>
+					<Name>Light.fb_sw_06_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_05_2</Name>
+					<Name>Light.fb_sw_06_2</Name>
 				</Symbol>
 				<Symbol>
 					<Name>Light.fb_training01_2_light</Name>
@@ -7104,19 +7104,19 @@
 					<Name>Light.traning_reserved_falling_edge</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_07_1_2</Name>
+					<Name>Light.fb_sw_13_1_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_07_2_2</Name>
+					<Name>Light.fb_sw_13_2_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_02_1</Name>
+					<Name>Light.fb_sw_12_1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_02_2</Name>
+					<Name>Light.fb_sw_12_2</Name>
 				</Symbol>
 				<Symbol>
-					<Name>Light.fb_sw_03_1</Name>
+					<Name>Light.fb_sw_09_1</Name>
 				</Symbol>
 				<Symbol>
 					<Name>Light.darkOutside_rising_edge</Name>
@@ -7235,12 +7235,12 @@
 			</PrgInfo>
 		</Program>
 		<Program>
-			<Name Decoration="10103B5C" Crc32="3950915136" LastChange="2017-10-15T10:44:30">MAIN</Name>
+			<Name Decoration="10103B96" Crc32="1095515590" LastChange="2018-07-27T00:08:35">MAIN</Name>
 			<PrgInfo>
-				<CodeIndex>476</CodeIndex>
+				<CodeIndex>479</CodeIndex>
 				<ActionInfo>
 					<Name>write_ADSdata</Name>
-					<CodeIndex>481</CodeIndex>
+					<CodeIndex>480</CodeIndex>
 				</ActionInfo>
 				<Symbol>
 					<Name>MAIN.i</Name>
@@ -7264,28 +7264,28 @@
 					<Name>MAIN.write1</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_02_1_short_pulse</Name>
+					<Name>MAIN.sw_12_1_short_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_02_1_long_pulse</Name>
+					<Name>MAIN.sw_12_1_long_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_02_2_short_pulse</Name>
+					<Name>MAIN.sw_12_2_short_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_02_2_long_pulse</Name>
+					<Name>MAIN.sw_12_2_long_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_01_2_short_pulse</Name>
+					<Name>MAIN.sw_08_2_short_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_01_2_long_pulse</Name>
+					<Name>MAIN.sw_08_2_long_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_03_1_short_pulse</Name>
+					<Name>MAIN.sw_09_1_short_pulse</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.sw_03_1_long_pulse</Name>
+					<Name>MAIN.sw_09_1_long_pulse</Name>
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.init</Name>
@@ -7326,203 +7326,203 @@
 			<Name TaskPrio="1">EIB.eib_send_mode_gym</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8028</IOffset>
+			<IOffset>5520</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.eib_send_cyclical_start_gym</Name>
 			<Type>BOOL</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7547</IOffset>
+			<IOffset>5522</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.floors</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8030</IOffset>
+			<IOffset>5524</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.i</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8032</IOffset>
+			<IOffset>5526</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.fb_sending_floor_order</Name>
 			<Type Decoration="10060B75">CTU</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8034</IOffset>
+			<IOffset>5528</IOffset>
 			<BitSize>80</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.fb_heartbeat_timer</Name>
 			<Type Decoration="10060D24">TON</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8044</IOffset>
+			<IOffset>5538</IOffset>
 			<BitSize>144</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.fb_sending_time_frame</Name>
 			<Type Decoration="10060D24">TOF</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8062</IOffset>
+			<IOffset>5556</IOffset>
 			<BitSize>144</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">EIB.fb_start_delay</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8080</IOffset>
+			<IOffset>5574</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_01_1_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_08_1_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5520</IOffset>
+			<IOffset>5590</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_08_1_1</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5624</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_08_2_1</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5658</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_13_1_1</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5692</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_13_2_1</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5726</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sw_01_1_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5554</IOffset>
+			<IOffset>5760</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_01_1_2</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5794</IOffset>
+			<BitSize>272</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">Light.fb_sw_01_2_2</Name>
+			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>5828</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sw_01_2_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5588</IOffset>
+			<IOffset>5862</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_07_1_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_01_3_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5622</IOffset>
+			<IOffset>5896</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_07_2_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_2_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5656</IOffset>
+			<IOffset>5930</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_1_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_01_3_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5690</IOffset>
+			<IOffset>5964</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_1_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_3_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5724</IOffset>
+			<IOffset>5998</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_2_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_1_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5758</IOffset>
+			<IOffset>6032</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_2_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_3_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5792</IOffset>
+			<IOffset>6066</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_3_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_2_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5826</IOffset>
+			<IOffset>6100</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_2_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_05_1_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5860</IOffset>
+			<IOffset>6134</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_14_3_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_14_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5894</IOffset>
+			<IOffset>6168</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_3_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_14_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5928</IOffset>
+			<IOffset>6202</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_1_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_11_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5962</IOffset>
+			<IOffset>6236</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_3_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_11_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>5996</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_2_1</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6030</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_09_1_2</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6064</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_04_1</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6098</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_04_2</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6132</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_06_1</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6166</IOffset>
-			<BitSize>272</BitSize>
-		</Symbol>
-		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_06_2</Name>
-			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
-			<IGroup>16448</IGroup>
-			<IOffset>6200</IOffset>
+			<IOffset>6270</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
@@ -7532,455 +7532,455 @@
 				<![CDATA[Lights]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>6234</IOffset>
+			<IOffset>6304</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym01_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6238</IOffset>
+			<IOffset>6308</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym02_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6254</IOffset>
+			<IOffset>6324</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_training01_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6270</IOffset>
+			<IOffset>6340</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_training02_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6286</IOffset>
+			<IOffset>6356</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_training03_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6302</IOffset>
+			<IOffset>6372</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_stairs_bra</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6318</IOffset>
+			<IOffset>6388</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_pool_hall_spotlight</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6334</IOffset>
+			<IOffset>6404</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_pool_hall_LED</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6350</IOffset>
+			<IOffset>6420</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_pool_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6366</IOffset>
+			<IOffset>6436</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sphere_ceiling_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6382</IOffset>
+			<IOffset>6452</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_sphere_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6398</IOffset>
+			<IOffset>6468</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_cinema_bra</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6414</IOffset>
+			<IOffset>6484</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_shower01_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6430</IOffset>
+			<IOffset>6500</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_shower02_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6446</IOffset>
+			<IOffset>6516</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_WC_corridor</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6462</IOffset>
+			<IOffset>6532</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_stairs_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6478</IOffset>
+			<IOffset>6548</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_WC_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6494</IOffset>
+			<IOffset>6564</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_training_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6510</IOffset>
+			<IOffset>6580</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.fb_gym_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6526</IOffset>
+			<IOffset>6596</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.fb_cinema_temporary_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6542</IOffset>
+			<IOffset>6612</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.traning_falling_edge</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6558</IOffset>
+			<IOffset>6628</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.gym_falling_edge</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6562</IOffset>
+			<IOffset>6632</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_05_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_06_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6566</IOffset>
+			<IOffset>6636</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_05_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_06_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6600</IOffset>
+			<IOffset>6670</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_training01_2_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6634</IOffset>
+			<IOffset>6704</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_gym_01_2_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6650</IOffset>
+			<IOffset>6720</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.fb_gym01_2_light</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6666</IOffset>
+			<IOffset>6736</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym01</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6682</IOffset>
+			<IOffset>6752</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym02</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6686</IOffset>
+			<IOffset>6756</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_training01</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6690</IOffset>
+			<IOffset>6760</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_training02</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6694</IOffset>
+			<IOffset>6764</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_training03</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6698</IOffset>
+			<IOffset>6768</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_stairs_bra</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6702</IOffset>
+			<IOffset>6772</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_pool_hall_spotlight</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6706</IOffset>
+			<IOffset>6776</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_pool_hall_LED</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6710</IOffset>
+			<IOffset>6780</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_pool_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6714</IOffset>
+			<IOffset>6784</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_sphere_ceiling_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6718</IOffset>
+			<IOffset>6788</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_sphere_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6722</IOffset>
+			<IOffset>6792</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_cinema_bra</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6726</IOffset>
+			<IOffset>6796</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_shower01_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6730</IOffset>
+			<IOffset>6800</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_shower02_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6734</IOffset>
+			<IOffset>6804</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_WC_corridor</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6738</IOffset>
+			<IOffset>6808</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_stairs_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6742</IOffset>
+			<IOffset>6812</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym_WC_light</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6746</IOffset>
+			<IOffset>6816</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_training</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6750</IOffset>
+			<IOffset>6820</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.rising_edge_eib_gym</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6754</IOffset>
+			<IOffset>6824</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym01</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6758</IOffset>
+			<IOffset>6828</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym02</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6762</IOffset>
+			<IOffset>6832</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_training01</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6766</IOffset>
+			<IOffset>6836</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_training02</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6770</IOffset>
+			<IOffset>6840</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_training03</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6774</IOffset>
+			<IOffset>6844</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_stairs_bra</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6778</IOffset>
+			<IOffset>6848</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_pool_hall_spotlight</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6782</IOffset>
+			<IOffset>6852</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_pool_hall_LED</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6786</IOffset>
+			<IOffset>6856</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_pool_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6790</IOffset>
+			<IOffset>6860</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_sphere_ceiling_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6794</IOffset>
+			<IOffset>6864</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_sphere_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6798</IOffset>
+			<IOffset>6868</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_cinema_bra</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6802</IOffset>
+			<IOffset>6872</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_shower01_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6806</IOffset>
+			<IOffset>6876</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_shower02_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6810</IOffset>
+			<IOffset>6880</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_WC_corridor</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6814</IOffset>
+			<IOffset>6884</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_stairs_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6818</IOffset>
+			<IOffset>6888</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_gym_WC_light</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6822</IOffset>
+			<IOffset>6892</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.falling_edge_eib_training</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6826</IOffset>
+			<IOffset>6896</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
@@ -7990,238 +7990,238 @@
 				<![CDATA[timers]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>6830</IOffset>
+			<IOffset>6900</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.fb_OutsideLightTimer</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6834</IOffset>
+			<IOffset>6904</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_pool_hall_all</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6850</IOffset>
+			<IOffset>6920</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.pool_all_falling_edge</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6866</IOffset>
+			<IOffset>6936</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.pool_all_rising_edge</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6870</IOffset>
+			<IOffset>6940</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.pool_hall_all_rising_edge</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6874</IOffset>
+			<IOffset>6944</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.pool_hall_all_falling_edge</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6878</IOffset>
+			<IOffset>6948</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.traning_reserved_falling_edge</Name>
 			<Type Decoration="1003051C">F_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6882</IOffset>
+			<IOffset>6952</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_07_1_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_13_1_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6886</IOffset>
+			<IOffset>6956</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_07_2_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_13_2_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6920</IOffset>
+			<IOffset>6990</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_02_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_12_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6954</IOffset>
+			<IOffset>7024</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_02_2</Name>
+			<Name TaskPrio="1">Light.fb_sw_12_2</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>6988</IOffset>
+			<IOffset>7058</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">Light.fb_sw_03_1</Name>
+			<Name TaskPrio="1">Light.fb_sw_09_1</Name>
 			<Type Decoration="10086D4F">FB_ShortLongClick</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7022</IOffset>
+			<IOffset>7092</IOffset>
 			<BitSize>272</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.darkOutside_rising_edge</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7056</IOffset>
+			<IOffset>7126</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.darkness_correction_time_hour</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7060</IOffset>
+			<IOffset>7130</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.pool_inwater_rising_edge</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14088</IOffset>
+			<IOffset>7132</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>Light.pool_light_rising_edge</Name>
 			<Type Decoration="1003051C">R_TRIG</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14048</IOffset>
+			<IOffset>7136</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">Light.fb_pool_inwater</Name>
 			<Type Decoration="10075B82">FB_Light</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14054</IOffset>
+			<IOffset>7140</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.i</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7084</IOffset>
+			<IOffset>7188</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.j</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7086</IOffset>
+			<IOffset>7190</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.write</Name>
 			<Type>BOOL</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7088</IOffset>
+			<IOffset>7192</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.heartBeat</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7090</IOffset>
+			<IOffset>7194</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.i1</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7106</IOffset>
+			<IOffset>7210</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.j1</Name>
 			<Type>INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7108</IOffset>
+			<IOffset>7212</IOffset>
 			<BitSize>16</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.write1</Name>
 			<Type>BOOL</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7089</IOffset>
+			<IOffset>7193</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_02_1_short_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_12_1_short_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7110</IOffset>
+			<IOffset>7214</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_02_1_long_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_12_1_long_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7126</IOffset>
+			<IOffset>7230</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_02_2_short_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_12_2_short_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7142</IOffset>
+			<IOffset>7246</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_02_2_long_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_12_2_long_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7158</IOffset>
+			<IOffset>7262</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_01_2_short_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_08_2_short_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7174</IOffset>
+			<IOffset>7278</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_01_2_long_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_08_2_long_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7190</IOffset>
+			<IOffset>7294</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_03_1_short_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_09_1_short_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7206</IOffset>
+			<IOffset>7310</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.sw_03_1_long_pulse</Name>
+			<Name TaskPrio="1">MAIN.sw_09_1_long_pulse</Name>
 			<Type Decoration="10050B9B">TP</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7222</IOffset>
+			<IOffset>7326</IOffset>
 			<BitSize>128</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>MAIN.init</Name>
 			<Type>BOOL</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14046</IOffset>
+			<IOffset>7342</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
@@ -9662,441 +9662,441 @@
 			<Name TaskPrio="1">.fb_KL6301_0</Name>
 			<Type Decoration="103038B4">KL6301</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8096</IOffset>
+			<IOffset>7394</IOffset>
 			<BitSize>2384</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym01_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8394</IOffset>
+			<IOffset>7692</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym02_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8590</IOffset>
+			<IOffset>7888</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training01_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8786</IOffset>
+			<IOffset>8084</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training02_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>8982</IOffset>
+			<IOffset>8280</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training03_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>9178</IOffset>
+			<IOffset>8476</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_stairs_bra_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>9374</IOffset>
+			<IOffset>8672</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_hall_spotlight_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>9570</IOffset>
+			<IOffset>8868</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_hall_LED_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>9766</IOffset>
+			<IOffset>9064</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>9962</IOffset>
+			<IOffset>9260</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_sphere_ceiling_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>10158</IOffset>
+			<IOffset>9456</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_sphere_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>10354</IOffset>
+			<IOffset>9652</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_cinema_bra_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>10550</IOffset>
+			<IOffset>9848</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_shower01_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>10746</IOffset>
+			<IOffset>10044</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_shower02_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>10942</IOffset>
+			<IOffset>10240</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_WC_corridor_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>11138</IOffset>
+			<IOffset>10436</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_stairs_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>11334</IOffset>
+			<IOffset>10632</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_WC_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>11530</IOffset>
+			<IOffset>10828</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>11726</IOffset>
+			<IOffset>11024</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_light_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>11922</IOffset>
+			<IOffset>11220</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.fb_gym_all_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14120</IOffset>
+			<IOffset>11416</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.fb_training_all_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14316</IOffset>
+			<IOffset>11612</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training_1column_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14512</IOffset>
+			<IOffset>11808</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_inwater_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14708</IOffset>
+			<IOffset>12004</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_bigBulbs_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12118</IOffset>
+			<IOffset>12200</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_smallBulbs_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12314</IOffset>
+			<IOffset>12396</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_pingPongTable_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12510</IOffset>
+			<IOffset>12592</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_plantsLightning_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12706</IOffset>
+			<IOffset>12788</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_floor_heating_pump_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15072</IOffset>
+			<IOffset>12984</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_floor_heating_pump_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15268</IOffset>
+			<IOffset>13180</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_vent_heating_pump_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15464</IOffset>
+			<IOffset>13376</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_heating_pump_send_status_ex</Name>
 			<Type Decoration="10187FBA">EIB_BIT_SEND_EX</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15660</IOffset>
+			<IOffset>13572</IOffset>
 			<BitSize>1568</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_floor_heating_pump_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15856</IOffset>
+			<IOffset>13768</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_floor_heating_pump_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15898</IOffset>
+			<IOffset>13810</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_vent_heating_pump_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15940</IOffset>
+			<IOffset>13852</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_heating_pump_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15982</IOffset>
+			<IOffset>13894</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym01_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12902</IOffset>
+			<IOffset>13936</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym02_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12944</IOffset>
+			<IOffset>13978</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training01_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>12986</IOffset>
+			<IOffset>14020</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training02_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13028</IOffset>
+			<IOffset>14062</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training03_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13070</IOffset>
+			<IOffset>14104</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_stairs_bra_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13112</IOffset>
+			<IOffset>14146</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_hall_spotlight_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13154</IOffset>
+			<IOffset>14188</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_hall_LED_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13196</IOffset>
+			<IOffset>14230</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13238</IOffset>
+			<IOffset>14272</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_sphere_ceiling_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13280</IOffset>
+			<IOffset>14314</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_sphere_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13322</IOffset>
+			<IOffset>14356</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_cinema_bra_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13364</IOffset>
+			<IOffset>14398</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_shower01_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13406</IOffset>
+			<IOffset>14440</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_shower02_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13448</IOffset>
+			<IOffset>14482</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_WC_corridor_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13490</IOffset>
+			<IOffset>14524</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_stairs_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13532</IOffset>
+			<IOffset>14566</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_WC_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13574</IOffset>
+			<IOffset>14608</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.fb_training_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13616</IOffset>
+			<IOffset>14650</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.fb_gym_light_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13658</IOffset>
+			<IOffset>14692</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_bigBulbs_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13700</IOffset>
+			<IOffset>14734</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_smallBulbs_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13742</IOffset>
+			<IOffset>14776</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_pingPongTable_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13784</IOffset>
+			<IOffset>14818</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_outside_plantsLightning_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13826</IOffset>
+			<IOffset>14860</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_gym_all_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14904</IOffset>
+			<IOffset>14902</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training_all_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14946</IOffset>
+			<IOffset>14944</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_training_1column_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14988</IOffset>
+			<IOffset>14986</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.fb_pool_inwater_read</Name>
 			<Type Decoration="1004E525">EIB_BIT_REC</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>15030</IOffset>
+			<IOffset>15028</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
@@ -10106,56 +10106,56 @@
 				<![CDATA[2/0/x]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>8027</IOffset>
+			<IOffset>7393</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_floor_heating_pump_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14070</IOffset>
+			<IOffset>15070</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_floor_heating_pump_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14074</IOffset>
+			<IOffset>15074</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.vent_heating_pump_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14078</IOffset>
+			<IOffset>15078</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.heating_pump_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14082</IOffset>
+			<IOffset>15082</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_floor_heating_pump_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16024</IOffset>
+			<IOffset>15086</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_floor_heating_pump_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16028</IOffset>
+			<IOffset>15090</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.vent_heating_pump_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16032</IOffset>
+			<IOffset>15094</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
@@ -10165,413 +10165,413 @@
 				<![CDATA[2/1/x]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>16036</IOffset>
+			<IOffset>15098</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym01_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13868</IOffset>
+			<IOffset>15102</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym02_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13872</IOffset>
+			<IOffset>15106</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training01_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13876</IOffset>
+			<IOffset>15110</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training02_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13880</IOffset>
+			<IOffset>15114</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training03_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13884</IOffset>
+			<IOffset>15118</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_stairs_bra_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13888</IOffset>
+			<IOffset>15122</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_hall_spotlight_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13892</IOffset>
+			<IOffset>15126</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_hall_LED_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13896</IOffset>
+			<IOffset>15130</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13900</IOffset>
+			<IOffset>15134</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.sphere_ceiling_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13904</IOffset>
+			<IOffset>15138</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.sphere_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13908</IOffset>
+			<IOffset>15142</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_cinema_bra_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13912</IOffset>
+			<IOffset>15146</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_shower01_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13916</IOffset>
+			<IOffset>15150</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_shower02_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13920</IOffset>
+			<IOffset>15154</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_WC_corridor_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13924</IOffset>
+			<IOffset>15158</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.gym_stairs_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13928</IOffset>
+			<IOffset>15162</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_WC_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13932</IOffset>
+			<IOffset>15166</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13936</IOffset>
+			<IOffset>15170</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13940</IOffset>
+			<IOffset>15174</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training_1column_light_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14100</IOffset>
+			<IOffset>15178</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_inwater_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14104</IOffset>
+			<IOffset>15182</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_bigBulbs_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16040</IOffset>
+			<IOffset>15186</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_smallBulbs_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16044</IOffset>
+			<IOffset>15190</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_pingpongTable_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16048</IOffset>
+			<IOffset>15194</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_plantsLightning_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16052</IOffset>
+			<IOffset>15198</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym01_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13944</IOffset>
+			<IOffset>15202</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym02_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13948</IOffset>
+			<IOffset>15206</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training01_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13952</IOffset>
+			<IOffset>15210</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training02_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13956</IOffset>
+			<IOffset>15214</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training03_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13960</IOffset>
+			<IOffset>15218</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_stairs_bra_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13964</IOffset>
+			<IOffset>15222</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_hall_spotlight_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13968</IOffset>
+			<IOffset>15226</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_hall_LED_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13972</IOffset>
+			<IOffset>15230</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13976</IOffset>
+			<IOffset>15234</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.sphere_ceiling_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13980</IOffset>
+			<IOffset>15238</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.sphere_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13984</IOffset>
+			<IOffset>15242</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_cinema_bra_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13988</IOffset>
+			<IOffset>15246</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_shower01_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13992</IOffset>
+			<IOffset>15250</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_shower02_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>13996</IOffset>
+			<IOffset>15254</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_WC_corridor_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14000</IOffset>
+			<IOffset>15258</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_stairs_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14004</IOffset>
+			<IOffset>15262</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_WC_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14008</IOffset>
+			<IOffset>15266</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14012</IOffset>
+			<IOffset>15270</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.gym_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14016</IOffset>
+			<IOffset>15274</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.training_1column_light_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14108</IOffset>
+			<IOffset>15278</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.pool_inwater_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14112</IOffset>
+			<IOffset>15282</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_bigBulbs_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16056</IOffset>
+			<IOffset>15286</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_smallBulbs_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16060</IOffset>
+			<IOffset>15290</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_pingPongTable_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16064</IOffset>
+			<IOffset>15294</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.outside_plantsLightning_status_adr</Name>
 			<Type Decoration="1003092A">EIB_GROUP_ADDR</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>16068</IOffset>
+			<IOffset>15298</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.dataDerevo</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7288</IOffset>
+			<IOffset>15302</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.dataDerevo_prev</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7292</IOffset>
+			<IOffset>15306</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.datafloor1</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7296</IOffset>
+			<IOffset>15310</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.datafloor1_prev</Name>
 			<Type Decoration="20010148">ARRAY [0..3] OF BYTE</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7300</IOffset>
+			<IOffset>15314</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.ads_adr_derevo</Name>
 			<Type Decoration="40000051">STRING(80)</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7304</IOffset>
+			<IOffset>15318</IOffset>
 			<BitSize>648</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.ads_adr_3floor</Name>
 			<Type Decoration="40000051">STRING(80)</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7385</IOffset>
+			<IOffset>15399</IOffset>
 			<BitSize>648</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">.ads_adr_1floor</Name>
 			<Type Decoration="40000051">STRING(80)</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7466</IOffset>
+			<IOffset>15480</IOffset>
 			<BitSize>648</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name>.write_ads</Name>
 			<Type Decoration="100C6F98">ADSWRITE</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7548</IOffset>
+			<IOffset>15562</IOffset>
 			<BitSize>1104</BitSize>
 		</Symbol>
 		<Symbol>
@@ -10606,7 +10606,7 @@
 			<Name TaskPrio="1">.heartBeatTime</Name>
 			<Type>TIME</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>14020</IOffset>
+			<IOffset>15700</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
@@ -11256,21 +11256,21 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_02_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_12_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>0</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_01_1_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_08_1_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>1</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_02_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_12_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>2</IOffset>
@@ -11284,70 +11284,70 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_03_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_09_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>4</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_01_1_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_08_1_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>5</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_01_2_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_08_2_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>6</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_07_1_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_13_1_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>7</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_07_2_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_13_2_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>8</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_1_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_1_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>9</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_07_2_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_13_2_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>10</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_1_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_1_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>11</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_07_1_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_13_1_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>12</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_2_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_2_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>13</IOffset>
@@ -11361,70 +11361,70 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_2_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_2_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>15</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_3_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_3_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>16</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_2_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_2_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>17</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_14_3_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_01_3_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>18</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_3_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_3_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>19</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_1_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_1_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>20</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_3_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_3_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>21</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_2_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_2_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>22</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_09_1_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_05_1_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>23</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_04_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_14_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>24</IOffset>
@@ -11438,7 +11438,7 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_04_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_14_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>26</IOffset>
@@ -11452,35 +11452,35 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_06_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_11_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>28</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_05_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_06_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>29</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_06_2</Name>
+			<Name Static="Input" TaskPrio="1">.sw_11_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>30</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input" TaskPrio="1">.sw_05_1</Name>
+			<Name Static="Input" TaskPrio="1">.sw_06_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>31</IOffset>
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input">.sw_12_1</Name>
+			<Name Static="Input">.sw_03_1</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>32</IOffset>
@@ -11494,7 +11494,7 @@
 			<BitSize>1</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name Static="Input">.sw_12_2</Name>
+			<Name Static="Input">.sw_03_2</Name>
 			<Type>BOOL</Type>
 			<IGroup>61473</IGroup>
 			<IOffset>34</IOffset>
@@ -11665,14 +11665,14 @@
 			<Name IsDefinedInLibrary="1">.SYSTEMINFO</Name>
 			<Type Decoration="10066081">FW_SystemInfoType</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7686</IOffset>
+			<IOffset>15704</IOffset>
 			<BitSize>336</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name IsDefinedInLibrary="1" TaskPrio="1">.SYSTEMTASKINFOARR</Name>
 			<Type Decoration="20017A4E">ARRAY [1..2] OF FW_SystemTaskInfoType</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7728</IOffset>
+			<IOffset>15746</IOffset>
 			<BitSize>544</BitSize>
 		</Symbol>
 		<Symbol>
@@ -11682,7 +11682,7 @@
 				<![CDATA[Display functions index offsets]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>7796</IOffset>
+			<IOffset>15814</IOffset>
 			<BitSize>256</BitSize>
 		</Symbol>
 		<Symbol>
@@ -11692,21 +11692,21 @@
 				<![CDATA[Firmware function id's]]>
 			</Comment>
 			<IGroup>16448</IGroup>
-			<IOffset>7828</IOffset>
+			<IOffset>15846</IOffset>
 			<BitSize>80</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name IsDefinedInLibrary="1" TaskPrio="1">.EIB_STATE</Name>
 			<Type Decoration="2001012D">ARRAY [1..63] OF INT</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7838</IOffset>
+			<IOffset>15856</IOffset>
 			<BitSize>1008</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name IsDefinedInLibrary="1" TaskPrio="1">.EIB_BUSY</Name>
 			<Type Decoration="20010177">ARRAY [1..63] OF BOOL</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>7964</IOffset>
+			<IOffset>15982</IOffset>
 			<BitSize>504</BitSize>
 		</Symbol>
 	</Symbols>
